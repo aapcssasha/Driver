@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://cdn.quebecorhub.com/session-hub/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="icon" href="data:;base64,iVBORw0KGgo="><title>Session hub</title><meta name="description" content=""><script type="text/javascript">window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": { action: 'sessionHub Ready', msg: 'sessionHub Ready' } }), "*");
+
+
+    window.onmessage = function (e) {
+      ALLOWED_origins = [
+        ".*videotron.com.*"
+      ];
+
+      function verify_data(data) {
+        var validation = false;
+        // check if postmessage came from one of the allowed origins
+        this.ALLOWED_origins.forEach(function (src) {
+          const regex = new RegExp(src);
+          if (regex.test(e.origin)) {
+            validation = true;
+          }
+        });
+        if (!validation) {
+          return false;
+        }
+
+        // check if post_data is an object with 2 keys values email email2
+        data.hasOwnProperty("email") ? validation = true : validation = false;
+        if (!validation) {
+          return false;
+        }
+
+        data.hasOwnProperty("email2") ? validation = true : validation = false;
+        if (!validation) {
+          return false;
+        }
+
+        // //and each values are hashed with SHA256
+        const regex = new RegExp("[A-Fa-f0-9]{64}");
+        for (var key in data) {
+          if (regex.test(data[key])) {
+            validation = true;
+          }
+          else {
+            validation = false;
+          }
+        }
+
+        return validation
+      };
+
+      try {
+        if (e.data.indexOf('qbcSessionHub') == -1) {
+          return false;
+        }
+        var payload = JSON.parse(e.data);
+        if (payload.source != 'qbcSessionHub' || !payload.action) {
+          return;
+        }
+        switch (payload.action) {
+          case 'ping':
+            window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": { action: 'ping', msg: 'pong' } }), "*");
+            break;
+          case 'getSessionProperty':
+            localQbcSession = JSON.parse(localStorage.getItem('session')) || {};
+            window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": { action: 'getSessionProperty', property: localQbcSession } }), "*");
+            break;
+          case 'getSessionAttribute':
+            localQbcSession = JSON.parse(localStorage.getItem('attributs')) || {};
+            window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": { action: 'getSessionAttribute', property: localQbcSession } }), "*");
+          break;
+          case 'setSessionProperty':
+            localQbcSession = JSON.parse(localStorage.getItem('session')) || {};
+            if (verify_data(payload.data)) {
+              Object.keys(payload.data).forEach(function eachKey(key) {
+                var new_key;
+                if (key.match(".*email.*")) {
+                  new_key = key.replace("mail", "");
+                }
+                localQbcSession[new_key] = payload.data[key]
+              });
+              localStorage.setItem('session', JSON.stringify(localQbcSession));
+              window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": { action: 'setSessionProperty', msg: 'session updated' } }), "*");
+            }
+            break;
+
+          case 'setSessionAttribute':
+            localQbcSession = JSON.parse(localStorage.getItem('attributs')) || {};
+            Object.keys(payload.data).forEach(function eachKey(key) { localQbcSession[key] = payload.data[key] });
+            localStorage.setItem('attributs', JSON.stringify(localQbcSession));
+            window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": { action: 'setSessionAttribute', msg: 'session attribut updated' } }), "*");
+            break;
+          case 'viewPlacement':
+            try { localQbcSession = JSON.parse(localStorage.getItem('session')) || {} } catch (e) { localQbcSession = { campaigns: [] } };
+            localQbcSession.campaigns = localQbcSession.campaigns || [];
+            localQbcSession.campaigns.push({ aid: payload.data.aid, ts: Date.now() });
+            localStorage.setItem('session', JSON.stringify(localQbcSession));
+            window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": { action: 'viewPlacement', msg: 'campaigns updated' } }), "*");
+            break;
+          default:
+            console.log('unsupported action');
+            break;
+        }
+      } catch (m) {
+        var localError = {
+          action: "error",
+          msg: m.message,
+          payload: e.data
+        };
+        console.error(localError);
+        window.parent.postMessage(JSON.stringify({ "source": "qbcSessionHub", "data": localError }), "*");
+      }
+    };</script></head><body></body></html>
