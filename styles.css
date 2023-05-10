@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     color: #000000;
+    font-size: 18px;
   }
   
   header {
@@ -14,33 +15,47 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+  @media (max-width: 600px) {
+    .hero-images {
+      width: 100%;
+    }
+  
+    .contact-form-wrapper {
+      width: 100%;
+    }
+  }
+  
 
   .yo {
+    position: relative;
     text-align: left;
     color: #fff;
-    padding-left: 2rem;
+    padding-left: 1rem;
+    flex: 1;
   }
   .driver {
-    
+    position: relative;
     text-align: center;
     color: #fff;
-    padding-left: 15rem;
-    
+    flex: 1;
   }
   
   .contact-info {
     text-align: right;
     color: #fff;
-    padding-right: 2rem;
+    padding: 1rem;
+    flex: 1;
   }
   
   .contact-info h3 {
     margin: 0;
     margin-bottom: 0.5rem;
+    font-size: 16px;
   }
   
   .contact-info p {
     margin: 0;
+    font-size: 14px;
   }
   
   .hero {
@@ -53,7 +68,7 @@ body {
   
   .hero-images {
     position: relative;
-    width: 70%; /* Set the width to 50% */
+    width: 70%;
     height: 100%;
     overflow: hidden;
   }
@@ -68,22 +83,35 @@ body {
   .contact-form-wrapper h3 {
     color: #fff;
     size: auto;
+    font-size: 24px;
+
   }
   
   
-.hero-image {
-  position: absolute;
-  top: 0;
-  right: 0; /* Change from left to right */
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  object-position: center;
-  transition: opacity 1s ease-in-out;
-}
+  .hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    object-position: center;
+    transition: opacity 1s ease-in-out;
+  }
 
 .hero-image-1 {
   opacity: 1; /* Show the first image by default */
+}
+@media (max-width: 600px) {
+  .hero-images {
+    width: 50%;
+    height: auto;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
 }
   
   .about-me {
@@ -116,7 +144,7 @@ body {
   }
   
   .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   
   label {
@@ -136,7 +164,8 @@ body {
   
   button[type="submit"] {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    font-size: 18px;
+    padding: 1rem 2rem;
     background-color: #000000;
     color: #fff;
     border: none;
