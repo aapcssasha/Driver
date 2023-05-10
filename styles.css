@@ -61,7 +61,7 @@ header {
   position: relative;
   width: 70%;
   height: 100%;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .contact-form-wrapper {
@@ -123,7 +123,7 @@ header {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 2%;
   margin-right: 20%;
 }
 
@@ -178,5 +178,9 @@ footer {
     padding-left: 1rem;
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* ... (the rest of your CSS code) ... */
