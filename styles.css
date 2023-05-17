@@ -14,7 +14,7 @@ body{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    height: 80vh;
+    height: 200vh;
 }
 
 #news-section, #moves-section, #portfolio-section {
@@ -43,7 +43,7 @@ body{
 }
 #news-section ul li p {
     color: #3b3a3a; /* adjust as needed */
-    margin-bottom: 0%;
+    margin-bottom: 2%;
 }
 
 #news-section ul li a:hover, #moves-section ul li a:hover {
