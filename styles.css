@@ -1,20 +1,22 @@
 /* Basic styling, you can customize it further */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding-left: 5%;
-  padding-right: 5%;
-  color: #ffffff;
-  font-size: 18px;
-}
-
 header {
-  /* ... other styles */
+  height: 15%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   background-color: #302c2c;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
 }
 
 .yo {
@@ -23,6 +25,10 @@ header {
   color: #fff;
   padding-left: 3rem;
   flex: 1;
+}
+.yo:hover {
+  text-decoration: underline;
+  color: wheat;
 }
 
 .driver {
@@ -102,7 +108,15 @@ header {
   background-color: #000000;
   padding: 2rem 0;
 }
-
+.about-me::before {
+  content: "";
+  display: block;
+  padding-top: 10%;
+  height: 70px; /* Matches the height of your header */
+  margin-top: -70px; /* Negatively offset by the same amount */
+  visibility: hidden;
+  pointer-events: none;
+}
 .container {
   padding: 2rem;
 }
