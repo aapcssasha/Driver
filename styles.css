@@ -80,7 +80,12 @@ header{
     background-color: #f1efef;
     padding-top: 0;
     padding-left: 0;
-    
+}
+.yo1 a{
+    color: white;
+}
+.yo1 a:hover{
+    color: blue;
 }
 
 
@@ -95,6 +100,8 @@ footer{
 body.articles-body{
     background-color: #f1efef;
     font-family: Arial, Helvetica, sans-serif;
+}
+body.articles-body article{
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -102,6 +109,12 @@ body.articles-body{
 body.articles-body .Article-time{
     color: #393838;
     font-size: 15px;
+}
+body.articles-body .yo1 a{
+     color: white;
+}
+body.articles-body .yo1 a:hover{
+    color: blue;
 }
 
 @media screen and (max-width: 780px) {
@@ -127,6 +140,9 @@ body.articles-body .Article-time{
     * {
         box-sizing: border-box;
     }
+
+
+
     
 
 
