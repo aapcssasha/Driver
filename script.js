@@ -22,9 +22,9 @@ function drawChart() {
     var options = {
         width:400,
         height:400,
-        backgroundColor: '#808080',
+        backgroundColor: '#f1efef',
         legend: {textStyle: {color: 'white'}},
-        pieSliceBorderColor: '#808080',
+        pieSliceBorderColor: '#000',
         // move the graph to the left
         chartArea: { width: '100%', height: '50%'},
 
