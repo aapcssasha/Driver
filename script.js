@@ -1,5 +1,5 @@
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(updateDataArray);
+google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
     var dataArray = [
@@ -23,7 +23,7 @@ function drawChart() {
         width:400,
         height:400,
         backgroundColor: '#f1efef',
-        legend: {textStyle: {color: 'black'}},
+        legend: {textStyle: {color: 'black', fontSize: 12}},
         pieSliceBorderColor: '#000',
         // move the graph to the left
         chartArea: { width: '100%', height: '50%'},
