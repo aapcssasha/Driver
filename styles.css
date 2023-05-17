@@ -93,15 +93,17 @@ footer{
     bottom: 0;
 }
 body.articles-body{
-    background-color: #cac7c7;
+    background-color: #f1efef;
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 5%;
     padding-right: 5%;
 }
+
 body.articles-body .Article-time{
     color: #393838;
     font-size: 15px;
 }
+
 @media screen and (max-width: 780px) {
     header{
         color: white;

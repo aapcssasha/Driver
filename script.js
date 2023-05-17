@@ -23,7 +23,7 @@ function drawChart() {
         width:400,
         height:400,
         backgroundColor: '#f1efef',
-        legend: {textStyle: {color: 'white'}},
+        legend: {textStyle: {color: 'black'}},
         pieSliceBorderColor: '#000',
         // move the graph to the left
         chartArea: { width: '100%', height: '50%'},
