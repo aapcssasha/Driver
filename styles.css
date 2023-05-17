@@ -21,7 +21,7 @@ header{
 .container {
     background-color: white;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 0.5fr 2fr;
     margin: 0;
 }
 
@@ -55,7 +55,7 @@ header{
 }
 #news-section ul li p {
     color: #3b3a3a; /* adjust as needed */
-    margin-bottom: 2%;
+    margin-bottom: 0%;
 }
 
 #news-section ul li a:hover, #moves-section ul li a:hover {
@@ -67,12 +67,23 @@ header{
     font-size: 12px; /* adjust as needed */
     color: #999; /* adjust as needed */
 }
+.transation-date {
+    font-size: 12px; 
+    color: #999; 
+    margin-bottom: 0;
+}
+.transation {
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 0%;
+    margin-bottom: 5%;
+}
 
 #moves-section ul li p{
-    color: #3b3a3a; /* adjust as needed */
-    margin-bottom: 0%;
+    color: #3b3a3a; 
 }
 #moves-section{
+    text-align: center;
     background-color: #f1efef;
 }
 #portfolio-section{
@@ -93,7 +104,7 @@ footer{
     background-color: rgb(28, 39, 69);
     text-align: center;
     color: white;
-    padding: 50px;
+    padding: 5px;
     margin-bottom: 0;
     bottom: 0;
 }
@@ -102,8 +113,8 @@ body.articles-body{
     font-family: Arial, Helvetica, sans-serif;
 }
 body.articles-body article{
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 body.articles-body .Article-time{
@@ -140,7 +151,21 @@ body.articles-body .yo1 a:hover{
     * {
         box-sizing: border-box;
     }
-
+    .bought {
+        color: green;
+    }
+    
+    .sold {
+        color: red;
+    }
+    .titulo {
+        font-weight: bolder;
+        font-size: 30px;
+    }
+    .subtitle {
+        font-weight: bold;
+    }
+    
 
 
     

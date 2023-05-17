@@ -1,16 +1,26 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
+window.addEventListener('resize', drawChart);
+
 function drawChart() {
+    let portfolioSection = document.getElementById('portfolio-section');
+    let portfolioWidth = portfolioSection.offsetWidth;
+
     var dataArray = [
         ['Stock', 'Percentage'],
-        ['BABA', 20],
-        ['AAPL', 21],
-        ['TSLA', 20],
-        ['MSFT', 25],
-        ['COF', 8.24],
-        ['LUV', 7.57],
-        ['Cash', 20]
+        ['LUV', 2670],
+        ['COF', 2860],
+        ['BABA', 9120],
+        ['THO', 3000],
+        ['NIU', 2360],
+        ['TUP', 1300],
+        ['SPWH', 2640],
+        ['HBI', 2330],
+        ['VZ', 3590],
+        ['FINV', 2110],
+        ['M', 2580],
+        ['Cash', 170]
     ];
 
     dataArray.sort(function(a, b) {
@@ -20,14 +30,13 @@ function drawChart() {
     var data = google.visualization.arrayToDataTable(dataArray);
 
     var options = {
-        width:400,
-        height:400,
+        width: portfolioWidth,
+        height: 400,
         backgroundColor: '#f1efef',
         legend: {textStyle: {color: 'black', fontSize: 12}},
         pieSliceBorderColor: '#000',
-        // move the graph to the left
-        chartArea: { width: '100%', height: '50%'},
-
+        chartArea: { width: '100%', height: '65%' },
+        pieSliceTeXt: 'Percentage',
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
