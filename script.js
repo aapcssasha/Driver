@@ -20,13 +20,13 @@ function drawChart() {
     var data = google.visualization.arrayToDataTable(dataArray);
 
     var options = {
-        width: 400,
-        height: 300,
+        width:400,
+        height:400,
         backgroundColor: '#808080',
         legend: {textStyle: {color: 'white'}},
         pieSliceBorderColor: '#808080',
         // move the graph to the left
-        chartArea: {right:0, top: 0, width: '100%', height: '50%'},
+        chartArea: { width: '100%', height: '50%'},
 
     };
 

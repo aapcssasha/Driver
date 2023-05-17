@@ -8,9 +8,10 @@ header{
 body{
     background-color: #808080;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 .container {
-    background-color: #808080;
+    background-color: #cac7c7;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -29,6 +30,9 @@ body{
 #news-section ul, #moves-section ul, #portfolio-section ul {
     list-style-type: none;
     padding: 0;
+}
+#news-section {
+    background-color: red;
 }
 
 #news-section ul li {
@@ -60,8 +64,13 @@ body{
     color: #3b3a3a; /* adjust as needed */
     margin-bottom: 0%;
 }
+#moves-section{
+    background-color: blue;
+}
 #portfolio-section{
     text-align: center;
+    background-color: green;
+    
 }
 
 
@@ -72,7 +81,7 @@ footer{
     padding: 20px;
 }
 body.articles-body{
-    background-color: #808080;
+    background-color: #cac7c7;
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 5%;
     padding-right: 5%;
@@ -80,5 +89,11 @@ body.articles-body{
 body.articles-body .Article-time{
     color: #393838;
     font-size: 15px;
+}
+@media screen and (max-width: 780px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
 
