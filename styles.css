@@ -93,6 +93,7 @@ header{
     padding-left: 0;
 }
 .yo1 a{
+    position: inherit;
     color: white;
     position: center;
 }
@@ -137,14 +138,17 @@ body.articles-body .Article-time{
 @media screen and (max-width: 780px) {
     header{
         color: white;
-        text-decoration: underline;
         background-color: rgb(28, 39, 69);
-        width: 100%;
+        text-align: center;
         height: 10vh;
         position: sticky;
+        top: 0;
+        z-index: 100;
+        margin: 0;
     }
     .yo1 a{
         color: white;
+        position: inherit;
     }
     .yo1 a:hover{
         color: blue;
