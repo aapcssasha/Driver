@@ -117,6 +117,16 @@ body.articles-body article{
     padding-left: 15%;
     padding-right: 15%;
 }
+body.articles-body article p{
+    line-height: 1.5;
+    font-size: 18px;
+    padding-bottom: 1%;
+}
+body.articles-body article  ul li{
+    line-height: 1.5;
+    font-size: 18px;
+    padding-bottom: 1%;
+}
 
 body.articles-body .Article-time{
     color: #393838;
@@ -142,6 +152,17 @@ body.articles-body .yo1 a:hover{
         grid-template-columns: 1fr;
         width: 100%;
     }
+    body.articles-body article p{
+        line-height: 1.5;
+        font-size: 18px;
+        padding-bottom: 1%;
+    }
+    body.articles-body article  ul li{
+        line-height: 1.5;
+        font-size: 18px;
+        padding-bottom: 1%;
+    }
+    
     footer{
             background-color: rgb(28, 39, 69);
             text-align: center;
