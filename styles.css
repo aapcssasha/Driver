@@ -7,19 +7,21 @@ body{
     flex-direction: column; 
     min-height: 100vh;
 }
+
 header{
     color: white;
     background-color: rgb(28, 39, 69);
     text-align: left;
-    height: 70px;
+    height:70px;
     position: sticky;
     top: 0;
     z-index: 100;
     margin: 0;
     width: 100%;
     padding-left: 10%;
-    min-height: 70px;
+    text-align: left;
 }
+
 .container {
     background-color: white;
     display: grid;
@@ -96,7 +98,6 @@ header{
     padding-left: 0;
 }
 .yo1 a{
-    position: inherit;
     color: white;
 }
 .yo1 a:hover{
@@ -113,7 +114,6 @@ footer{
 }
 body.articles-body{
     background-color: #f1efef;
-    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 body.articles-body article{
@@ -139,23 +139,13 @@ body.articles-body .Article-time{
 
 
 @media screen and (max-width: 780px) {
-    header{
-        color: white;
-        background-color: rgb(28, 39, 69);
-        text-align: left;
-        height: 70px;
-        position: sticky;
-        z-index: 100;
-        margin: 0;
-    }
-
     .container {
         display: grid;
         grid-template-columns: 1fr;
         width: 100%;
     }
+
     body.articles-body article{
-        flex: 1 0 auto;
         padding-left: 3%;
         padding-right: 3%;
     }
@@ -171,11 +161,10 @@ body.articles-body .Article-time{
     }
     
     footer{
-            background-color: rgb(28, 39, 69);
-            text-align: center;
-            color: white;
-            bottom: 0;
-        }
+        background-color: rgb(28, 39, 69);
+        text-align: center;
+        color: white;
+    }
     }
     * {
         box-sizing: border-box;
@@ -194,4 +183,12 @@ body.articles-body .Article-time{
     .subtitle {
         font-weight: bold;
     }
+    header{
+        height: 10vh;
+        background-color: rgb(28, 39, 69);
+    }
+
+
+
+    
     
