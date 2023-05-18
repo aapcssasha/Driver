@@ -9,7 +9,6 @@ body{
 }
 header{
     color: white;
-    text-decoration: underline;
     background-color: rgb(28, 39, 69);
     text-align: center;
     height: 10vh;
@@ -95,9 +94,10 @@ header{
 }
 .yo1 a{
     color: white;
+    position: center;
 }
 .yo1 a:hover{
-    color: blue;
+    color: red;
 }
 
 
@@ -139,8 +139,15 @@ body.articles-body .Article-time{
         color: white;
         text-decoration: underline;
         background-color: rgb(28, 39, 69);
-        text-align: center;  
         width: 100%;
+        height: 10vh;
+        position: sticky;
+    }
+    .yo1 a{
+        color: white;
+    }
+    .yo1 a:hover{
+        color: blue;
     }
     .container {
         display: grid;
