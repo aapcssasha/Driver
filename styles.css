@@ -54,23 +54,23 @@ header{
 
 
 #news-section ul li a, #moves-section ul li a {
-    color: #000; /* adjust as needed */
-    text-decoration: none; /* adjust as needed */
+    color: #000; 
+    text-decoration: none; 
     font-size: 20px;
 }
 #news-section ul li p {
-    color: #3b3a3a; /* adjust as needed */
+    color: #3b3a3a; 
     margin-bottom: 0%;
 }
 
 #news-section ul li a:hover, #moves-section ul li a:hover {
-    text-decoration: underline; /* adjust as needed */
+    text-decoration: underline; 
     color: blue;
 }
 
 .news-date {
-    font-size: 12px; /* adjust as needed */
-    color: #999; /* adjust as needed */
+    font-size: 12px; 
+    color: #999;
 }
 .transation-date {
     font-size: 12px; 
@@ -98,13 +98,17 @@ header{
     padding-left: 0;
 }
 .yo1 a{
-    color: white;
+    color: white;  /* color of the Title in the header (EquityExpedition) */
 }
 .yo1 a:hover{
     color: red;
 }
-
-
+.bought {
+    color: green; 
+}
+.sold {
+    color: red;
+}
 footer{
     background-color: rgb(28, 39, 69);
     text-align: center;
@@ -112,6 +116,9 @@ footer{
     padding: 5px;
     margin-bottom: 0;
 }
+
+/*begining of the articles styling */
+
 body.articles-body{
     background-color: #f1efef;
     overflow-x: hidden;
@@ -121,12 +128,19 @@ body.articles-body article{
     padding-left: 15%;
     padding-right: 15%;
 }
+.titulo {
+    font-weight: bolder;
+    font-size: 30px;
+}
+.subtitle {
+    font-weight: bold;
+}
 body.articles-body article p{
     line-height: 1.5;
     font-size: 18px;
     padding-bottom: 1%;
 }
-body.articles-body article  ul li{
+body.articles-body article  ul li{ /*style for the new section of the recession article */
     line-height: 1.5;
     font-size: 18px;
     padding-bottom: 1%;
@@ -149,39 +163,9 @@ body.articles-body .Article-time{
         padding-left: 3%;
         padding-right: 3%;
     }
-    body.articles-body article p{
-        line-height: 1.5;
-        font-size: 18px;
-        padding-bottom: 1%;
-    }
-    body.articles-body article  ul li{
-        line-height: 1.5;
-        font-size: 18px;
-        padding-bottom: 1%;
-    }
     
-    footer{
-        background-color: rgb(28, 39, 69);
-        text-align: center;
-        color: white;
-    }
-    }
     * {
         box-sizing: border-box;
-    }
-    .bought {
-        color: green;
-    }
-    
-    .sold {
-        color: red;
-    }
-    .titulo {
-        font-weight: bolder;
-        font-size: 30px;
-    }
-    .subtitle {
-        font-weight: bold;
     }
     header{
         height: 10vh;
