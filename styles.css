@@ -12,7 +12,7 @@ header{
     text-decoration: underline;
     background-color: rgb(28, 39, 69);
     text-align: center;
-    padding: 1px;
+    height: 10vh;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -132,12 +132,7 @@ body.articles-body .Article-time{
     color: #393838;
     font-size: 15px;
 }
-body.articles-body .yo1 a{
-     color: white;
-}
-body.articles-body .yo1 a:hover{
-    color: blue;
-}
+
 
 @media screen and (max-width: 780px) {
     header{
@@ -151,6 +146,11 @@ body.articles-body .yo1 a:hover{
         display: grid;
         grid-template-columns: 1fr;
         width: 100%;
+    }
+    body.articles-body article{
+        flex: 1 0 auto;
+        padding-left: 3%;
+        padding-right: 3%;
     }
     body.articles-body article p{
         line-height: 1.5;
