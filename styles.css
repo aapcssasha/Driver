@@ -10,12 +10,15 @@ body{
 header{
     color: white;
     background-color: rgb(28, 39, 69);
-    text-align: center;
-    height: 10vh;
+    text-align: left;
+    height: 70px;
     position: sticky;
     top: 0;
     z-index: 100;
     margin: 0;
+    width: 100%;
+    padding-left: 10%;
+    min-height: 70px;
 }
 .container {
     background-color: white;
@@ -95,7 +98,6 @@ header{
 .yo1 a{
     position: inherit;
     color: white;
-    position: center;
 }
 .yo1 a:hover{
     color: red;
@@ -112,9 +114,10 @@ footer{
 body.articles-body{
     background-color: #f1efef;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 body.articles-body article{
-    flex: 1 0 auto;
+    padding-top: 20px;
     padding-left: 15%;
     padding-right: 15%;
 }
@@ -139,20 +142,13 @@ body.articles-body .Article-time{
     header{
         color: white;
         background-color: rgb(28, 39, 69);
-        text-align: center;
-        height: 10vh;
+        text-align: left;
+        height: 70px;
         position: sticky;
-        top: 0;
         z-index: 100;
         margin: 0;
     }
-    .yo1 a{
-        color: white;
-        position: inherit;
-    }
-    .yo1 a:hover{
-        color: blue;
-    }
+
     .container {
         display: grid;
         grid-template-columns: 1fr;
@@ -199,8 +195,3 @@ body.articles-body .Article-time{
         font-weight: bold;
     }
     
-
-
-    
-
-
