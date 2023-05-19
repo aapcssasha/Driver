@@ -11,15 +11,29 @@ body{
 header{
     color: white;
     background-color: rgb(28, 39, 69);
-    text-align: left;
     height:70px;
+    display: flex;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
     margin: 0;
     width: 100%;
+    align-items: center;
+}
+.yo1 a{
+    padding-left: 20%;
+    color: white;  /* color of the Title in the header (EquityExpedition) */
+}
+.yo1 a:hover{
+    color: red;
+}
+.login-container {
     padding-left: 10%;
-    text-align: left;
+    padding-right: 2%;
+    display: wrap;
+    align-items: center;
+    gap: 10px;
 }
 
 .container {
@@ -97,12 +111,7 @@ header{
     padding-top: 0;
     padding-left: 0;
 }
-.yo1 a{
-    color: white;  /* color of the Title in the header (EquityExpedition) */
-}
-.yo1 a:hover{
-    color: red;
-}
+
 .bought {
     color: green; 
 }
@@ -171,8 +180,4 @@ body.articles-body .Article-time{
         height: 10vh;
         background-color: rgb(28, 39, 69);
     }
-
-
-
-    
-    
+}

@@ -27,9 +27,9 @@ function drawChart() {
         return b[1] - a[1];
     });
 
-    var data = google.visualization.arrayToDataTable(dataArray);
+    let data = google.visualization.arrayToDataTable(dataArray);
 
-    var options = {
+    let options = {
         width: portfolioWidth,
         height: 400,
         backgroundColor: '#f1efef',
@@ -39,7 +39,21 @@ function drawChart() {
         pieSliceTeXt: 'Percentage',
     };
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    let chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
     chart.draw(data, options);
 }
+
+document.getElementById('login-button').addEventListener('click', function() {
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+    // You would typically send these values to your server to verify them
+    console.log('Logging in with username:', username, 'and password:', password);
+});
+
+document.getElementById('register-button').addEventListener('click', function() {
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+    // You would typically send these values to your server to create a new user
+    console.log('Registering new user with username:', username, 'and password:', password);
+});
