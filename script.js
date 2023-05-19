@@ -7,7 +7,7 @@ function drawChart() {
     let portfolioSection = document.getElementById('portfolio-section');
     let portfolioWidth = portfolioSection.offsetWidth;
 
-    var dataArray = [
+    const dataArray = [
         ['Stock', 'Percentage'],
         ['LUV', 2670],
         ['COF', 2860],
