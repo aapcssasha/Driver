@@ -43,15 +43,17 @@ header{
 
 
 .container {
-    background-color: white;
     display: grid;
     flex: 1 0 auto;
     grid-template-columns: 1fr 0.5fr 2fr;
     margin: 0;
+    overflow: auto;
+    background-color: #f1efef;
 }
 
 #news-section, #moves-section, #portfolio-section {
-    padding: 20px; /* adjust as needed */
+    padding-left: 20px;
+    padding-right: 20px; /* adjust as needed */
     min-width: 0; 
 }
 
@@ -66,6 +68,8 @@ header{
 }
 #news-section {
     background-color: #f1efef;
+    height: 500px;
+    overflow-y: auto;
 }
 
 #news-section ul li {
@@ -110,12 +114,14 @@ header{
 #moves-section{
     text-align: center;
     background-color: #f1efef;
+    height: 400px;
 }
 #portfolio-section{
     text-align: center;
     background-color: #f1efef;
-    padding-top: 0;
+    padding-top: 20px;
     padding-left: 0;
+    height: 400px;
 }
 
 .bought {
@@ -271,4 +277,8 @@ img {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+.grafica {
+    background-color: #f1efef;
+    padding: 5%;
 }
