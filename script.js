@@ -84,9 +84,11 @@ function drawSPYChart() {
 
         var options = {
             title: 'SPY Price',
+            backgroundColor: '#f1efef',
             legend: { position: 'bottom' },
             hAxis: { title: 'Date', format: 'M/d/yy' },
             vAxis: { title: 'Price' },
+            height: 400,
         };
 
         if (data) {
