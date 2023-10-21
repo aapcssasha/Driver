@@ -183,7 +183,7 @@ img {
     .container {
         display: grid;
         grid-template-columns: 1fr;
-        width: 100%;
+        
     }
 
     body.articles-body article{
@@ -205,9 +205,7 @@ img {
     padding: 5%;
     box-sizing: border-box;
 }
-* {
-    box-sizing: border-box;
-}
+
 
 @keyframes dropIn {
     from {
@@ -242,4 +240,8 @@ footer{
 }
 #news-section, #moves-section, #portfolio-section, .botones button {
     border-radius: 8px;
+}
+body { overflow-x: hidden; }
+* {
+    margin-right: 0%;
 }
