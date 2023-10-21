@@ -20,6 +20,7 @@ header{
     margin: 0;
     width: 100%;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .yo1 a{
     padding-left: 20%;
@@ -51,6 +52,7 @@ header{
 }
 
 #news-section, #moves-section, #portfolio-section {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding-left: 20px;
     padding-right: 20px; /* adjust as needed */
     min-width: 0; 
@@ -205,4 +207,39 @@ img {
 }
 * {
     box-sizing: border-box;
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#news-section h2, #moves-section h2, #portfolio-section h2 {
+    animation: dropIn 1s forwards;
+}
+.yo1 a, #news-section ul li a, #moves-section ul li a {
+    transition: color 0.3s ease;
+}
+header {
+    background: linear-gradient(45deg, rgb(28, 39, 69), rgb(36, 49, 79));
+}
+footer{
+    background: linear-gradient(45deg, rgb(28, 39, 69), rgb(36, 49, 79));
+}
+.botones button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.botones button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+#news-section, #moves-section, #portfolio-section, .botones button {
+    border-radius: 8px;
 }

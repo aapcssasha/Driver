@@ -51,53 +51,37 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-function fetchSPYData() {
-    fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=SPY&apikey=02J3FNJRUE6Y1DFR')
-    .then(response => response.json())
-    .then(data => {
-        spyChartData = [];
-        let dailyData = data['Time Series (Daily)'];
+function drawSPYChart() {
+    let dates = spyChartData.map(dataPoint => dataPoint[0]);
+    let prices = spyChartData.map(dataPoint => dataPoint[1]);
 
-        for (let date in dailyData) {
-            let parsedDate = new Date(date);
-            parsedDate = new Date(parsedDate.getFullYear(), parsedDate.getMonth(), parsedDate.getDate());
-            let closePrice = parseFloat(dailyData[date]['4. close']);
-
-            if (!isNaN(closePrice)) {
-                spyChartData.push([parsedDate, closePrice]);
-            } else {
-                console.log(`Invalid data for date ${date}: ${dailyData[date]['4. close']}`);
+    var ctx = document.getElementById('spy_chart_div').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'SPY Price',
+                borderColor: 'rgb(255, 99, 132)',
+                data: prices
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'time',
+                    title: {
+                        display: true,
+                        text: 'Date'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Price'
+                    }
+                }
             }
         }
-        spyChartData.reverse();
-        spyChartData.unshift(['Date', 'Close']); // Add column headers after reversing the data.
-        
-        drawChart();
-        drawSPYChart();
-    })
-    .catch(err => console.error(err));
-}
-
-function drawSPYChart() {
-    var data;
-    try {
-        data = google.visualization.arrayToDataTable(spyChartData, false); // Added false for treating first row as data.
-    } catch (error) {
-        console.error('Error converting data to DataTable:', error);
-        console.log('dataTable:', spyChartData);
-    }
-
-    var options = {
-        title: 'SPY Price',
-        backgroundColor: '#f1efef',
-        legend: { position: 'bottom' },
-        hAxis: { title: 'Date', format: 'M/d/yy' },
-        vAxis: { title: 'Price' },
-        height: 400,
-    };
-
-    if (data) {
-        var chart = new google.visualization.LineChart(document.getElementById('spy_chart_div'));
-        chart.draw(data, options);
-    }
+    });
 }
