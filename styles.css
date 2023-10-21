@@ -227,10 +227,10 @@ img {
     transition: color 0.3s ease;
 }
 header {
-    background: linear-gradient(45deg, rgb(28, 39, 69), rgb(36, 49, 79));
+    background: linear-gradient(45deg, rgb(119, 130, 158), rgb(36, 49, 79));
 }
 footer{
-    background: linear-gradient(45deg, rgb(28, 39, 69), rgb(36, 49, 79));
+    background: linear-gradient(45deg, rgb(126, 131, 143), rgb(36, 49, 79));
 }
 .botones button {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
