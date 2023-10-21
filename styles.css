@@ -29,24 +29,11 @@ header{
 .yo1 a:hover{
     color: red;
 }
-.botones{
-    padding-left: 30%;
-    padding-right: 1%;
-}
-.botones button {
-    font-size: 20px;
-    width: 80px;
-    margin-right: 10px;
-}
-.botones button:last-child {
-    margin-right: 0; 
-}
-
 
 .container {
     display: grid;
     flex: 1 0 auto;
-    grid-template-columns: 1fr 0.5fr 2fr;
+    grid-template-columns: 1fr 0.5fr 1fr;
     margin: 0;
     background-color: #f1efef;
 }
@@ -69,7 +56,7 @@ header{
 }
 #news-section {
     background-color: #f1efef;
-    height: 500px;
+    height: 420px;
     overflow-y: auto;
 }
 
@@ -115,13 +102,14 @@ header{
 #moves-section{
     text-align: center;
     background-color: #f1efef;
-    height: 400px;
+    height: 420px;
 }
 #portfolio-section{
     text-align: center;
     background-color: #f1efef;
     padding-top: 20px;
-    padding-left: 0;
+    padding-left: 5%;
+    padding-right: 5%;
     height: 400px;
 }
 
