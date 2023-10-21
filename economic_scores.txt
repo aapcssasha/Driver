@@ -1,5 +1,5 @@
-09/30/2023 - economic score : 5.28
 09/29/2023 - economic score : 5.28
+09/30/2023 - economic score : 5.28
 10/01/2023 - economic score : 5.28
 10/02/2023 - economic score : 5.28
 10/03/2023 - economic score : 5.31
@@ -14,8 +14,10 @@
 10/12/2023 - economic score : 5.26
 10/13/2023 - economic score : 5.3
 10/14/2023 - economic score : 5.23
+10/15/2023 - economic score : 5.23
 10/16/2023 - economic score : 5.23
 10/17/2023 - economic score : 5.23
 10/18/2023 - economic score : 5.23
+10/19/2023 - economic score : 5.23
 10/20/2023 - economic score : 5.28
 10/21/2023 - economic score : 5.28
