@@ -91,3 +91,61 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt')
 .catch(error => {
   console.error("Something went wrong:", error);
 });
+// Fetch the data from the GitHub repo
+fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt')
+  .then(response => response.text())
+  .then(data => {
+    // Parsing the fetched data
+    const rows = data.split('\n');
+    const labels = [], goldData = [], vixData = [];
+
+    for (let i = 1; i < rows.length; i++) {
+      const cells = rows[i].split('\t');
+      labels.push(cells[0]);
+      goldData.push(parseFloat(cells[1]));
+      vixData.push(parseFloat(cells[2]));
+    }
+
+    // Chart.js code to plot the data
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Gold (GC=F)',
+          data: goldData,
+          borderColor: 'rgba(255, 215, 0, 1)',
+          fill: false
+        }, {
+          label: 'VIX (^VIX)',
+          data: vixData,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          fill: false
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            type: 'time',
+            time: {
+              parser: 'YYYY-MM-DD'
+            },
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Value'
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Oops, something went wrong:', error);
+  });
