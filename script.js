@@ -111,7 +111,7 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
 
     // Chart.js code to plot the data
     const ctx = document.getElementById('myChart2').getContext('2d');
-    const myChart = new Chart(ctx, {
+    const myChart2Instance = new Chart(ctx, {
       type: 'line',
       data: {
         labels: labels,
