@@ -102,7 +102,7 @@ header{
 #moves-section{
     text-align: center;
     background-color: #f1efef;
-    height: 420px;
+    size: 0cap;
 }
 #portfolio-section{
     text-align: center;
@@ -232,4 +232,9 @@ footer{
 body { overflow-x: hidden; }
 * {
     margin-right: 0%;
+}
+#moves-section img {
+    height: auto; /* maintains the aspect ratio */
+    display: block; /* removes any default spacing around the image */
+    margin: 0 auto; /* centers the image horizontally if the container is wider */
 }
