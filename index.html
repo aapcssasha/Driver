@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZMTGFPK2F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CZMTGFPK2F');
+    </script>
     <meta charset="utf-8">
     <title>EquityExpedition</title>
     <link rel="stylesheet" href="styles.css">
@@ -20,7 +29,7 @@
         <div id="spy_chart_div">
             <canvas id="yourCanvasId"></canvas>
         </div>
-        
+
     </header>
     <canvas id="myChart" width="400" height="200"></canvas>
     <div class="container">
@@ -64,15 +73,18 @@
                 </li>
                 <li>
                     <p class="news-date">May 25, 2023</p>
-                    <a href="articles/Fitch-puts-United-States-AAA-rating-on-negative-watch.html">Fitch puts United States' AAA rating on negative watch</a>
+                    <a href="articles/Fitch-puts-United-States-AAA-rating-on-negative-watch.html">Fitch puts United
+                        States' AAA rating on negative watch</a>
                 </li>
                 <li>
                     <p class="news-date">May 22, 2023</p>
-                    <a href="articles/McCarthy-says-decisions-have-to-be-made-at-debt-ceiling-meeting-with-Biden.html">McCarthy says 'decisions have to be made'</a>
+                    <a href="articles/McCarthy-says-decisions-have-to-be-made-at-debt-ceiling-meeting-with-Biden.html">McCarthy
+                        says 'decisions have to be made'</a>
                 </li>
                 <li>
                     <p class="news-date">May 20, 2023</p>
-                    <a href="articles/Powell-Says-Inflation-Remains-Too-High,-but-hints-it-may-pause.html">Powell Says Inflation Remains Too High, but hints it may pause rate hikes at next metting</a>
+                    <a href="articles/Powell-Says-Inflation-Remains-Too-High,-but-hints-it-may-pause.html">Powell Says
+                        Inflation Remains Too High, but hints it may pause rate hikes at next metting</a>
                 </li>
                 <li>
                     <p class="news-date">May 20, 2023</p>
@@ -108,7 +120,7 @@
     </footer>
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             let currentDate = new Date();
 
             function setImage(date) {
@@ -120,7 +132,7 @@
 
                 let imgElement = document.getElementById("fearGreedImg");
                 imgElement.src = `pics/${imageName}`;
-                imgElement.onerror = function() {
+                imgElement.onerror = function () {
                     // Decrement the date by one day
                     date.setDate(date.getDate() - 1);
                     setImage(date);
@@ -131,4 +143,5 @@
         });
     </script>
 </body>
+
 </html>
