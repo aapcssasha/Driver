@@ -5,7 +5,10 @@ const convertDate = (date) => {
   const [month, day, year] = date.split('/');
   return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 }
-
+Chart.register({
+  id: 'moment',
+  dateAdapter: moment,
+});
 
 // Prepare empty arrays to store data
 let spyDates = [];
@@ -115,13 +118,12 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
       const response = await fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt');
       const text = await response.text();
       console.log("Fetched VIX Data:", text); 
-
-
+    
       // Parse the data to separate the dates and close values
       const lines = text.split('\n').slice(1);  // Skip the header
       const dates = [];
       const closeValues = [];
-
+    
       lines.forEach(line => {
         const [date, close] = line.split('\t');
         if (date && close) {
@@ -130,6 +132,7 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
         }
       });
       console.log("Parsed Dates and Close Values:", dates, closeValues);
+    
       // Create the chart
       const ctx = document.getElementById('VIX').getContext('2d');
       const myChart = new Chart(ctx, {
@@ -148,15 +151,31 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
             x: {
               type: 'time',
               time: {
-                unit: 'day'
+                parser: 'YYYY-MM-DD',
+                unit: 'day',
+                displayFormats: {
+                  day: 'MMM D'
+                },
+                tooltipFormat: 'll'
+              },
+              title: {
+                display: true,
+                text: 'Date'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Value'
               }
             }
           }
         }
       });
     }
-
+    
     fetchAndPlotVIX();
+    
 
 
     async function fetchLatestScore() {
