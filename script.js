@@ -152,3 +152,45 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
   .catch(error => {
     console.error('Oops, something went wrong:', error);
   });
+
+  async function fetchLatestScore() {
+    // Fetch the scores
+    const response = await fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/economic_scores.txt');
+    const data = await response.text();
+    
+    // Split the scores by lines and get the last one
+    const lines = data.trim().split("\n");
+    const latestLine = lines[lines.length - 1];
+    
+    // Extract the number from the string
+    const score = parseFloat(latestLine.split(":")[1]);
+    
+    return score;
+}
+
+function roundToDecimal(score) {
+    // Round to 1 decimal place
+    return Math.round(score * 10) / 10;
+}
+
+function selectPic(score) {
+    if (score < 5.0) return 'short100.png';
+    if (score === 5.0) return 'short50.png';
+    if (score === 5.1) return 'short20.png';
+    if (score === 5.2) return 'closeShorts.png';
+    if (score === 5.3) return 'closeLongs.png';
+    if (score === 5.4) return 'long20.png';
+    if (score === 5.5) return 'long50.png';
+    if (score > 5.5) return 'long100.png';
+}
+
+(async function displayPic() {
+    const score = await fetchLatestScore();
+    const roundedScore = roundToDecimal(score);
+    const picName = selectPic(roundedScore);
+    
+    const picUrl = `https://raw.githubusercontent.com/aapcssasha/Driver/main/pics/${picName}`;
+
+    // Assuming you have an img element with id 'scoreImage' to display the image
+    document.getElementById('scoreImage').src = picUrl;
+})();
