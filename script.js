@@ -177,20 +177,21 @@ function selectPic(score) {
     if (score < 5.0) return 'short100.png';
     if (score === 5.0) return 'short50.png';
     if (score === 5.1) return 'short20.png';
-    if (score === 5.2) return 'closeShorts.png';
-    if (score === 5.3) return 'closeLongs.png';
+    if (score === 5.2) return 'closeLongs.png';
+    if (score === 5.3) return 'closeShorts.png';
     if (score === 5.4) return 'long20.png';
     if (score === 5.5) return 'long50.png';
     if (score > 5.5) return 'long100.png';
 }
 
 (async function displayPic() {
-    const score = await fetchLatestScore();
-    const roundedScore = roundToDecimal(score);
-    const picName = selectPic(roundedScore);
-    
-    const picUrl = `https://raw.githubusercontent.com/aapcssasha/Driver/main/pics/${picName}`;
-
-    // Assuming you have an img element with id 'scoreImage' to display the image
-    document.getElementById('scoreImage').src = picUrl;
+  const score = await fetchLatestScore();
+  const roundedScore = roundToDecimal(score);
+  
+  // Display the roundedScore in the HTML
+  document.getElementById('roundedScoreDisplay').innerText = `Rounded Score: ${roundedScore}`;
+  
+  const picName = selectPic(roundedScore);
+  const picUrl = `https://raw.githubusercontent.com/aapcssasha/Driver/main/pics/${picName}`;
+  document.getElementById('scoreImage').src = picUrl;
 })();
