@@ -149,3 +149,58 @@ function selectPic(score) {
   document.getElementById("scoreImage").src = picUrl;
 })();
 
+
+
+// Create the vix chart
+let vixDates = [];
+let vixCloses = [];
+
+// Fetching VIX data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv")
+.then((response) => response.text())
+.then((data) => {
+    const lines = data.trim().split("\n");
+    lines.shift(); // remove header
+
+    lines.forEach((line) => {
+      const [date, close] = line.split(",");  // Assuming data is comma-separated
+      vixDates.push(date);
+      vixCloses.push(parseFloat(close));
+    });
+
+    // Now create the chart for VIX
+    const vixCtx = document.getElementById("Vixchart").getContext("2d");
+    const vixChart = new Chart(vixCtx, {
+      type: "line",
+      data: {
+        labels: vixDates,
+        datasets: [{
+          label: "VIX Close Prices",
+          data: vixCloses,
+          borderColor: "rgba(153, 102, 255, 1)",
+          borderWidth: 1
+        }],
+      },
+      options: {
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'VIX Close Prices'
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching VIX data:", error);
+  });
