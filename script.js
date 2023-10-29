@@ -1,4 +1,5 @@
-
+console.log("Chart.js loaded:", typeof Chart !== 'undefined');
+console.log("Moment.js loaded:", typeof moment !== 'undefined');
 
 
 const convertDate = (date) => {
@@ -100,21 +101,30 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt')
 
 // Fetch the data from the GitHub repo
 fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt')
-  .then(response => response.text())
+  .then(response => {
+    console.log("Initial fetch response:", response);
+    return response.text();
+  })
   .then(data => {
+    console.log("Fetched raw data:", data); // Check the raw data
+
     // Parsing the fetched data
     const rows = data.split('\n');
-    const labels = [], goldData = [], vixData = [];
+    const labels = [], vixData = [];
 
     for (let i = 1; i < rows.length; i++) {
+    
       const cells = rows[i].split('\t');
       labels.push(cells[0]);
-      goldData.push(parseFloat(cells[1]));
-      vixData.push(parseFloat(cells[2]));
+      vixData.push(parseFloat(cells[1]));
     }
+
+    console.log("Parsed Labels and VIX Data:", labels, vixData); // Check parsed data
+
 
     async function fetchAndPlotVIX() {
       console.log("fetchAndPlotVIX started"); 
+      console.log(document.getElementById('VIX')); // New line here
       const response = await fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt');
       const text = await response.text();
       console.log("Fetched VIX Data:", text); 
@@ -132,6 +142,8 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
         }
       });
       console.log("Parsed Dates and Close Values:", dates, closeValues);
+      console.log("Creating VIX Chart with:", dates, closeValues);
+
     
       // Create the chart
       const ctx = document.getElementById('VIX').getContext('2d');
@@ -173,8 +185,12 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
         }
       });
     }
-    
+    console.log("Date Format Verification:", moment(dates[0], 'YYYY-MM-DD').isValid()); // New line here
     fetchAndPlotVIX();
+  })
+  .catch(error => {
+    console.error("Something went wrong with fetching VIX:", error); // Catch any errors
+  });
     
 
 
@@ -220,4 +236,4 @@ fetch('https://raw.githubusercontent.com/aapcssasha/Driver/main/data/my_data.txt
       const picUrl = `https://raw.githubusercontent.com/aapcssasha/Driver/main/pics/${picName}`;
       document.getElementById('scoreImage').src = picUrl;
     })();
-  });
+
