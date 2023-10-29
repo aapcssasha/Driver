@@ -66,31 +66,6 @@ header {
   overflow-y: auto;
 }
 
-#VIX ul li {
-  margin-bottom: 20px;
-}
-
-#VIX ul li a,
-#whatnow ul li a {
-  color: #000;
-  text-decoration: none;
-  font-size: 20px;
-}
-#VIX ul li p {
-  color: #3b3a3a;
-  margin-bottom: 0%;
-}
-
-#VIX ul li a:hover,
-#whatnow ul li a:hover {
-  text-decoration: underline;
-  color: blue;
-}
-
-.news-date {
-  font-size: 12px;
-  color: #999;
-}
 .transation-date {
   font-size: 12px;
   color: #999;
@@ -216,11 +191,7 @@ img {
 #feargreed h2 {
   animation: dropIn 1s forwards;
 }
-.yo1 a,
-#VIX ul li a,
-#whatnow ul li a {
-  transition: color 0.3s ease;
-}
+
 header {
   background: linear-gradient(45deg, rgb(119, 130, 158), rgb(36, 49, 79));
 }
@@ -235,7 +206,7 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
-#VIX,
+
 #whatnow,
 #feargreed,
 .botones button {
