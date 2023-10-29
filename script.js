@@ -240,9 +240,12 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
   });
 
 
-// Create the unemployment  chart
+// Create the unemployment chart
 let unemploymentDates = [];
 let unemploymentCloses = [];
+
+// Declare the unemploymentChart variable outside the fetch block to access it globally
+let unemploymentChart;
 
 // Fetching unemployment data
 fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymentRate_data.csv")
@@ -257,9 +260,15 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
       unemploymentCloses.push(parseFloat(close));
     });
 
-    // Now create the chart for unemployment
     const unemploymentCtx = document.getElementById("unemploymentRatechart").getContext("2d");
-    const unemploymentChart = new Chart(unemploymentCtx, {
+    
+    // If unemploymentChart already exists, destroy it
+    if (unemploymentChart) {
+      unemploymentChart.destroy();
+    }
+
+    // Create the chart for unemployment
+    unemploymentChart = new Chart(unemploymentCtx, {
       type: "line",
       data: {
         labels: unemploymentDates,
@@ -319,7 +328,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
                 backgroundColor: 'rgba(0,0,0,0.3)'
               }
             }]
-          }                           
+          }
         }
       }
     });
@@ -327,3 +336,4 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
   .catch((error) => {
     console.error("Error fetching Unemployment data:", error);
   });
+
