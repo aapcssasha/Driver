@@ -51,7 +51,10 @@ header {
 #whatnow h2,
 #feargreed h2 {
   font-size: 24px; /* adjust as needed */
-  margin-bottom: 20px; /* adjust as needed */
+  margin-top: 0px;
+  margin-bottom: 0px; /* adjust as needed */
+  text-align: center;
+  background-color: lightblue;
 }
 
 #VIX ul,
@@ -85,6 +88,7 @@ header {
   text-align: center;
   background-color: #f1efef;
   size: 0cap;
+  
 }
 #feargreed {
   text-align: center;

@@ -157,8 +157,8 @@ let vixCloses = [];
 
 // Fetching VIX data
 fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv")
-.then((response) => response.text())
-.then((data) => {
+  .then((response) => response.text())
+  .then((data) => {
     const lines = data.trim().split("\n");
     lines.shift(); // remove header
 
@@ -178,7 +178,9 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
           label: "VIX Close Prices",
           data: vixCloses,
           borderColor: "rgba(153, 102, 255, 1)",
-          borderWidth: 1
+          borderWidth: 1,
+          pointRadius: 0,   // This removes the data points
+          lineTension: 0.2  // This makes the line smoother
         }],
       },
       options: {
@@ -197,6 +199,19 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
               text: 'VIX Close Prices'
             }
           }
+        },
+        plugins: {
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: 'xy'  // Enables panning in both x and y axes
+            },
+            zoom: {
+              enabled: true,
+              mode: 'xy',  // Enables zooming in both x and y axes
+              speed: 0.1  // Adjust if needed
+            }
+          }
         }
       }
     });
@@ -204,3 +219,4 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
   .catch((error) => {
     console.error("Error fetching VIX data:", error);
   });
+
