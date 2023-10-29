@@ -211,7 +211,26 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
               mode: 'xy',  // Enables zooming in both x and y axes
               speed: 0.1  // Adjust if needed
             }
-          }
+          },
+          annotations: {
+            annotations: [{
+              type: 'point',
+              xScaleID: 'x-axis-0',
+              yScaleID: 'y-axis-0',
+              xValue: vixDates[Math.floor(vixDates.length / 2)],
+              yValue: vixCloses[Math.floor(vixCloses.length / 2)],
+              borderColor: 'rgba(0,0,0,0.5)',
+              borderWidth: 1,
+              label: {
+                enabled: true,
+                content: vixCloses[Math.floor(vixCloses.length / 2)].toString(),
+                position: 'start',
+                xAdjust: 0,
+                yAdjust: 10, // you can adjust this as needed
+                backgroundColor: 'rgba(0,0,0,0.3)'
+              }
+            }]
+          }                           
         }
       }
     });
@@ -219,4 +238,3 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
   .catch((error) => {
     console.error("Error fetching VIX data:", error);
   });
-

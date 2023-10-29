@@ -63,6 +63,9 @@ header {
   list-style-type: none;
   padding: 0;
 }
+#scoreImage {
+  margin-top: 50px;  /* Adjust this value as you see fit */
+}
 #VIX {
   background-color: #f1efef;
   height: 420px;
@@ -81,9 +84,6 @@ header {
   margin-bottom: 5%;
 }
 
-#whatnow ul li p {
-  color: #3b3a3a;
-}
 #whatnow {
   text-align: center;
   background-color: #f1efef;
