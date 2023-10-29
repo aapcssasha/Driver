@@ -1,240 +1,254 @@
-body{
-    background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
-    margin: 0;
-    display: flex;
-    flex-direction: column; 
-    min-height: 100vh;
+body {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-header{
-    color: white;
-    background-color: rgb(28, 39, 69);
-    height:70px;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    margin: 0;
-    width: 100%;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+header {
+  color: white;
+  background-color: rgb(28, 39, 69);
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0;
+  width: 100%;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.yo1 a{
-    padding-left: 20%;
-    color: white;  /* color of the Title in the header (EquityExpedition) */
+.yo1 a {
+  padding-left: 20%;
+  color: white; /* color of the Title in the header (EquityExpedition) */
 }
-.yo1 a:hover{
-    color: red;
+.yo1 a:hover {
+  color: red;
 }
 
 .container {
-    display: grid;
-    flex: 1 0 auto;
-    grid-template-columns: 1fr 0.5fr 1fr;
-    margin: 0;
-    background-color: #f1efef;
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  margin: 0;
+  background-color: #f1efef;
 }
 
-#VIX, #whatnow, #feargreed {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding-left: 20px;
-    padding-right: 20px; /* adjust as needed */
-    min-width: 0; 
+#VIX,
+#whatnow,
+#feargreed {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-left: 20px;
+  padding-right: 20px; /* adjust as needed */
+  min-width: 0;
 }
 
-#VIX h2, #whatnow h2, #feargreed h2 {
-    font-size: 24px; /* adjust as needed */
-    margin-bottom: 20px; /* adjust as needed */
+#VIX h2,
+#whatnow h2,
+#feargreed h2 {
+  font-size: 24px; /* adjust as needed */
+  margin-bottom: 20px; /* adjust as needed */
 }
 
-#VIX ul, #whatnow ul, #feargreed ul {
-    list-style-type: none;
-    padding: 0;
+#VIX ul,
+#whatnow ul,
+#feargreed ul {
+  list-style-type: none;
+  padding: 0;
 }
 #VIX {
-    background-color: #f1efef;
-    height: 420px;
-    overflow-y: auto;
+  background-color: #f1efef;
+  height: 420px;
+  overflow-y: auto;
 }
 
 #VIX ul li {
-    margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
-
-#VIX ul li a, #whatnow ul li a {
-    color: #000; 
-    text-decoration: none; 
-    font-size: 20px;
+#VIX ul li a,
+#whatnow ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
 }
 #VIX ul li p {
-    color: #3b3a3a; 
-    margin-bottom: 0%;
+  color: #3b3a3a;
+  margin-bottom: 0%;
 }
 
-#VIX ul li a:hover, #whatnow ul li a:hover {
-    text-decoration: underline; 
-    color: blue;
+#VIX ul li a:hover,
+#whatnow ul li a:hover {
+  text-decoration: underline;
+  color: blue;
 }
 
 .news-date {
-    font-size: 12px; 
-    color: #999;
+  font-size: 12px;
+  color: #999;
 }
 .transation-date {
-    font-size: 12px; 
-    color: #999; 
-    margin-bottom: 0;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 0;
 }
 .transation {
-    font-size: 17px;
-    font-weight: bold;
-    margin-top: 0%;
-    margin-bottom: 5%;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0%;
+  margin-bottom: 5%;
 }
 
-#whatnow ul li p{
-    color: #3b3a3a; 
+#whatnow ul li p {
+  color: #3b3a3a;
 }
-#whatnow{
-    text-align: center;
-    background-color: #f1efef;
-    size: 0cap;
+#whatnow {
+  text-align: center;
+  background-color: #f1efef;
+  size: 0cap;
 }
-#feargreed{
-    text-align: center;
-    background-color: #f1efef;
-    padding-top: 20px;
-    padding-left: 5%;
-    padding-right: 5%;
-    height: 400px;
+#feargreed {
+  text-align: center;
+  background-color: #f1efef;
+  padding-top: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 400px;
 }
 
 .bought {
-    color: green; 
+  color: green;
 }
 .sold {
-    color: red;
+  color: red;
 }
-footer{
-    background-color: rgb(28, 39, 69);
-    text-align: center;
-    color: white;
-    padding: 5px;
-    margin-bottom: 0;
+footer {
+  background-color: rgb(28, 39, 69);
+  text-align: center;
+  color: white;
+  padding: 5px;
+  margin-bottom: 0;
 }
 
 /*begining of the articles styling */
 
-body.articles-body{
-    background-color: #f1efef;
-    overflow-x: hidden;
+body.articles-body {
+  background-color: #f1efef;
+  overflow-x: hidden;
 }
-body.articles-body article{
-    padding-top: 20px;
-    padding-left: 25%;
-    padding-right: 25%;
+body.articles-body article {
+  padding-top: 20px;
+  padding-left: 25%;
+  padding-right: 25%;
 }
 .titulo {
-    font-weight: bolder;
-    font-size: 30px;
+  font-weight: bolder;
+  font-size: 30px;
 }
 .subtitle {
-    font-weight: bold;
+  font-weight: bold;
 }
-body.articles-body article p{
-    line-height: 1.5;
-    font-size: 18px;
-    padding-bottom: 1%;
+body.articles-body article p {
+  line-height: 1.5;
+  font-size: 18px;
+  padding-bottom: 1%;
 }
-body.articles-body article  ul li{ /*style for the new section of the recession article */
-    line-height: 1.5;
-    font-size: 18px;
-    padding-bottom: 1%;
+body.articles-body article ul li {
+  /*style for the new section of the recession article */
+  line-height: 1.5;
+  font-size: 18px;
+  padding-bottom: 1%;
 }
 
-body.articles-body .Article-time{
-    color: #393838;
-    font-size: 15px;
+body.articles-body .Article-time {
+  color: #393838;
+  font-size: 15px;
 }
 img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
 
 @media screen and (max-width: 780px) {
-    .container {
-        display: grid;
-        grid-template-columns: 1fr;
-        
-    }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
-    body.articles-body article{
-        padding-left: 3%;
-        padding-right: 3%;
-    }
-    
-    * {
-        box-sizing: border-box;
-    }
-    header{
-        height: 10vh;
-        background-color: rgb(28, 39, 69);
-    }
+  body.articles-body article {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  header {
+    height: 10vh;
+    background-color: rgb(28, 39, 69);
+  }
 }
 
 .grafica {
-    background-color: #f1efef;
-    padding: 5%;
-    box-sizing: border-box;
+  background-color: #f1efef;
+  padding: 5%;
+  box-sizing: border-box;
 }
-
 
 @keyframes dropIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-#VIX h2, #whatnow h2, #feargreed h2 {
-    animation: dropIn 1s forwards;
+#VIX h2,
+#whatnow h2,
+#feargreed h2 {
+  animation: dropIn 1s forwards;
 }
-.yo1 a, #VIX ul li a, #whatnow ul li a {
-    transition: color 0.3s ease;
+.yo1 a,
+#VIX ul li a,
+#whatnow ul li a {
+  transition: color 0.3s ease;
 }
 header {
-    background: linear-gradient(45deg, rgb(119, 130, 158), rgb(36, 49, 79));
+  background: linear-gradient(45deg, rgb(119, 130, 158), rgb(36, 49, 79));
 }
-footer{
-    background: linear-gradient(45deg, rgb(126, 131, 143), rgb(36, 49, 79));
+footer {
+  background: linear-gradient(45deg, rgb(126, 131, 143), rgb(36, 49, 79));
 }
 .botones button {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .botones button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
-#VIX, #whatnow, #feargreed, .botones button {
-    border-radius: 8px;
+#VIX,
+#whatnow,
+#feargreed,
+.botones button {
+  border-radius: 8px;
 }
-body { overflow-x: hidden; }
+body {
+  overflow-x: hidden;
+}
 * {
-    margin-right: 0%;
+  margin-right: 0%;
 }
 #whatnow img {
-    height: auto; /* maintains the aspect ratio */
-    display: block; /* removes any default spacing around the image */
-    margin: 0 auto; /* centers the image horizontally if the container is wider */
+  height: auto; /* maintains the aspect ratio */
+  display: block; /* removes any default spacing around the image */
+  margin: 0 auto; /* centers the image horizontally if the container is wider */
 }

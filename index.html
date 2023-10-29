@@ -1,89 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">™
+<html lang="en">
+  ™
 
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZMTGFPK2F"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CZMTGFPK2F"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'G-CZMTGFPK2F');
+      gtag("config", "G-CZMTGFPK2F");
     </script>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>EquityExpedition</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.2.0/dist/chartjs-adapter-moment.min.js"></script>
-    
+    <link rel="stylesheet" href="path/to/your/output.css">
 
     <!-- Load Moment.js (from CDN) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <!-- Load Chart.js (from CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  </head>
 
-
-<body>
+  <body>
     <header>
-        <div class="yo">
-            <h3 class="yo1"><a href="../index.html">EquityExpedition</a></h3>
-        </div>
-        <div id="spy_chart_div">
-            <canvas id="yourCanvasId"></canvas>
-        </div>
-
+      <div class="yo">
+        <h3 class="yo1"><a href="../index.html">EquityExpedition</a></h3>
+      </div>
+      <div id="spy_chart_div">
+        <canvas id="yourCanvasId"></canvas>
+      </div>
     </header>
     <canvas id="myChart" width="400" height="200"></canvas>
     <div class="container">
-        <div id="feargreed">
-            <h2>Fear vs Greed</h2>
-            <div style="display: block;">
-                <img id="fearGreedImg" alt="Fear vs Greed Chart">
-            </div>
+      <div id="feargreed">
+        <h2>Fear vs Greed</h2>
+        <div style="display: block">
+          <img id="fearGreedImg" alt="Fear vs Greed Chart" />
         </div>
-        <div id="whatnow">
-            <h2>What to do now ?</h2>
-            <img id="scoreImage" alt="Economic Score Image" width="300">
-            <h1>Score</h1>
-            <p id="roundedScoreDisplay"></p>
-        </div>
-        <div id="VIX">
-            <h2>Vix</h2>
-            <canvas id="VIX" width="400" height="200"></canvas>
-        </div>
+      </div>
+      <div id="whatnow">
+        <h2>What to do now ?</h2>
+        <img id="scoreImage" alt="Economic Score Image" width="300" />
+        <h1>Score</h1>
+        <p id="roundedScoreDisplay"></p>
+      </div>
+      <div id="VIX">
+        <h2>Vix</h2>
+        <canvas id="VIX" width="400" height="200"></canvas>
+      </div>
     </div>
     <footer>
-        <p>Investor Roadtrip</p>
+      <p>Investor Roadtrip</p>
     </footer>
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let currentDate = new Date();
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentDate = new Date();
 
-            function setImage(date) {
-                let day = String(date.getDate()).padStart(2, '0');
-                let month = String(date.getMonth() + 1).padStart(2, '0');
-                let year = date.getFullYear();
+        function setImage(date) {
+          let day = String(date.getDate()).padStart(2, "0");
+          let month = String(date.getMonth() + 1).padStart(2, "0");
+          let year = date.getFullYear();
 
-                let imageName = `${month}-${day}-${year}_Fear_Greed.png`;
+          let imageName = `${month}-${day}-${year}_Fear_Greed.png`;
 
-                let imgElement = document.getElementById("fearGreedImg");
-                imgElement.src = `pics/${imageName}`;
-                imgElement.onerror = function () {
-                    // Decrement the date by one day
-                    date.setDate(date.getDate() - 1);
-                    setImage(date);
-                };
-            }
+          let imgElement = document.getElementById("fearGreedImg");
+          imgElement.src = `pics/${imageName}`;
+          imgElement.onerror = function () {
+            // Decrement the date by one day
+            date.setDate(date.getDate() - 1);
+            setImage(date);
+          };
+        }
 
-            setImage(currentDate);
-        });
+        setImage(currentDate);
+      });
     </script>
-</body>
-
+  </body>
 </html>
