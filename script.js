@@ -240,11 +240,11 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
   });
 
 
-// Create the vix chart
+// Create the unemployment  chart
 let unemploymentDates = [];
 let unemploymentCloses = [];
 
-// Fetching VIX data
+// Fetching unemployment data
 fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymentRate_data.csv")
   .then((response) => response.text())
   .then((data) => {
@@ -253,19 +253,19 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
 
     lines.forEach((line) => {
       const [date, close] = line.split(",");  // Assuming data is comma-separated
-      vixDates.push(date);
-      vixCloses.push(parseFloat(close));
+      unemploymentDates.push(date);
+      unemploymentCloses.push(parseFloat(close));
     });
 
-    // Now create the chart for VIX
-    const vixCtx = document.getElementById("unemploymentRatechart").getContext("2d");
-    const vixChart = new Chart(vixCtx, {
+    // Now create the chart for unemployment
+    const unemploymentCtx = document.getElementById("unemploymentRatechart").getContext("2d");
+    const unemploymentChart = new Chart(unemploymentCtx, {
       type: "line",
       data: {
-        labels: vixDates,
+        labels: unemploymentDates,
         datasets: [{
           label: "Unemployment Rate",
-          data: vixCloses,
+          data: unemploymentCloses,
           borderColor: "rgba(153, 102, 255, 1)",
           borderWidth: 1,
           pointRadius: 0,   // This removes the data points
@@ -306,13 +306,13 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
               type: 'point',
               xScaleID: 'x-axis-0',
               yScaleID: 'y-axis-0',
-              xValue: vixDates[Math.floor(vixDates.length / 2)],
-              yValue: vixCloses[Math.floor(vixCloses.length / 2)],
+              xValue: unemploymentDates[Math.floor(unemploymentDates.length / 2)],
+              yValue: unemploymentCloses[Math.floor(unemploymentCloses.length / 2)],
               borderColor: 'rgba(0,0,0,0.5)',
               borderWidth: 1,
               label: {
                 enabled: true,
-                content: vixCloses[Math.floor(vixCloses.length / 2)].toString(),
+                content: unemploymentCloses[Math.floor(unemploymentCloses.length / 2)].toString(),
                 position: 'start',
                 xAdjust: 0,
                 yAdjust: 10, // you can adjust this as needed
