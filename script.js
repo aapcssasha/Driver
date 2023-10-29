@@ -343,3 +343,59 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
     console.error("Error fetching Unemployment data:", error);
   });
 
+// Arrays to hold your delinquency data
+let delinquencyDates = [];
+let delinquencyRates = [];
+
+// Fetch the delinquency data from the data folder
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/delinquencyCreditCards_data.csv")
+  .then((response) => response.text())
+  .then((data) => {
+    const lines = data.trim().split("\n");
+    lines.shift(); // remove the header
+
+    lines.forEach((line) => {
+      const [date, rate] = line.split(",");  // Assuming data is comma-separated
+      delinquencyDates.push(date);
+      delinquencyRates.push(parseFloat(rate));
+    });
+
+    const delinquencyCtx = document.getElementById("delinquencyCreditCards").getContext("2d");
+    
+    // Create the chart for delinquency rate on credit cards
+    const delinquencyChart = new Chart(delinquencyCtx, {
+      type: "line",
+      data: {
+        labels: delinquencyDates,
+        datasets: [{
+          label: "Delinquency Rate on Credit Card",
+          data: delinquencyRates,
+          borderColor: "rgba(255, 159, 64, 1)",  // Just a color suggestion, change as needed
+          borderWidth: 1,
+          pointRadius: 0,   // This removes the data points
+          lineTension: 0.2  // This makes the line smoother
+        }],
+      },
+      options: {
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Delinquency Rate (%)'
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching Delinquency Rate data:", error);
+  });
