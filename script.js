@@ -71,6 +71,12 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
         ],
       },
       options: {
+        layout: {
+          padding: {
+            left: 40,   // 10px padding on the left
+            right: 40   // 10px padding on the right
+          }
+        },
         scales: {
           x: {
             beginAtZero: true,
@@ -196,7 +202,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
             beginAtZero: true,
             title: {
               display: true,
-              text: 'VIX Close Prices'
+              text: 'VIX Close Prices',
             }
           }
         },

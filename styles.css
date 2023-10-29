@@ -30,6 +30,7 @@ header {
   color: red;
 }
 
+
 .container {
   display: grid;
   flex: 1 0 auto;
@@ -245,3 +246,7 @@ body {
 }
 
 
+#spy_chart_div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
