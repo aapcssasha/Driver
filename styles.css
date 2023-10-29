@@ -227,3 +227,23 @@ body {
   display: block; /* removes any default spacing around the image */
   margin: 0 auto; /* centers the image horizontally if the container is wider */
 }
+
+/* Six Indicators Container */
+.sixIndicator {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* three columns of equal width */
+  grid-template-rows: repeat(2, auto); /* two rows of auto height */
+}
+
+/* Individual Boxes */
+.sixIndicator > div {
+  box-sizing: border-box;
+  padding: 1rem; /* some inner spacing */
+}
+
+/* Red background for the first box */
+.sixIndicator .uno {
+  background-color: red;
+}
