@@ -235,6 +235,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* three columns of equal width */
   grid-template-rows: repeat(2, auto); /* two rows of auto height */
+  background-color: #f1efef;
 }
 
 /* Individual Boxes */
@@ -243,7 +244,4 @@ body {
   padding: 1rem; /* some inner spacing */
 }
 
-/* Red background for the first box */
-.sixIndicator .uno {
-  background-color: red;
-}
+

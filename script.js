@@ -238,3 +238,92 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
   .catch((error) => {
     console.error("Error fetching VIX data:", error);
   });
+
+
+// Create the vix chart
+let unemploymentDates = [];
+let unemploymentCloses = [];
+
+// Fetching VIX data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymentRate_data.csv")
+  .then((response) => response.text())
+  .then((data) => {
+    const lines = data.trim().split("\n");
+    lines.shift(); // remove header
+
+    lines.forEach((line) => {
+      const [date, close] = line.split(",");  // Assuming data is comma-separated
+      vixDates.push(date);
+      vixCloses.push(parseFloat(close));
+    });
+
+    // Now create the chart for VIX
+    const vixCtx = document.getElementById("unemploymentRatechart").getContext("2d");
+    const vixChart = new Chart(vixCtx, {
+      type: "line",
+      data: {
+        labels: vixDates,
+        datasets: [{
+          label: "Unemployment Rate",
+          data: vixCloses,
+          borderColor: "rgba(153, 102, 255, 1)",
+          borderWidth: 1,
+          pointRadius: 0,   // This removes the data points
+          lineTension: 0.2  // This makes the line smoother
+        }],
+      },
+      options: {
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Rate'
+            }
+          }
+        },
+        plugins: {
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: 'xy'  // Enables panning in both x and y axes
+            },
+            zoom: {
+              enabled: true,
+              mode: 'xy',  // Enables zooming in both x and y axes
+              speed: 0.1  // Adjust if needed
+            }
+          },
+          annotations: {
+            annotations: [{
+              type: 'point',
+              xScaleID: 'x-axis-0',
+              yScaleID: 'y-axis-0',
+              xValue: vixDates[Math.floor(vixDates.length / 2)],
+              yValue: vixCloses[Math.floor(vixCloses.length / 2)],
+              borderColor: 'rgba(0,0,0,0.5)',
+              borderWidth: 1,
+              label: {
+                enabled: true,
+                content: vixCloses[Math.floor(vixCloses.length / 2)].toString(),
+                position: 'start',
+                xAdjust: 0,
+                yAdjust: 10, // you can adjust this as needed
+                backgroundColor: 'rgba(0,0,0,0.3)'
+              }
+            }]
+          }                           
+        }
+      }
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching Unemployment data:", error);
+  });
