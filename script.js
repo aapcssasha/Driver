@@ -192,14 +192,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
       options: {
         scales: {
           x: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Date'
             }
           },
           y: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'VIX Close Prices',
@@ -290,14 +290,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
       options: {
         scales: {
           x: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Date'
             }
           },
           y: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Rate'
@@ -379,14 +379,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/delinquency
       options: {
         scales: {
           x: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Date'
             }
           },
           y: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Delinquency Rate (%)'
@@ -437,14 +437,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/stickyCPI_d
       options: {
         scales: {
           x: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Date'
             }
           },
           y: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Sticky CPI Value'
@@ -494,14 +494,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/gdpHistory_
       options: {
         scales: {
           x: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'Date'
             }
           },
           y: {
-            beginAtZero: true,
+            beginAtZero: false,
             title: {
               display: true,
               text: 'GDP Value'
@@ -551,14 +551,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/personalInc
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Income'
@@ -621,14 +621,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/savingRate_
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Rate (%)'
@@ -691,14 +691,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/companiesDE
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Debt (in billions or your unit)'
@@ -761,14 +761,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/CC30daysPas
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Past Due Rate (%)'
@@ -831,14 +831,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/housingInve
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Inventory Count'
@@ -901,14 +901,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homeSales_d
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Number of Sales'
@@ -971,14 +971,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgage30y
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Rate (%)'
@@ -1041,14 +1041,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgageDel
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Mortgage Delinquency Rate (%)'
@@ -1099,14 +1099,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIn
             options: {
                 scales: {
                     x: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'Date'
                         }
                     },
                     y: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                         title: {
                             display: true,
                             text: 'House Price Index'
