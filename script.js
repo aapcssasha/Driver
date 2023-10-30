@@ -514,3 +514,143 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/gdpHistory_
   .catch((error) => {
     console.error("Error fetching GDP data:", error);
   });
+
+  // Array to store the fetched data
+let personalIncomeDates = [];
+let personalIncomeValues = [];
+
+// Fetch the Personal Income data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/personalIncome_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, value] = line.split(",");  // Assuming data is comma-separated
+            personalIncomeDates.push(date);
+            personalIncomeValues.push(parseFloat(value));
+        });
+
+        const personalIncomeCtx = document.getElementById("personalIncome").getContext("2d");
+
+        // Create the chart for Personal Income
+        new Chart(personalIncomeCtx, {
+            type: "line",
+            data: {
+                labels: personalIncomeDates,
+                datasets: [{
+                    label: "Personal Income",
+                    data: personalIncomeValues,
+                    borderColor: "rgba(54, 162, 235, 1)",
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Income'
+                        }
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'  // Enables panning in both x and y axes
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',  // Enables zooming in both x and y axes
+                            speed: 0.1  // Adjust if needed
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Personal Income data:", error);
+    });
+
+    // Arrays to store the fetched data
+let savingRateDates = [];
+let savingRateValues = [];
+
+// Fetch the Personal Saving Rate data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/savingRate_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, value] = line.split(",");  // Assuming data is comma-separated
+            savingRateDates.push(date);
+            savingRateValues.push(parseFloat(value));
+        });
+
+        const savingRateCtx = document.getElementById("savingRate").getContext("2d");
+
+        // Create the chart for Personal Saving Rate
+        new Chart(savingRateCtx, {
+            type: "line",
+            data: {
+                labels: savingRateDates,
+                datasets: [{
+                    label: "Personal Saving Rate",
+                    data: savingRateValues,
+                    borderColor: "rgba(255, 159, 64, 1)",
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Rate (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'  // Enables panning in both x and y axes
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',  // Enables zooming in both x and y axes
+                            speed: 0.1  // Adjust if needed
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Personal Saving Rate data:", error);
+    });
