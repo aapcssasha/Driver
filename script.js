@@ -654,3 +654,468 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/savingRate_
     .catch(error => {
         console.error("Error fetching Personal Saving Rate data:", error);
     });
+
+    // Arrays to store the fetched data
+let companiesDebtDates = [];
+let companiesDebtValues = [];
+
+// Fetch the Companies Debt data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/companiesDEBT_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, value] = line.split(",");  // Assuming data is comma-separated
+            companiesDebtDates.push(date);
+            companiesDebtValues.push(parseFloat(value));
+        });
+
+        const companiesDebtCtx = document.getElementById("companiesDebt").getContext("2d");
+
+        // Create the chart for Companies Debt
+        new Chart(companiesDebtCtx, {
+            type: "line",
+            data: {
+                labels: companiesDebtDates,
+                datasets: [{
+                    label: "Companies Debt",
+                    data: companiesDebtValues,
+                    borderColor: "rgba(255, 206, 86, 1)",
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Debt (in billions or your unit)'
+                        }
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'  // Enables panning in both x and y axes
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',  // Enables zooming in both x and y axes
+                            speed: 0.1  // Adjust if needed
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Companies Debt data:", error);
+    });
+
+    // Arrays to store the fetched data
+let CC30daysPastdueDates = [];
+let CC30daysPastdueRates = [];
+
+// Fetch the CC 30 Days Past Due data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/CC30daysPastdue_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, rate] = line.split(",");  // Assuming data is comma-separated
+            CC30daysPastdueDates.push(date);
+            CC30daysPastdueRates.push(parseFloat(rate));
+        });
+
+        const CC30daysPastdueCtx = document.getElementById("CC30daysPastdue").getContext("2d");
+
+        // Create the chart for CC 30 Days Past Due
+        new Chart(CC30daysPastdueCtx, {
+            type: "line",
+            data: {
+                labels: CC30daysPastdueDates,
+                datasets: [{
+                    label: "Credit Card Balances: 30+ Days Past Due Rates",
+                    data: CC30daysPastdueRates,
+                    borderColor: "rgba(255, 159, 64, 1)",
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Past Due Rate (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'  // Enables panning in both x and y axes
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',  // Enables zooming in both x and y axes
+                            speed: 0.1  // Adjust if needed
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Credit Card Balances: 30 or More Days Past Due Rates data:", error);
+    });
+
+    // Arrays to store the fetched data
+let housingInventoryDates = [];
+let housingInventoryValues = [];
+
+// Fetch the Housing Inventory data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/housingInventory_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, value] = line.split(",");  // Assuming data is comma-separated
+            housingInventoryDates.push(date);
+            housingInventoryValues.push(parseFloat(value));
+        });
+
+        const housingInventoryCtx = document.getElementById("housingInventory").getContext("2d");
+
+        // Create the chart for Housing Inventory
+        new Chart(housingInventoryCtx, {
+            type: "line",
+            data: {
+                labels: housingInventoryDates,
+                datasets: [{
+                    label: "Housing Inventory",
+                    data: housingInventoryValues,
+                    borderColor: "rgba(153, 102, 255, 1)",
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Inventory Count'
+                        }
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'  // Enables panning in both x and y axes
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',  // Enables zooming in both x and y axes
+                            speed: 0.1  // Adjust if needed
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Housing Inventory data:", error);
+    });
+
+    // Arrays to store the fetched data
+let homeSalesDates = [];
+let homeSalesValues = [];
+
+// Fetch the Home Sales data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homeSales_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, value] = line.split(",");  // Assuming data is comma-separated
+            homeSalesDates.push(date);
+            homeSalesValues.push(parseFloat(value));
+        });
+
+        const homeSalesCtx = document.getElementById("homeSales").getContext("2d");
+
+        // Create the chart for Home Sales
+        new Chart(homeSalesCtx, {
+            type: "line",
+            data: {
+                labels: homeSalesDates,
+                datasets: [{
+                    label: "Home Sales",
+                    data: homeSalesValues,
+                    borderColor: "rgba(255, 159, 64, 1)",
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Sales'
+                        }
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'  // Enables panning in both x and y axes
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',  // Enables zooming in both x and y axes
+                            speed: 0.1  // Adjust if needed
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Home Sales data:", error);
+    });
+
+    // Arrays to hold the fetched data
+let mortgage30yearsDates = [];
+let mortgage30yearsValues = [];
+
+// Fetch the 30 years Mortgage Rate data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgage30yearsRate_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, value] = line.split(",");  // Assuming data is comma-separated
+            mortgage30yearsDates.push(date);
+            mortgage30yearsValues.push(parseFloat(value));
+        });
+
+        const mortgage30yearsCtx = document.getElementById("mortgage30yearsRate").getContext("2d");
+
+        // Create the chart for 30 years Mortgage Rate
+        new Chart(mortgage30yearsCtx, {
+            type: "line",
+            data: {
+                labels: mortgage30yearsDates,
+                datasets: [{
+                    label: "30 years Mortgage Rate",
+                    data: mortgage30yearsValues,
+                    borderColor: "rgba(54, 162, 235, 1)",
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Rate (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'  // Enables panning in both x and y axes
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',  // Enables zooming in both x and y axes
+                            speed: 0.1  // Adjust if needed
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching 30 years Mortgage Rate data:", error);
+    });
+
+// Arrays to store the data from the CSV
+let mortgageDelinquencyDates = [];
+let mortgageDelinquencyRates = [];
+
+// Fetching the Mortgage Delinquency Rate data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgageDelinquencyRate_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, rate] = line.split(",");  // Assuming the data is comma-separated
+            mortgageDelinquencyDates.push(date);
+            mortgageDelinquencyRates.push(parseFloat(rate));
+        });
+
+        const mortgageDelinquencyCtx = document.getElementById("mortgageDelinquencyRate").getContext("2d");
+
+        // Creating the chart for Mortgage Delinquency Rate
+        new Chart(mortgageDelinquencyCtx, {
+            type: "line",
+            data: {
+                labels: mortgageDelinquencyDates,
+                datasets: [{
+                    label: "Mortgage Delinquency Rate (%)",
+                    data: mortgageDelinquencyRates,
+                    borderColor: "rgba(255, 99, 132, 1)",  // Color of the line
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Mortgage Delinquency Rate (%)'
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Mortgage Delinquency Rate data:", error);
+    });
+
+
+// Arrays to store the data from the CSV
+let homePriceIndexDates = [];
+let homePriceIndices = [];
+
+// Fetching the House Price Index data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIndex_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, index] = line.split(",");  // Assuming the data is comma-separated
+            homePriceIndexDates.push(date);
+            homePriceIndices.push(parseFloat(index));
+        });
+
+        const homePriceIndexCtx = document.getElementById("homePriceIndex").getContext("2d");
+
+        // Creating the chart for House Price Index
+        new Chart(homePriceIndexCtx, {
+            type: "line",
+            data: {
+                labels: homePriceIndexDates,
+                datasets: [{
+                    label: "House Price Index",
+                    data: homePriceIndices,
+                    borderColor: "rgba(54, 162, 235, 1)",  // Color of the line
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'House Price Index'
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching House Price Index data:", error);
+    });
