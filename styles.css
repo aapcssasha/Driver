@@ -64,9 +64,7 @@ header {
   list-style-type: none;
   padding: 0;
 }
-#scoreImage {
-  margin-top: 50px;  /* Adjust this value as you see fit */
-}
+
 #VIX {
   background-color: #f1efef;
   height: 420px;
@@ -234,19 +232,32 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* three columns of equal width */
-  grid-template-rows: repeat(2, auto); /* two rows of auto height */
+  grid-template-columns: repeat(2, 1fr);
+  width: auto;
+  grid-template-rows: repeat(2, auto);
   background-color: #f1efef;
+  gap: 10px;  /* You can adjust this if you want spacing between the items */
 }
+
 
 /* Individual Boxes */
 .sixIndicator > div {
   box-sizing: border-box;
   padding: 1rem; /* some inner spacing */
+  max-width: 95%;
+
 }
 
 
 #spy_chart_div {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+
+@media screen and (max-width: 780px) {
+  .sixIndicator {
+    grid-template-columns: 1fr;  /* Just a single column */
+    grid-template-rows: auto;  /* Rows will adjust automatically */
+  }
 }

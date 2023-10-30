@@ -329,7 +329,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
                 enabled: true,
                 content: unemploymentCloses[Math.floor(unemploymentCloses.length / 2)].toString(),
                 position: 'start',
-                xAdjust: 0,
+                
                 yAdjust: 10, // you can adjust this as needed
                 backgroundColor: 'rgba(0,0,0,0.3)'
               }
