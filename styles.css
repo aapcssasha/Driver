@@ -366,3 +366,55 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+.menu-icon {
+  display: none; /* Hide by default for larger screens. Adjust with media query later */
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.bar {
+  background-color: #333;
+  height: 4px;
+  margin-bottom: 5px;
+  transition: 0.4s;
+}
+
+.menu-content {
+  display: flex;
+}
+
+@media (max-width: 768px) { /* Adjust as needed */
+  .menu-icon {
+    display: block;
+  }
+  
+  .menu-content {
+    display: none; /* Hide buttons on small screens */
+    position: absolute;
+    top: 100%; /* Below header */
+    background-color: #eee;
+    border: 1px solid #ccc;
+    width: 100%; /* Take full width of screen */
+    flex-direction: column; /* Make buttons stack vertically */
+  }
+
+  .menu-content button {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+
+  .menu-content button:first-child {
+    border-top: none;
+  }
+}
+
+.bar {
+  background-color: #ffffff; /* Changing this to white */
+  height: 4px;
+  margin-bottom: 5px;
+  transition: 0.4s;
+}

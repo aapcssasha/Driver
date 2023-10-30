@@ -1122,3 +1122,13 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIn
     function showComingSoon() {
       alert("Coming soon!");
   }
+
+  function toggleMenu() {
+    const menuContent = document.querySelector('.menu-content');
+    if (menuContent.style.display === 'none' || menuContent.style.display === '') {
+      menuContent.style.display = 'flex';
+    } else {
+      menuContent.style.display = 'none';
+    }
+  }
+  
