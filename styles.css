@@ -57,7 +57,7 @@ header {
   margin-top: 20px;
   margin-bottom: 20px; /* adjust as needed */
   text-align: center;
-  background-color: lightblue;
+  background-color: #f1efef;
 }
 
 #VIX ul,
@@ -87,9 +87,9 @@ header {
 
 #whatnow {
   text-align: center;
-  background-color: #f1efef;
+  background-color: white;
   size: 0cap;
-  
+  margin-top: 5%;
 }
 #feargreed {
   text-align: center;
@@ -98,6 +98,7 @@ header {
   padding-left: 5%;
   padding-right: 5%;
   height: 400px;
+  background-color: white;
 }
 
 .bought {
@@ -150,8 +151,6 @@ body.articles-body .Article-time {
 }
 img {
   object-fit: cover;
-  height: 100%;
-  width: 100%;
 }
 
 @media screen and (max-width: 780px) {
@@ -272,6 +271,7 @@ body {
 }
 #VIX {
   height: 400px;
+  background-color: white;
 }
 
 .container > div {

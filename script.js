@@ -209,16 +209,16 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
         },
         plugins: {
           zoom: {
-            pan: {
-              enabled: true,
-              mode: 'xy'  // Enables panning in both x and y axes
+            wheel: {
+              enabled: true, // Mouse wheel zooming
             },
-            zoom: {
-              enabled: true,
-              mode: 'xy',  // Enables zooming in both x and y axes
-              speed: 0.1  // Adjust if needed
-            }
+            drag: {
+              enabled: true, // Drag to zoom
+            },
+            mode: 'xy',  
+            speed: 0.1 
           },
+          
           annotations: {
             annotations: [{
               type: 'point',
@@ -307,16 +307,16 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
         },
         plugins: {
           zoom: {
-            pan: {
-              enabled: true,
-              mode: 'xy'  // Enables panning in both x and y axes
+            wheel: {
+              enabled: true, // Mouse wheel zooming
             },
-            zoom: {
-              enabled: true,
-              mode: 'xy',  // Enables zooming in both x and y axes
-              speed: 0.1  // Adjust if needed
-            }
+            drag: {
+              enabled: true, // Drag to zoom
+            },
+            mode: 'xy',  
+            speed: 0.1 
           },
+          
           annotations: {
             annotations: [{
               type: 'point',
@@ -567,17 +567,16 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/personalInc
                     }
                 },
                 plugins: {
-                    zoom: {
-                        pan: {
-                            enabled: true,
-                            mode: 'xy'  // Enables panning in both x and y axes
-                        },
-                        zoom: {
-                            enabled: true,
-                            mode: 'xy',  // Enables zooming in both x and y axes
-                            speed: 0.1  // Adjust if needed
-                        }
-                    }
+                  zoom: {
+                    wheel: {
+                      enabled: true, // Mouse wheel zooming
+                    },
+                    drag: {
+                      enabled: true, // Drag to zoom
+                    },
+                    mode: 'xy',  
+                    speed: 0.1 
+                  }                  
                 }
             }
         });
@@ -637,17 +636,16 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/savingRate_
                     }
                 },
                 plugins: {
-                    zoom: {
-                        pan: {
-                            enabled: true,
-                            mode: 'xy'  // Enables panning in both x and y axes
-                        },
-                        zoom: {
-                            enabled: true,
-                            mode: 'xy',  // Enables zooming in both x and y axes
-                            speed: 0.1  // Adjust if needed
-                        }
-                    }
+                  zoom: {
+                    wheel: {
+                      enabled: true, // Mouse wheel zooming
+                    },
+                    drag: {
+                      enabled: true, // Drag to zoom
+                    },
+                    mode: 'xy',  
+                    speed: 0.1 
+                  }                  
                 }
             }
         });
@@ -707,17 +705,17 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/companiesDE
                     }
                 },
                 plugins: {
-                    zoom: {
-                        pan: {
-                            enabled: true,
-                            mode: 'xy'  // Enables panning in both x and y axes
-                        },
-                        zoom: {
-                            enabled: true,
-                            mode: 'xy',  // Enables zooming in both x and y axes
-                            speed: 0.1  // Adjust if needed
-                        }
-                    }
+                  zoom: {
+                    wheel: {
+                      enabled: true, // Mouse wheel zooming
+                    },
+                    drag: {
+                      enabled: true, // Drag to zoom
+                    },
+                    mode: 'xy',  
+                    speed: 0.1 
+                  }
+                  
                 }
             }
         });
@@ -777,17 +775,17 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/CC30daysPas
                     }
                 },
                 plugins: {
-                    zoom: {
-                        pan: {
-                            enabled: true,
-                            mode: 'xy'  // Enables panning in both x and y axes
-                        },
-                        zoom: {
-                            enabled: true,
-                            mode: 'xy',  // Enables zooming in both x and y axes
-                            speed: 0.1  // Adjust if needed
-                        }
-                    }
+                  zoom: {
+                    wheel: {
+                      enabled: true, // Mouse wheel zooming
+                    },
+                    drag: {
+                      enabled: true, // Drag to zoom
+                    },
+                    mode: 'xy',  
+                    speed: 0.1 
+                  }
+                  
                 }
             }
         });
@@ -847,17 +845,17 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/housingInve
                     }
                 },
                 plugins: {
-                    zoom: {
-                        pan: {
-                            enabled: true,
-                            mode: 'xy'  // Enables panning in both x and y axes
-                        },
-                        zoom: {
-                            enabled: true,
-                            mode: 'xy',  // Enables zooming in both x and y axes
-                            speed: 0.1  // Adjust if needed
-                        }
-                    }
+                  zoom: {
+                    wheel: {
+                      enabled: true, // Mouse wheel zooming
+                    },
+                    drag: {
+                      enabled: true, // Drag to zoom
+                    },
+                    mode: 'xy',  
+                    speed: 0.1 
+                  }
+                  
                 }
             }
         });
@@ -917,17 +915,17 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homeSales_d
                     }
                 },
                 plugins: {
-                    zoom: {
-                        pan: {
-                            enabled: true,
-                            mode: 'xy'  // Enables panning in both x and y axes
-                        },
-                        zoom: {
-                            enabled: true,
-                            mode: 'xy',  // Enables zooming in both x and y axes
-                            speed: 0.1  // Adjust if needed
-                        }
-                    }
+                  zoom: {
+                    wheel: {
+                      enabled: true, // Mouse wheel zooming
+                    },
+                    drag: {
+                      enabled: true, // Drag to zoom
+                    },
+                    mode: 'xy',  
+                    speed: 0.1 
+                  }
+                  
                 }
             }
         });
@@ -987,17 +985,17 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgage30y
                     }
                 },
                 plugins: {
-                    zoom: {
-                        pan: {
-                            enabled: true,
-                            mode: 'xy'  // Enables panning in both x and y axes
-                        },
-                        zoom: {
-                            enabled: true,
-                            mode: 'xy',  // Enables zooming in both x and y axes
-                            speed: 0.1  // Adjust if needed
-                        }
-                    }
+                  zoom: {
+                    wheel: {
+                      enabled: true, // Mouse wheel zooming
+                    },
+                    drag: {
+                      enabled: true, // Drag to zoom
+                    },
+                    mode: 'xy',  
+                    speed: 0.1 
+                  }
+                  
                 }
             }
         });
