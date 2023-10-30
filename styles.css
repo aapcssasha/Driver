@@ -258,17 +258,26 @@ body {
 
 @media screen and (max-width: 780px) {
   .sixIndicator {
-    grid-template-columns: 1fr;  /* Just a single column */
-    grid-template-rows: auto;  /* Rows will adjust automatically */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
-#VIX {
-  
-  height: 690px;
-  margin-left: 3%;
-  margin-right: 3%;
+  #VIX {
+    height: 690px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  /* Increasing specificity by adding parent class */
+  .Botonos .login-button,
+  .Botonos .register-button,
+  .Botonos .contact-button {
+    width: 40%;
+    margin-bottom: 10px;
+    font-size: 9px;
+  }
 }
-}
+
 #VIX {
   height: 400px;
   background-color: white;
