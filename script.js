@@ -190,6 +190,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
         }],
       },
       options: {
+        aspectRatio: 1.2 ,
         scales: {
           x: {
             beginAtZero: false,

@@ -36,8 +36,8 @@ header {
   flex: 1 0 auto;
   grid-template-columns: 1fr 0.5fr 1fr;
   margin: 0;
-  background-color: #f1efef;
 }
+
 
 #VIX,
 #whatnow,
@@ -46,14 +46,15 @@ header {
   padding-left: 20px;
   padding-right: 20px; /* adjust as needed */
   min-width: 0;
+  height: 400px;
 }
 
 #VIX h2,
 #whatnow h2,
 #feargreed h2 {
   font-size: 24px; /* adjust as needed */
-  margin-top: 0px;
-  margin-bottom: 0px; /* adjust as needed */
+  margin-top: 20px;
+  margin-bottom: 20px; /* adjust as needed */
   text-align: center;
   background-color: lightblue;
 }
@@ -201,20 +202,9 @@ header {
 footer {
   background: linear-gradient(45deg, rgb(126, 131, 143), rgb(36, 49, 79));
 }
-.botones button {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.botones button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
 
-#whatnow,
-#feargreed,
-.botones button {
-  border-radius: 8px;
-}
+
+
 body {
   overflow-x: hidden;
 }
@@ -223,8 +213,8 @@ body {
 }
 #whatnow img {
   height: auto; /* maintains the aspect ratio */
-  display: block; /* removes any default spacing around the image */
   margin: 0 auto; /* centers the image horizontally if the container is wider */
+
 }
 
 /* Six Indicators Container */
@@ -260,4 +250,14 @@ body {
     grid-template-columns: 1fr;  /* Just a single column */
     grid-template-rows: auto;  /* Rows will adjust automatically */
   }
+
+#VIX {
+  
+  height: 690px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+}
+#VIX {
+  height: 400px;
 }
