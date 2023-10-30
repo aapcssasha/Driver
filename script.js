@@ -457,3 +457,60 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/stickyCPI_d
   .catch((error) => {
     console.error("Error fetching Sticky CPI data:", error);
   });
+
+  // Arrays to hold the GDP data
+let gdpDates = [];
+let gdpValues = [];
+
+// Fetch the GDP data from the data folder
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/gdpHistory_data.csv")
+  .then((response) => response.text())
+  .then((data) => {
+    const lines = data.trim().split("\n");
+    lines.shift(); // remove the header
+
+    lines.forEach((line) => {
+      const [date, value] = line.split(",");  // Assuming data is comma-separated
+      gdpDates.push(date);
+      gdpValues.push(parseFloat(value));
+    });
+
+    const gdpCtx = document.getElementById("gdpHistory").getContext("2d");
+    
+    // Create the chart for GDP
+    const gdpChart = new Chart(gdpCtx, {
+      type: "line",
+      data: {
+        labels: gdpDates,
+        datasets: [{
+          label: "GDP History",
+          data: gdpValues,
+          borderColor: "rgba(255, 159, 64, 1)",  // A shade of orange, for that GDP glow!
+          borderWidth: 1,
+          pointRadius: 0,   // This removes the data points
+          lineTension: 0.2  // This makes the line smoother
+        }],
+      },
+      options: {
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'GDP Value'
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching GDP data:", error);
+  });
