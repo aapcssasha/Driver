@@ -36,6 +36,7 @@ header {
   flex: 1 0 auto;
   grid-template-columns: 1fr 0.5fr 1fr;
   margin: 0;
+  background-color: #f1efef;
 }
 
 
@@ -235,6 +236,9 @@ body {
   box-sizing: border-box;
   padding: 1rem; /* some inner spacing */
   max-width: 95%;
+  background-color: white;
+  border-radius: 10px;
+  margin: 2%;
 
 }
 
@@ -243,7 +247,15 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 }
+.ecnomoicScore{
+  background-color: #f1efef;
+}
 
+#myChart{
+  background-color: white;
+  border-radius: 10px;
+  margin: 2%;
+}
 
 @media screen and (max-width: 780px) {
   .sixIndicator {
@@ -260,4 +272,9 @@ body {
 }
 #VIX {
   height: 400px;
+}
+
+.container > div {
+  margin: 2%;
+  border-radius: 10px;
 }
