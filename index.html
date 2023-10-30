@@ -39,6 +39,11 @@
       <div id="spy_chart_div">
         <canvas id="yourCanvasId"></canvas>
       </div>
+      <div class="Botonos">
+        <button class="login-button" onclick="showComingSoon()">Login</button>
+        <button class="register-button" onclick="showComingSoon()">Register</button>
+        <button class="contact-button" onclick="showEmail()">Contact Me</button>
+      </div>
     </header>
     <div class="ecnomoicScore">
       <canvas id="myChart" width="400" height="200"></canvas>
@@ -62,8 +67,8 @@
     </div>
     <div class="sixIndicator">
       <div class="uno">
-          <h2>Unemployment Rate</h2>
-          <canvas id="unemploymentRatechart"></canvas>
+        <h2>Unemployment Rate</h2>
+        <canvas id="unemploymentRatechart"></canvas>
       </div>
       <div>
         <h2>Sticky CPI</h2>
@@ -74,8 +79,8 @@
         <canvas id="gdpHistory"></canvas>
       </div>
       <div>
-          <h2>Delinquency Rate on Credit Card</h2>
-          <canvas id="delinquencyCreditCards"></canvas>
+        <h2>Delinquency Rate on Credit Card</h2>
+        <canvas id="delinquencyCreditCards"></canvas>
       </div>
       <div>
         <h2>Personal Income</h2>
@@ -94,8 +99,8 @@
         <canvas id="companiesDebt"></canvas>
       </div>
       <div>
-          <h2>Housing Inventory</h2>
-          <canvas id="housingInventory"></canvas>
+        <h2>Housing Inventory</h2>
+        <canvas id="housingInventory"></canvas>
       </div>
       <div>
         <h2>Home Sales</h2>
@@ -113,8 +118,7 @@
         <h2>House Price Index</h2>
         <canvas id="homePriceIndex"></canvas>
       </div>
-  </div>
-  
+    </div>
 
     <footer>
       <p>Investor Roadtrip</p>
@@ -142,6 +146,12 @@
 
         setImage(currentDate);
       });
+    </script>
+    <script>
+      function showEmail() {
+        alert("You can reach me at: t6983737@gmail.com");
+        // Alternatively, you can replace the alert with any other functionality you'd like.
+      }
     </script>
   </body>
 </html>

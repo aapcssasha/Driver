@@ -1118,3 +1118,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIn
     .catch(error => {
         console.error("Error fetching House Price Index data:", error);
     });
+
+    function showComingSoon() {
+      alert("Coming soon!");
+  }

@@ -278,3 +278,62 @@ body {
   margin: 2%;
   border-radius: 10px;
 }
+
+.contact-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 5%;
+}
+
+.contact-button:hover {
+  background-color: #2980b9;
+}
+.register-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #2980b9;
+}
+.login-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #2980b9;
+}
+
+.Botonos {
+  display: flex;
+  justify-content: space-between;  /* Distributes the space equally between buttons */
+  align-items: right;
+  width: 900%;  /* Assuming you want them to span the entire width of the parent. Adjust if needed. */
+  max-width: 400px;  /* You can adjust this to your liking */
+  /* Centers the container if parent is wider than max-width */
+}
+
+/* Common button styling */
+.Botonos button {
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
