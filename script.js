@@ -399,3 +399,61 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/delinquency
   .catch((error) => {
     console.error("Error fetching Delinquency Rate data:", error);
   });
+
+  // CPI
+  // Arrays to hold the Sticky CPI data
+let stickyCPIDates = [];
+let stickyCPIValues = [];
+
+// Fetch the Sticky CPI data from the data folder
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/stickyCPI_data.csv")
+  .then((response) => response.text())
+  .then((data) => {
+    const lines = data.trim().split("\n");
+    lines.shift(); // remove the header
+
+    lines.forEach((line) => {
+      const [date, value] = line.split(",");  // Assuming data is comma-separated
+      stickyCPIDates.push(date);
+      stickyCPIValues.push(parseFloat(value));
+    });
+
+    const stickyCPICtx = document.getElementById("stickyCPI").getContext("2d");
+    
+    // Create the chart for Sticky CPI
+    const stickyCPIChart = new Chart(stickyCPICtx, {
+      type: "line",
+      data: {
+        labels: stickyCPIDates,
+        datasets: [{
+          label: "Sticky CPI",
+          data: stickyCPIValues,
+          borderColor: "rgba(54, 162, 235, 1)",  // A shade of blue, change if you wish
+          borderWidth: 1,
+          pointRadius: 0,   // This removes the data points
+          lineTension: 0.2  // This makes the line smoother
+        }],
+      },
+      options: {
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Date'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Sticky CPI Value'
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching Sticky CPI data:", error);
+  });
