@@ -163,6 +163,10 @@ img {
     display: grid;
     grid-template-columns: 1fr;
   }
+  .sixIndicator {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 
   body.articles-body article {
     padding-left: 3%;
@@ -182,7 +186,12 @@ img {
   header .Botonos {
     flex-direction: column;  
     align-items: center;    
-    gap: 10px;              
+    gap: 10px;        
+  }
+  #VIX {
+    height: 690px;
+    margin-left: 3%;
+    margin-right: 3%;
   }
 
   header .Botonos .login-button,
@@ -195,6 +204,31 @@ img {
     margin-left: 30%;
     height: 40px;
     font-size: 11px;
+    background-color: red;
+  }
+  .menu-icon {
+    display: block;
+    margin-right: 5%;
+  }
+  
+  .menu-content {
+    display: none; /* Hide buttons on small  */
+    position: absolute;
+    top: 100%; /* Below header */
+    background-color: #eee;
+    border: 1px solid #ccc;
+    width: 100%; /* Take full width of  */
+    flex-direction: column; /* Make buttons stack vertically */
+  }
+
+  .menu-content button {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+
+  .menu-content button:first-child {
+    border-top: none;
   }
 }
 
@@ -284,20 +318,6 @@ body {
   margin: 2%;
 }
 
-@media screen and (max-width: 780px) {
-  .sixIndicator {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-
-  #VIX {
-    height: 690px;
-    margin-left: 3%;
-    margin-right: 3%;
-  }
-}
-
-
 #VIX {
   height: 400px;
   background-color: white;
@@ -318,6 +338,7 @@ body {
   margin-right: 5%;
   background-color: rgb(86, 105, 152);
 }
+
 
 .contact-button:hover {
   background-color: #2d2677;
@@ -368,7 +389,7 @@ body {
 }
 
 .menu-icon {
-  display: none; /* Hide by default for larger screens. Adjust with media query later */
+  display: none; /* Hide by default for larger . Adjust with  query later */
   width: 30px;
   height: 20px;
   position: relative;
@@ -393,12 +414,12 @@ body {
   }
   
   .menu-content {
-    display: none; /* Hide buttons on small screens */
+    display: none; /* Hide buttons on small  */
     position: absolute;
     top: 100%; /* Below header */
     background-color: #eee;
     border: 1px solid #ccc;
-    width: 100%; /* Take full width of screen */
+    width: 100%; /* Take full width of  */
     flex-direction: column; /* Make buttons stack vertically */
   }
 
