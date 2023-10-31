@@ -310,43 +310,43 @@ body {
 
 .contact-button {
   padding: 10px 20px;
-  background-color: #3498db;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 5%;
+  background-color: rgb(86, 105, 152);
 }
 
 .contact-button:hover {
-  background-color: #2980b9;
+  background-color: #2d2677;
 }
 .register-button {
   padding: 10px 20px;
-  background-color: #3498db;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: rgb(86, 105, 152);
 }
 
 .register-button:hover {
-  background-color: #2980b9;
+  background-color: #2d2677;
 }
 .login-button {
   padding: 10px 20px;
-  background-color: #3498db;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: rgb(86, 105, 152);
 }
 
 .login-button:hover {
-  background-color: #2980b9;
+  background-color: #2d2677;
 }
 
 .Botonos {
@@ -389,6 +389,7 @@ body {
 @media (max-width: 768px) { /* Adjust as needed */
   .menu-icon {
     display: block;
+    margin-right: 5%;
   }
   
   .menu-content {
