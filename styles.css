@@ -164,8 +164,14 @@ img {
     grid-template-columns: 1fr;
   }
   .sixIndicator {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: auto;
+  grid-template-rows: repeat(2, auto);
+  background-color: #f1efef;
+  gap: 10px;  
   }
 
   body.articles-body article {
@@ -284,7 +290,7 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: auto;
   grid-template-rows: repeat(2, auto);
   background-color: #f1efef;
