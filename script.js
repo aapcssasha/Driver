@@ -333,7 +333,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
                 borderWidth: 1,
                 label: {
                   enabled: true,
-                  content: `Date: ${unemploymentDates[unemploymentDates.length - 1]}, Rate: ${unemploymentCloses[unemploymentCloses.length - 1].toFixed(2)}%`,  // Displays both last date and value
+                  content: `Date: ${lastDate}, Rate: ${lastValue.toFixed(2)}%`,
                   position: 'start',
                   yAdjust: -10,  // Adjusts the label slightly above the point
                   backgroundColor: 'rgba(0, 102, 204, 0.3)'  // Again, color is up to you
