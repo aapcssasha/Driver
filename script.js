@@ -251,6 +251,8 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
 let unemploymentDates = [];
 let unemploymentCloses = [];
 
+
+
 // Declare the unemploymentChart variable outside the fetch block to access it globally
 let unemploymentChart;
 
@@ -268,6 +270,9 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
     });
 
     const unemploymentCtx = document.getElementById("unemploymentRatechart").getContext("2d");
+    const lastDate = unemploymentDates[unemploymentDates.length - 1];
+    const lastValue = unemploymentCloses[unemploymentCloses.length - 1];
+    console.log(lastDate, lastValue);
     
     // If unemploymentChart already exists, destroy it
     if (unemploymentChart) {
@@ -319,21 +324,20 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
           
           annotations: {
             annotations: [{
-              type: 'point',
-              xScaleID: 'x-axis-0',
-              yScaleID: 'y-axis-0',
-              xValue: unemploymentDates[Math.floor(unemploymentDates.length / 2)],
-              yValue: unemploymentCloses[Math.floor(unemploymentCloses.length / 2)],
-              borderColor: 'rgba(0,0,0,0.5)',
-              borderWidth: 1,
-              label: {
-                enabled: true,
-                content: unemploymentCloses[Math.floor(unemploymentCloses.length / 2)].toString(),
-                position: 'start',
-                
-                yAdjust: 10, // you can adjust this as needed
-                backgroundColor: 'rgba(0,0,0,0.3)'
-              }
+                type: 'point',
+                xScaleID: 'x-axis-0',
+                yScaleID: 'y-axis-0',
+                xValue: unemploymentDates[unemploymentDates.length - 1],  // Last date
+                yValue: unemploymentCloses[unemploymentCloses.length - 1],  // Last value
+                borderColor: 'rgba(0, 102, 204, 0.7)',  // You can change this color if you'd like
+                borderWidth: 1,
+                label: {
+                  enabled: true,
+                  content: `Date: ${unemploymentDates[unemploymentDates.length - 1]}, Rate: ${unemploymentCloses[unemploymentCloses.length - 1].toFixed(2)}%`,  // Displays both last date and value
+                  position: 'start',
+                  yAdjust: -10,  // Adjusts the label slightly above the point
+                  backgroundColor: 'rgba(0, 102, 204, 0.3)'  // Again, color is up to you
+                }
             }]
           }
         }
