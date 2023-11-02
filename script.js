@@ -334,15 +334,16 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
                 label: {
                   enabled: true,
                   content: `Date: ${lastDate}, Rate: ${lastValue.toFixed(2)}%`,
-                  position: 'start',
-                  yAdjust: -10,  // Adjusts the label slightly above the point
-                  backgroundColor: 'rgba(0, 102, 204, 0.3)'  // Again, color is up to you
+                  position: 'center',
+                  yAdjust: 0,  // Adjusts the label slightly above the point
+                  backgroundColor: 'rgba(0, 102, 204, 0.8)' 
                 }
             }]
           }
         }
       }
     });
+    unemploymentChart.update();
   })
   .catch((error) => {
     console.error("Error fetching Unemployment data:", error);
