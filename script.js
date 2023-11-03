@@ -9,6 +9,7 @@ Chart.register({
   dateAdapter: moment,
 });
 
+
 // Prepare empty arrays to store data
 let spyDates = [];
 let spyCloses = [];
@@ -65,12 +66,26 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
             label: "Economic Scores",
             data: econScores,
             borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 1,
+            borderWidth: 2,
             yAxisID: "y1",
           },
         ],
       },
       options: {
+        annotation: {
+          annotations: [{
+            type: 'box',
+            xScaleID: 'x',
+            yScaleID: 'y1',   // Adjust this if 'y' isn't the ID for Economic Scores
+            xMin: econDates[0], // start from the first date in your data
+            xMax: econDates[econDates.length - 1], // end on the last date
+            yMin: 5.25,
+            yMax: 5.3,
+            borderColor: 'rgba(0, 255, 0, 1)',
+            borderWidth: 2,
+            backgroundColor: 'rgba(0, 255, 0, 0.1)'
+        }]
+    },
         layout: {
           padding: {
             left: 40,   // 10px padding on the left
