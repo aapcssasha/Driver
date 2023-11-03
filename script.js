@@ -79,8 +79,8 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
             yScaleID: 'y1',   // Adjust this if 'y' isn't the ID for Economic Scores
             xMin: econDates[0], // start from the first date in your data
             xMax: econDates[econDates.length - 1], // end on the last date
-            yMin: 5.25,
-            yMax: 5.3,
+            yMin: Math.min(...econScores),  // the smallest value in your Economic Scores data
+            yMax: Math.max(...econScores), 
             borderColor: 'rgba(0, 255, 0, 1)',
             borderWidth: 2,
             backgroundColor: 'rgba(0, 255, 0, 0.1)'
@@ -287,7 +287,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
     const unemploymentCtx = document.getElementById("unemploymentRatechart").getContext("2d");
     const lastDate = unemploymentDates[unemploymentDates.length - 1];
     const lastValue = unemploymentCloses[unemploymentCloses.length - 1];
-    console.log(lastDate, lastValue);
+
     
     // If unemploymentChart already exists, destroy it
     if (unemploymentChart) {

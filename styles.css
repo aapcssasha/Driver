@@ -446,3 +446,26 @@ body {
   margin-bottom: 5px;
   transition: 0.4s;
 }
+
+.ecnomoicScore,
+.sixIndicator {
+  padding-left: 9%;
+  padding-right: 9%;
+}
+.container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+@media screen and (max-width: 780px) {
+  .ecnomoicScore,
+.sixIndicator {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.container {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+}
