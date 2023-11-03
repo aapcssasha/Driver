@@ -327,16 +327,17 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymen
                 type: 'point',
                 xScaleID: 'x-axis-0',
                 yScaleID: 'y-axis-0',
-                xValue: unemploymentDates[unemploymentDates.length - 1],  // Last date
-                yValue: unemploymentCloses[unemploymentCloses.length - 1],  // Last value
+                xValue: lastDate,  // Last date
+                yValue: lastValue,  // Last value
                 borderColor: 'rgba(0, 102, 204, 0.7)',  // You can change this color if you'd like
                 borderWidth: 1,
                 label: {
                   enabled: true,
                   content: `Date: ${lastDate}, Rate: ${lastValue.toFixed(2)}%`,
-                  position: 'center',
-                  yAdjust: 0,  // Adjusts the label slightly above the point
-                  backgroundColor: 'rgba(0, 102, 204, 0.8)' 
+                  position: 'end',
+                  xAdjust: 10, 
+                  yAdjust: 4,  
+                  backgrounColor: 'rgba(0, 102, 204, 0.8)' 
                 }
             }]
           }
@@ -1123,6 +1124,63 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIn
     .catch(error => {
         console.error("Error fetching House Price Index data:", error);
     });
+      // vacant housing units
+      // Arrays to store the data from the CSV
+let vacantHousingUnitsDates = [];
+let vacantHousingUnitsValues = [];
+
+// Fetching the House Price Index data
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vacantHousingUnits_data.csv")
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.trim().split("\n");
+        lines.shift(); // remove the header
+
+        lines.forEach(line => {
+            const [date, index] = line.split(",");  // Assuming the data is comma-separated
+            vacantHousingUnitsDates.push(date);
+            vacantHousingUnitsValues.push(parseFloat(index));
+        });
+
+        const vacantHousingUnitsCtx = document.getElementById("vacantHousingUnits").getContext("2d");
+
+        // Creating the chart for House Price Index
+        new Chart(vacantHousingUnitsCtx, {
+            type: "line",
+            data: {
+                labels: vacantHousingUnitsDates,
+                datasets: [{
+                    label: "Vacant Housing Units",
+                    data: vacantHousingUnitsValues,
+                    borderColor: "rgba(54, 162, 235, 1)",  // Color of the line
+                    borderWidth: 1,
+                    pointRadius: 0,   // This removes the data points
+                    lineTension: 0.2  // This makes the line smoother
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Vacant Housing Units'
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching Vacant Housing Units data:", error);
+    });
 
     function showComingSoon() {
       alert("Coming soon!");
@@ -1136,4 +1194,6 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIn
       menuContent.style.display = 'none';
     }
   }
+  
+  // vacant housing units
   
