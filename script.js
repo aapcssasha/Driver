@@ -51,6 +51,8 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
         econScores.push(parseFloat(scoreText));
       }
     });
+    const minEconScore = Math.min(...econScores);
+    const maxEconScore = Math.max(...econScores);
 
     // Create Chart
     const ctx = document.getElementById("myChart").getContext("2d");
@@ -63,15 +65,17 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
             label: "SPY Close Prices",
             data: spyCloses,
             borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 1,
+            borderWidth: 2,
             yAxisID: "y",
+            order: 1,
           },
           {
             label: "Economic Scores",
             data: econScores,
             borderColor: "rgba(255, 99, 132, 1)",
-            borderWidth: 1,
+            borderWidth: 2,
             yAxisID: "y1",
+            order: 2,
           },
         ],
       },
@@ -91,6 +95,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
                 borderColor: "rgba(0, 255, 0, 0.1)",
                 borderWidth: 0.2,
                 backgroundColor: "rgba(0, 255, 0, 0.1)",
+                z: -1,
               },
               {
                 type: "box",
@@ -104,6 +109,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
                 borderColor: "rgba(0, 255, 0, 3)",
                 borderWidth: 0.2,
                 backgroundColor: "rgba(0, 255, 0, 0.3)",
+                z: -1,
               },
               {
                 type: "box",
@@ -117,6 +123,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
                 borderColor: "rgba(0, 255, 0, 5)",
                 borderWidth: 0.2,
                 backgroundColor: "rgba(0, 255, 0, 0.5)",
+                z: -1,
               },
               {
                 type: "box",
@@ -129,6 +136,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
                 borderColor: "rgba(0, 255, 0, 7)",
                 borderWidth: 0.2,
                 backgroundColor: "rgba(0, 255, 0, 0.7)",
+                z: -1,
               },
               {
                 type: "box",
@@ -211,6 +219,8 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
           y1: {
             type: "linear",
             position: "right",
+            min: minEconScore - (minEconScore*0.006), // set dynamically
+            max: maxEconScore + (maxEconScore*0.006), // set dynamically
             grid: {
               display: false // This hides all grid lines for the secondary y-axis
             },

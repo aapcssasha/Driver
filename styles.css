@@ -273,18 +273,17 @@ body {
 }
 
 
-#spy_chart_div {
-  padding-left: 10px;
-  padding-right: 10px;
-}
 .ecnomoicScore{
   background-color: #f1efef;
+  
 }
 
 #myChart{
   background-color: white;
   border-radius: 10px;
   margin: 2%;
+  
+  
 }
 
 #VIX {
