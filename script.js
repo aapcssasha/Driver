@@ -323,8 +323,8 @@ fetch(
         ],
       },
       options: {
+        aspectRatio: 0.9,
         
-        aspectRatio: 0.9 ,
         scales: {
           x: {
             beginAtZero: false,
@@ -1394,5 +1394,6 @@ function toggleMenu() {
   } else {
     menuContent.style.display = "none";
   }
-}
+};
+
 
