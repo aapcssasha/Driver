@@ -228,8 +228,9 @@ body {
 }
 
 #whatnow img {
-  height: auto; /* maintains the aspect ratio */
+  height: 300px; /* maintains the aspect ratio */
   margin: 0 auto; /* centers the image horizontally if the container is wider */
+
 }
 
 /* Six Indicators Container */
@@ -361,6 +362,13 @@ body {
   .menu-icon {
     display: block;
     margin-right: 5%;
+  }
+  #whatnow img {
+    height: 200px;
+  }
+  #feargreed img {
+    height: 200px;
+    width: auto;
   }
   
   .menu-content {
