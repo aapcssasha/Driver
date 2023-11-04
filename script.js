@@ -323,7 +323,8 @@ fetch(
         ],
       },
       options: {
-        // aspectRatio: 1.2 ,
+        
+        aspectRatio: 0.9 ,
         scales: {
           x: {
             beginAtZero: false,
@@ -1395,4 +1396,3 @@ function toggleMenu() {
   }
 }
 
-// vacant housing units
