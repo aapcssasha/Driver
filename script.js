@@ -307,6 +307,9 @@ fetch(
 
     // Now create the chart for VIX
     const vixCtx = document.getElementById("Vixchart").getContext("2d");
+    const lastVixDate = vixDates[vixDates.length - 1];
+    const lastVixClose = vixCloses[vixCloses.length - 1];
+    
     const vixChart = new Chart(vixCtx, {
       type: "line",
       data: {
@@ -319,12 +322,21 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: vixCloses.map((value, index) => {
+              return index === vixCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: vixCloses.map((value, index) => {
+              return index === vixCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: vixCloses.map((value, index) => {
+              return index === vixCloses.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
       options: {
-        aspectRatio: 0.9,
-        
+        aspectRatio: 2, // Change this to match your other charts' aspect ratio
         scales: {
           x: {
             beginAtZero: false,
@@ -341,41 +353,7 @@ fetch(
             },
           },
         },
-        plugins: {
-          zoom: {
-            wheel: {
-              enabled: true, // Mouse wheel zooming
-            },
-            drag: {
-              enabled: true, // Drag to zoom
-            },
-            mode: "xy",
-            speed: 0.1,
-          },
-
-          annotations: {
-            annotations: [
-              {
-                type: "point",
-                xScaleID: "x-axis-0",
-                yScaleID: "y-axis-0",
-                xValue: vixDates[Math.floor(vixDates.length / 2)],
-                yValue: vixCloses[Math.floor(vixCloses.length / 2)],
-                borderColor: "rgba(0,0,0,0.5)",
-                borderWidth: 1,
-                label: {
-                  enabled: true,
-                  content:
-                    vixCloses[Math.floor(vixCloses.length / 2)].toString(),
-                  position: "start",
-                  xAdjust: 0,
-                  yAdjust: 10, // you can adjust this as needed
-                  backgroundColor: "rgba(0,0,0,0.3)",
-                },
-              },
-            ],
-          },
-        },
+        // Add any other options here that are used in your other charts for consistency
       },
     });
   })
@@ -429,31 +407,37 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Add an annotation for the last data point
+            pointBackgroundColor: unemploymentCloses.map((value, index) => {
+              return index === unemploymentCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: unemploymentCloses.map((value, index) => {
+              return index === unemploymentCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: unemploymentCloses.map((value, index) => {
+              return index === unemploymentCloses.length - 1 ? 5 : 0;
+            })
           },
         ],
       },
       options: {
         plugins: {
           annotations: {
-            annotations: [
-              {
-                type: "point",
-                xScaleID: "x",
-                yScaleID: "y",
-                xValue: lastDate, // Replace with the actual last date from your data
+            annotations: {
+              lastValueAnnotation: {
+                type: 'label',
+                xValue: lastDate,
                 yValue: lastValue,
-                borderColor: "rgba(0, 102, 204, 0.7)", // You can change this color if you'd like
+                backgroundColor: 'rgba(0, 102, 204, 0.7)',
+                borderColor: 'rgba(0, 102, 204, 0.7)',
                 borderWidth: 1,
-                label: {
-                  enabled: true,
-                  content: `Date: ${lastDate}, Rate: ${lastValue.toFixed(2)}%`,
-                  position: "center",
-                  yAdjust: 4,
-                  backgrounColor: "rgba(0, 102, 204, 0.8)",
-                }
+                content: `Latest: ${lastValue.toFixed(2)}%`,
+                position: 'center',
+                xAdjust: 0,
+                yAdjust: -25,
               }
-            ]
-          },
+            }
+          }    
         },
         scales: {
           x: {
@@ -503,6 +487,9 @@ fetch(
       .getContext("2d");
 
     // Create the chart for delinquency rate on credit cards
+    const lastDelinquencyDate = delinquencyDates[delinquencyDates.length - 1];
+    const lastDelinquencyValue = delinquencyRates[delinquencyRates.length - 1];
+    
     const delinquencyChart = new Chart(delinquencyCtx, {
       type: "line",
       data: {
@@ -511,10 +498,20 @@ fetch(
           {
             label: "Delinquency Rate on Credit Card",
             data: delinquencyRates,
-            borderColor: "rgba(255, 159, 64, 1)", // Just a color suggestion, change as needed
+            borderColor: "rgba(255, 159, 64, 1)",
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: delinquencyRates.map((value, index) => {
+              return index === delinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: delinquencyRates.map((value, index) => {
+              return index === delinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: delinquencyRates.map((value, index) => {
+              return index === delinquencyRates.length - 1 ? 5 : 0;
+            })
           },
         ],
       },
@@ -565,6 +562,9 @@ fetch(
     const stickyCPICtx = document.getElementById("stickyCPI").getContext("2d");
 
     // Create the chart for Sticky CPI
+    const lastStickyCPIDate = stickyCPIDates[stickyCPIDates.length - 1];
+    const lastStickyCPIValue = stickyCPIValues[stickyCPIValues.length - 1];
+    
     const stickyCPIChart = new Chart(stickyCPICtx, {
       type: "line",
       data: {
@@ -573,10 +573,20 @@ fetch(
           {
             label: "Sticky CPI",
             data: stickyCPIValues,
-            borderColor: "rgba(54, 162, 235, 1)", // A shade of blue, change if you wish
+            borderColor: "rgba(54, 162, 235, 1)", // A shade of blue
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: stickyCPIValues.map((value, index) => {
+              return index === stickyCPIValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: stickyCPIValues.map((value, index) => {
+              return index === stickyCPIValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: stickyCPIValues.map((value, index) => {
+              return index === stickyCPIValues.length - 1 ? 5 : 0;
+            })
           },
         ],
       },
@@ -626,6 +636,9 @@ fetch(
     const gdpCtx = document.getElementById("gdpHistory").getContext("2d");
 
     // Create the chart for GDP
+    const lastGDPDate = gdpDates[gdpDates.length - 1];
+    const lastGDPValue = gdpValues[gdpValues.length - 1];
+    
     const gdpChart = new Chart(gdpCtx, {
       type: "line",
       data: {
@@ -638,6 +651,16 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: gdpValues.map((value, index) => {
+              return index === gdpValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: gdpValues.map((value, index) => {
+              return index === gdpValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: gdpValues.map((value, index) => {
+              return index === gdpValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -689,6 +712,9 @@ fetch(
       .getContext("2d");
 
     // Create the chart for Personal Income
+    const lastPersonalIncomeDate = personalIncomeDates[personalIncomeDates.length - 1];
+    const lastPersonalIncomeValue = personalIncomeValues[personalIncomeValues.length - 1];
+    
     new Chart(personalIncomeCtx, {
       type: "line",
       data: {
@@ -701,6 +727,16 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: personalIncomeValues.map((value, index) => {
+              return index === personalIncomeValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: personalIncomeValues.map((value, index) => {
+              return index === personalIncomeValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: personalIncomeValues.map((value, index) => {
+              return index === personalIncomeValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -764,6 +800,9 @@ fetch(
       .getContext("2d");
 
     // Create the chart for Personal Saving Rate
+    const lastSavingRateDate = savingRateDates[savingRateDates.length - 1];
+    const lastSavingRateValue = savingRateValues[savingRateValues.length - 1];
+    
     new Chart(savingRateCtx, {
       type: "line",
       data: {
@@ -776,6 +815,16 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: savingRateValues.map((value, index) => {
+              return index === savingRateValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: savingRateValues.map((value, index) => {
+              return index === savingRateValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: savingRateValues.map((value, index) => {
+              return index === savingRateValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -839,6 +888,9 @@ fetch(
       .getContext("2d");
 
     // Create the chart for Companies Debt
+    const lastCompaniesDebtDate = companiesDebtDates[companiesDebtDates.length - 1];
+    const lastCompaniesDebtValue = companiesDebtValues[companiesDebtValues.length - 1];
+    
     new Chart(companiesDebtCtx, {
       type: "line",
       data: {
@@ -851,6 +903,16 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: companiesDebtValues.map((value, index) => {
+              return index === companiesDebtValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: companiesDebtValues.map((value, index) => {
+              return index === companiesDebtValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: companiesDebtValues.map((value, index) => {
+              return index === companiesDebtValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -914,6 +976,9 @@ fetch(
       .getContext("2d");
 
     // Create the chart for CC 30 Days Past Due
+    const lastCC30daysPastdueDate = CC30daysPastdueDates[CC30daysPastdueDates.length - 1];
+    const lastCC30daysPastdueRate = CC30daysPastdueRates[CC30daysPastdueRates.length - 1];
+    
     new Chart(CC30daysPastdueCtx, {
       type: "line",
       data: {
@@ -926,6 +991,16 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: CC30daysPastdueRates.map((value, index) => {
+              return index === CC30daysPastdueRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: CC30daysPastdueRates.map((value, index) => {
+              return index === CC30daysPastdueRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: CC30daysPastdueRates.map((value, index) => {
+              return index === CC30daysPastdueRates.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -992,6 +1067,9 @@ fetch(
       .getContext("2d");
 
     // Create the chart for Housing Inventory
+    const lastHousingInventoryDate = housingInventoryDates[housingInventoryDates.length - 1];
+    const lastHousingInventoryValue = housingInventoryValues[housingInventoryValues.length - 1];
+    
     new Chart(housingInventoryCtx, {
       type: "line",
       data: {
@@ -1000,10 +1078,20 @@ fetch(
           {
             label: "Housing Inventory",
             data: housingInventoryValues,
-            borderColor: "rgba(153, 102, 255, 1)",
+            borderColor: "rgba(153, 102, 255, 1)", // A nice purple
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: housingInventoryValues.map((value, index) => {
+              return index === housingInventoryValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: housingInventoryValues.map((value, index) => {
+              return index === housingInventoryValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: housingInventoryValues.map((value, index) => {
+              return index === housingInventoryValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -1065,6 +1153,9 @@ fetch(
     const homeSalesCtx = document.getElementById("homeSales").getContext("2d");
 
     // Create the chart for Home Sales
+    const lastHomeSalesDate = homeSalesDates[homeSalesDates.length - 1];
+    const lastHomeSalesValue = homeSalesValues[homeSalesValues.length - 1];
+    
     new Chart(homeSalesCtx, {
       type: "line",
       data: {
@@ -1073,10 +1164,20 @@ fetch(
           {
             label: "Home Sales",
             data: homeSalesValues,
-            borderColor: "rgba(255, 159, 64, 1)",
+            borderColor: "rgba(255, 159, 64, 1)", // A shade of orange
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: homeSalesValues.map((value, index) => {
+              return index === homeSalesValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: homeSalesValues.map((value, index) => {
+              return index === homeSalesValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: homeSalesValues.map((value, index) => {
+              return index === homeSalesValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -1140,6 +1241,9 @@ fetch(
       .getContext("2d");
 
     // Create the chart for 30 years Mortgage Rate
+    const lastMortgage30yearsDate = mortgage30yearsDates[mortgage30yearsDates.length - 1];
+    const lastMortgage30yearsValue = mortgage30yearsValues[mortgage30yearsValues.length - 1];
+    
     new Chart(mortgage30yearsCtx, {
       type: "line",
       data: {
@@ -1148,10 +1252,20 @@ fetch(
           {
             label: "30 years Mortgage Rate",
             data: mortgage30yearsValues,
-            borderColor: "rgba(54, 162, 235, 1)",
+            borderColor: "rgba(54, 162, 235, 1)", // A cool blue
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: mortgage30yearsValues.map((value, index) => {
+              return index === mortgage30yearsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: mortgage30yearsValues.map((value, index) => {
+              return index === mortgage30yearsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: mortgage30yearsValues.map((value, index) => {
+              return index === mortgage30yearsValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -1215,6 +1329,9 @@ fetch(
       .getContext("2d");
 
     // Creating the chart for Mortgage Delinquency Rate
+    const lastMortgageDelinquencyDate = mortgageDelinquencyDates[mortgageDelinquencyDates.length - 1];
+    const lastMortgageDelinquencyRate = mortgageDelinquencyRates[mortgageDelinquencyRates.length - 1];
+    
     new Chart(mortgageDelinquencyCtx, {
       type: "line",
       data: {
@@ -1223,10 +1340,20 @@ fetch(
           {
             label: "Mortgage Delinquency Rate (%)",
             data: mortgageDelinquencyRates,
-            borderColor: "rgba(255, 99, 132, 1)", // Color of the line
+            borderColor: "rgba(255, 99, 132, 1)", // Pinkish line color for visibility
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: mortgageDelinquencyRates.map((value, index) => {
+              return index === mortgageDelinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: mortgageDelinquencyRates.map((value, index) => {
+              return index === mortgageDelinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: mortgageDelinquencyRates.map((value, index) => {
+              return index === mortgageDelinquencyRates.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -1278,6 +1405,9 @@ fetch(
       .getContext("2d");
 
     // Creating the chart for House Price Index
+    const lastHomePriceIndexDate = homePriceIndexDates[homePriceIndexDates.length - 1];
+    const lastHomePriceIndexValue = homePriceIndices[homePriceIndices.length - 1];
+    
     new Chart(homePriceIndexCtx, {
       type: "line",
       data: {
@@ -1286,10 +1416,20 @@ fetch(
           {
             label: "House Price Index",
             data: homePriceIndices,
-            borderColor: "rgba(54, 162, 235, 1)", // Color of the line
+            borderColor: "rgba(54, 162, 235, 1)", // A nice blue color
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: homePriceIndices.map((value, index) => {
+              return index === homePriceIndices.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: homePriceIndices.map((value, index) => {
+              return index === homePriceIndices.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: homePriceIndices.map((value, index) => {
+              return index === homePriceIndices.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
@@ -1341,6 +1481,9 @@ fetch(
       .getContext("2d");
 
     // Creating the chart for House Price Index
+    const lastVacantHousingUnitsDate = vacantHousingUnitsDates[vacantHousingUnitsDates.length - 1];
+    const lastVacantHousingUnitsValue = vacantHousingUnitsValues[vacantHousingUnitsValues.length - 1];
+    
     new Chart(vacantHousingUnitsCtx, {
       type: "line",
       data: {
@@ -1349,10 +1492,20 @@ fetch(
           {
             label: "Vacant Housing Units",
             data: vacantHousingUnitsValues,
-            borderColor: "rgba(54, 162, 235, 1)", // Color of the line
+            borderColor: "rgba(54, 162, 235, 1)", // Same blue color as before
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
+            // Highlight the last data point
+            pointBackgroundColor: vacantHousingUnitsValues.map((value, index) => {
+              return index === vacantHousingUnitsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointBorderColor: vacantHousingUnitsValues.map((value, index) => {
+              return index === vacantHousingUnitsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+            }),
+            pointRadius: vacantHousingUnitsValues.map((value, index) => {
+              return index === vacantHousingUnitsValues.length - 1 ? 5 : 0;
+            }),
           },
         ],
       },
