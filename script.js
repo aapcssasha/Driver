@@ -186,8 +186,8 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
         },
         layout: {
           padding: {
-            left: 40, // 10px padding on the left
-            right: 40, // 10px padding on the right
+            left: 0, // 10px padding on the left
+            right: 0, // 10px padding on the right
           },
         },
         scales: {
@@ -217,6 +217,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
             title: {
               display: true,
               text: "Economic Scores",
+              
             }
           }
         }
