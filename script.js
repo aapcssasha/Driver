@@ -286,14 +286,15 @@ function selectPic(score) {
   document.getElementById("scoreImage").src = picUrl;
 })();
 
-// Create the vix chart
+// Create the VIX chart
 let vixDates = [];
 let vixCloses = [];
 
+// Declare the vixChart variable outside the fetch block to access it globally
+let vixChart;
+
 // Fetching VIX data
-fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv"
-)
+fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv")
   .then((response) => response.text())
   .then((data) => {
     const lines = data.trim().split("\n");
@@ -305,12 +306,17 @@ fetch(
       vixCloses.push(parseFloat(close));
     });
 
-    // Now create the chart for VIX
     const vixCtx = document.getElementById("Vixchart").getContext("2d");
     const lastVixDate = vixDates[vixDates.length - 1];
     const lastVixClose = vixCloses[vixCloses.length - 1];
-    
-    const vixChart = new Chart(vixCtx, {
+
+    // If vixChart already exists, destroy it
+    if (vixChart) {
+      vixChart.destroy();
+    }
+
+    // Create the chart for VIX
+    vixChart = new Chart(vixCtx, {
       type: "line",
       data: {
         labels: vixDates,
@@ -322,7 +328,7 @@ fetch(
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
-            // Highlight the last data point
+            // Add an annotation for the last data point
             pointBackgroundColor: vixCloses.map((value, index) => {
               return index === vixCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
             }),
@@ -336,7 +342,24 @@ fetch(
         ],
       },
       options: {
-        // aspectRatio: 2.5, // Change this to match your other charts' aspect ratio
+        plugins: {
+          annotations: {
+            annotations: {
+              lastValueAnnotation: {
+                type: 'label',
+                xValue: lastVixDate,
+                yValue: lastVixClose,
+                backgroundColor: 'rgba(0, 102, 204, 0.7)',
+                borderColor: 'rgba(0, 102, 204, 0.7)',
+                borderWidth: 1,
+                content: `Latest: ${lastVixClose.toFixed(2)}`,
+                position: 'center',
+                xAdjust: 0,
+                yAdjust: -25,
+              }
+            }
+          }    
+        },
         scales: {
           x: {
             beginAtZero: false,
@@ -353,13 +376,14 @@ fetch(
             },
           },
         },
-        // Add any other options here that are used in your other charts for consistency
       },
     });
+    vixChart.update();
   })
   .catch((error) => {
     console.error("Error fetching VIX data:", error);
   });
+
 
 // Create the unemployment chart
 let unemploymentDates = [];

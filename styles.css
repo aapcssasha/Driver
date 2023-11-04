@@ -35,7 +35,7 @@ header {
 .container {
   display: grid;
   flex: 1 0 auto;
-  grid-template-columns: 1fr 0.5fr 0fr;
+  grid-template-columns: 1fr 1fr 0fr;
   margin: 0;
   background-color: #f1efef;
 }
@@ -47,18 +47,31 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding-left: 20px;
   padding-right: 20px; /* adjust as needed */
+  padding-top: 20px;
+  padding-bottom: 20px;
   min-width: 0;
-  height: 400px;
+  height: 500px;
+  text-align: center;
+  size: 0cap;
+  margin-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 500px;
+  background-color: white;
 }
 
 
-#whatnow h2,
-#feargreed h2 {
+
+#feargreed h2,
+#whatnow h2{
   font-size: 24px; /* adjust as needed */
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 20px; /* adjust as needed */
   text-align: center;
   background-color: #f1efef;
+  display: inline-block;
+  width: 200px;
+  
 }
 
 
@@ -80,22 +93,6 @@ header {
   font-weight: bold;
   margin-top: 0%;
   margin-bottom: 5%;
-}
-
-#whatnow {
-  text-align: center;
-  background-color: white;
-  size: 0cap;
-  margin-top: 5%;
-}
-#feargreed {
-  text-align: center;
-  background-color: #f1efef;
-  padding-top: 20px;
-  padding-left: 5%;
-  padding-right: 5%;
-  height: 400px;
-  background-color: white;
 }
 
 .bought {
@@ -146,9 +143,7 @@ body.articles-body .Article-time {
   color: #393838;
   font-size: 15px;
 }
-img {
-  object-fit: cover;
-}
+x
 
 * {
   box-sizing: border-box;
@@ -213,7 +208,6 @@ img {
   }
 }
 
-#VIX h2,
 #whatnow h2,
 #feargreed h2 {
   animation: dropIn 1s forwards;
@@ -231,13 +225,10 @@ footer {
 body {
   overflow-x: hidden;
 }
-* {
-  margin-right: 0%;
-}
+
 #whatnow img {
   height: auto; /* maintains the aspect ratio */
   margin: 0 auto; /* centers the image horizontally if the container is wider */
-
 }
 
 /* Six Indicators Container */
@@ -278,10 +269,7 @@ body {
   
 }
 
-#VIX {
-  height: 400px;
-  background-color: white;
-}
+
 
 .container > div {
   margin: 2%;
