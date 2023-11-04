@@ -154,6 +154,7 @@ x
     display: grid;
     grid-template-columns: 1fr;
   }
+  
   .sixIndicator {
   padding-left: 10px;
   padding-right: 10px;
@@ -374,7 +375,15 @@ body {
     z-index: 1000; /* Ensure it's on top of other content */
   }
   
-  
+  #feargreed {
+    height: 350px;
+  }
+  #whatnow{
+    height: 350px;
+  }
+  #whatnow p{
+    margin-top: 10px;
+  }
 
 
   .menu-content button {
