@@ -336,7 +336,7 @@ fetch(
         ],
       },
       options: {
-        aspectRatio: 2, // Change this to match your other charts' aspect ratio
+        // aspectRatio: 2.5, // Change this to match your other charts' aspect ratio
         scales: {
           x: {
             beginAtZero: false,

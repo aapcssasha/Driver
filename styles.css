@@ -35,13 +35,13 @@ header {
 .container {
   display: grid;
   flex: 1 0 auto;
-  grid-template-columns: 1fr 0.5fr 1fr;
+  grid-template-columns: 1fr 0.5fr 0fr;
   margin: 0;
   background-color: #f1efef;
 }
 
 
-#VIX,
+
 #whatnow,
 #feargreed {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -51,7 +51,7 @@ header {
   height: 400px;
 }
 
-#VIX h2,
+
 #whatnow h2,
 #feargreed h2 {
   font-size: 24px; /* adjust as needed */
@@ -61,18 +61,14 @@ header {
   background-color: #f1efef;
 }
 
-#VIX ul,
+
 #whatnow ul,
 #feargreed ul {
   list-style-type: none;
   padding: 0;
 }
 
-#VIX {
-  background-color: #f1efef;
-  height: 420px;
-  overflow-y: auto;
-}
+
 
 .transation-date {
   font-size: 12px;
@@ -189,11 +185,7 @@ img {
     margin-bottom: 10px;  
   }
 
-  #VIX {
-    height: 690px;
-    margin-left: 3%;
-    margin-right: 3%;
-  }
+
 
   .menu-icon {
     display: block;
