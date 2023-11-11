@@ -12,5 +12,6 @@ git add .
 # Commit the changes with a message
 git commit -m "Daily update"
 
-# Push the changes to GitHub
-git -c http.extraHeader="Authorization: token $GITHUB_PAT" push origin main
+# Push the changes to GitHub, using the PAT from the .env file
+git push https://x-access-token:$GITHUB_PAT@github.com/aapcssasha/Driver.git main
+
