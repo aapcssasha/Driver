@@ -2,7 +2,7 @@ name: Update Data and Push
 
 on:
   schedule:
-    - cron: '39 1 * * *'
+    - cron: '55 1 * * *'
 
 
 jobs:
