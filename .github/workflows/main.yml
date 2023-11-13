@@ -1,0 +1,33 @@
+name: Update Data and Push
+
+on:
+  schedule:
+    - cron: '39 1 * * *'
+
+
+jobs:
+  update-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run update script
+        run: python path/to/your/update_script.py
+
+      - name: Commit and push if there are changes
+        run: |
+          git config --global user.name 'aapcssasha'
+          git config --global user.email 'aapcssasha@outlook.com'
+          git add .
+          git commit -m "Daily data update" || echo "No changes to commit"
+          git push
