@@ -525,7 +525,7 @@ fetch(
             borderColor: "rgba(255, 159, 64, 1)",
             borderWidth: 1,
             pointRadius: 0, // This removes the data points
-            lineTension: 0.2, // This makes the line smoother
+            lineTension: 0.9, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: delinquencyRates.map((value, index) => {
               return index === delinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
