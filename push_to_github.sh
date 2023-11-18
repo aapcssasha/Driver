@@ -3,15 +3,16 @@
 # Source the environment file
 source /Users/alejandropina/Downloads/.env
 
-# Navigate to your repository directory
-cd /Users/alejandropina/Downloads/DriverWebsite
 
-# Add all changed files to the commit
+# Pull the latest changes from GitHub
+git pull
+
+# Add all new and changed files to the staging area
 git add .
 
-# Commit the changes with a message
-git commit -m "Daily update"
+# Commit the changes
+git commit -m "Update website"
 
-# Push the changes to GitHub, using the PAT from the .env file
-git push https://x-access-token:$GITHUB_PAT@github.com/aapcssasha/Driver.git main
+# Push the changes to GitHub
+git push origin main
 
