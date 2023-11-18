@@ -11,10 +11,14 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Commit and push if there are changes
+
+      - name: Set up Git identity
         run: |
           git config --global user.name 'aapcssasha'
           git config --global user.email 'aapcssasha@outlook.com'
+
+      - name: Commit and push if there are changes
+        run: |
           git add .
           git commit -m "Daily data update" || echo "No changes to commit"
-          git push
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/aapcssasha/Driver.git main
