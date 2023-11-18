@@ -21,4 +21,4 @@ jobs:
         run: |
           git add .
           git commit -m "Daily data update" || echo "No changes to commit"
-          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/aapcssasha/Driver.git main
+          git push https://${{ secrets.PRUEBA_PAT }}@github.com/aapcssasha/Driver.git main
