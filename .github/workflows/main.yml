@@ -3,15 +3,14 @@ name: Update Data and Push
 on:
   schedule:
     - cron: '20 2 * * *'
+  workflow_dispatch:
 
 jobs:
   update-and-push:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-
       - name: Commit and push if there are changes
         run: |
           git config --global user.name 'aapcssasha'
