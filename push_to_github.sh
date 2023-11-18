@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Source the environment file
-source /Users/alejandropina/Downloads/.env
-
+cd /Users/alejandropina/Downloads/DriverWebsite
 
 # Pull the latest changes from GitHub
 git pull
