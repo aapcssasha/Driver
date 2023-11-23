@@ -1585,27 +1585,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const updates = text.trim().split('\n\n');
 
         // Calculate the next set of updates to show
-        const updatesToDisplay = updates.slice(updatesDisplayed, updatesDisplayed + updatesToShowEachTime);
+        const start = Math.max(updates.length - updatesDisplayed - updatesToShowEachTime, 0);
+        const end = updates.length - updatesDisplayed;
+        const updatesToDisplay = updates.slice(start, end);
         updatesDisplayed += updatesToShowEachTime;
 
         // Append the new updates to the updatesContent div
         const updatesContentDiv = document.getElementById('updatesContent');
-        updatesContentDiv.innerText += updatesToDisplay.join('\n\n') + '\n\n';
+        updatesContentDiv.innerText += updatesToDisplay.reverse().join('\n\n') + '\n\n';
 
         // Hide the load more button if there are no more updates to load
-        if (updatesDisplayed >= updates.length) {
+        if (start === 0) {
           document.getElementById('loadMoreButton').style.display = 'none';
         }
       })
       .catch(err => console.error(err));
   }
 
-  // Initially load the first set of updates
+  // Initially load the last set of updates
   loadUpdates();
 
   // Add event listener to the Load More button
   document.getElementById('loadMoreButton').addEventListener('click', loadUpdates);
 });
+
 
 
 
