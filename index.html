@@ -29,7 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.0.1/chartjs-plugin-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@latest"></script>
     
-    
+    <script src="https://unpkg.com/htmx.org"></script>
   </head>
 
   <body>
@@ -47,6 +47,7 @@
         <button class="contact-button" onclick="showEmail()">Contact Us</button>
       </div>
     </header>
+
     <div class="ecnomoicScore">
       <canvas id="myChart" width="400" height="200"></canvas>
     </div>
@@ -62,6 +63,9 @@
         <img id="scoreImage" alt="Economic Score Image" width="200" />
         <p id="roundedScoreDisplay"></p>
       </div>
+    </div>
+    <div class="LatestUpdates" style="padding-left: 10%;">
+      <h2>Latests Updates</h2>
     </div>
     <div class="sixIndicator">
       <div id="VIX" class="p-4 bg-gray-200 rounded flex flex-col items-center">
