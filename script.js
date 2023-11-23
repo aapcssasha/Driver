@@ -1574,10 +1574,38 @@ function toggleMenu() {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetch('./changes/data_changes_log.txt')
-    .then(response => response.text())
-    .then(text => {
-      document.getElementById('updatesContent').innerText = text;
-    })
-    .catch(err => console.error(err));
+  let updatesDisplayed = 0;
+  const updatesToShowEachTime = 5;
+
+  function loadUpdates() {
+    fetch('./changes/data_changes_log.txt')
+      .then(response => response.text())
+      .then(text => {
+        // Split the text into updates
+        const updates = text.trim().split('\n\n');
+
+        // Calculate the next set of updates to show
+        const updatesToDisplay = updates.slice(updatesDisplayed, updatesDisplayed + updatesToShowEachTime);
+        updatesDisplayed += updatesToShowEachTime;
+
+        // Append the new updates to the updatesContent div
+        const updatesContentDiv = document.getElementById('updatesContent');
+        updatesContentDiv.innerText += updatesToDisplay.join('\n\n') + '\n\n';
+
+        // Hide the load more button if there are no more updates to load
+        if (updatesDisplayed >= updates.length) {
+          document.getElementById('loadMoreButton').style.display = 'none';
+        }
+      })
+      .catch(err => console.error(err));
+  }
+
+  // Initially load the first set of updates
+  loadUpdates();
+
+  // Add event listener to the Load More button
+  document.getElementById('loadMoreButton').addEventListener('click', loadUpdates);
 });
+
+
+
