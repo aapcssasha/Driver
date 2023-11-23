@@ -1573,4 +1573,11 @@ function toggleMenu() {
   }
 };
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('./changes/data_changes_log.txt')
+    .then(response => response.text())
+    .then(text => {
+      document.getElementById('updatesContent').innerText = text;
+    })
+    .catch(err => console.error(err));
+});
