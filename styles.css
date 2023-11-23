@@ -293,6 +293,12 @@ body {
 .contact-button:hover {
   background-color: #2d2677;
 }
+#updateButton {
+  background-color: rgb(86, 105, 152);
+}
+#updateButton:hover {
+  background-color: #2d2677;
+}
 .register-button {
   padding: 10px 20px;
   color: white;
