@@ -26,9 +26,12 @@ header {
 .yo1 a {
   padding-left: 20%;
   color: white; /* color of the Title in the header (EquityExpedition) */
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  display: inline-block;
 }
 .yo1 a:hover {
   color: rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
 }
 
 
@@ -287,11 +290,14 @@ body {
   transition: background-color 0.3s ease;
   margin-right: 5%;
   background-color: rgb(86, 105, 152);
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  display: inline-block;
 }
 
 
 .contact-button:hover {
   background-color: #2d2677;
+  transform: scale(1.2);
 }
 #updateButton {
   background-color: rgb(86, 105, 152);
@@ -299,9 +305,13 @@ body {
 #loadMoreButton {
   background-color: rgb(86, 105, 152);
   border-radius: 10px;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  display: inline-block;
+  
 }
 #loadMoreButton:hover {
-  background-color: #2d2677
+  background-color: #2d2677;
+  transform: scale(1.2);
 }
 
 .register-button {
@@ -312,10 +322,13 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   background-color: rgb(86, 105, 152);
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  display: inline-block;
 }
 
 .register-button:hover {
   background-color: #2d2677;
+  transform: scale(1.2);
 }
 .login-button {
   padding: 10px 20px;
@@ -325,10 +338,13 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   background-color: rgb(86, 105, 152);
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  display: inline-block;
 }
 
 .login-button:hover {
   background-color: #2d2677;
+  transform: scale(1.2);
 }
 
 .Botonos {
