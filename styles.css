@@ -28,7 +28,7 @@ header {
   color: white; /* color of the Title in the header (EquityExpedition) */
 }
 .yo1 a:hover {
-  color: red;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 
