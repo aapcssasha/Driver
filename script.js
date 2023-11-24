@@ -1575,7 +1575,7 @@ function toggleMenu() {
 
 document.addEventListener('DOMContentLoaded', function() {
   let updatesDisplayed = 0;
-  const updatesToShowEachTime = 5;
+  const updatesToShowEachTime = 3;
 
   function loadUpdates() {
     fetch('./changes/data_changes_log.txt')
