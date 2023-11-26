@@ -68,69 +68,78 @@
     </div>
     <div class="boxes">
       <div id="affordabilityCalculator">
-        <h1><strong> Affordability Calculator</strong></h1>
-          <br>
-        <label for="income">Annual Income of House before Taxes:</label>
-        <input type="number" id="income" placeholder="income" />
-        <br />
-        <label for="debt">Total amount of debt payments each month:</label>
-        <input
-          type="number"
-          id="debt"
-          placeholder="monthly debt payments"
-        />
-        <br />
-        <label for="rate">Interest Rate:</label>
-        <input type="number" id="rate" placeholder="Interest rate" />
-        <br />
-        <label for="downpayment">Downpayment:</label>
-        <input type="number" id="Downpayment" placeholder="Downpayment" />
-        <br />
-        <button id="calculateButton" onclick="calculateAffordability()">
-          Calculate
+        <button id="toggleCalculatorButton" onclick="toggleCalculator()">
+          Show Affordability Housing Calculator
         </button>
 
-        <p id="result">Your affordable house price will appear here.</p>
+        <div id="calculatorContent" style="display: none">
+          <h1><strong>Affordability Calculator</strong></h1>
+          <br />
+          <label for="income">Annual Income of House before Taxes:</label>
+          <input type="number" id="income" placeholder="income" />
+          <br />
+          <label for="debt">Total amount of debt payments each month:</label>
+          <input type="number" id="debt" placeholder="monthly debt payments" />
+          <br />
+          <label for="rate">Interest Rate:</label>
+          <input type="number" id="rate" placeholder="Interest rate" />
+          <br />
+          <label for="downpayment">Downpayment:</label>
+          <input type="number" id="Downpayment" placeholder="Downpayment" />
+          <br />
+          <button id="calculateButton" onclick="calculateAffordability()">
+            Calculate
+          </button>
+          <p id="result">Your affordable house price will appear here.</p>
+        </div>
       </div>
+
       <div>
         <div id="compoundInterestCalculator">
-          <h1><strong> Interest Calculator</strong></h1>
-          <br>
-          <label for="initialInvestment">Initial Investment ($):</label>
-          <input
-            type="number"
-            id="initialInvestment"
-            placeholder="Enter initial amount"
-          />
-            <br>
-          <label for="returnRate">Expected Annual Return Rate (%):</label>
-          <input
-            type="number"
-            id="returnRate"
-            placeholder="expected return rate"
-          />
-            <br>
-          <label for="compounding">Compounding Frequency:</label>
-          <select id="compounding">
-            <option value="daily">Daily</option>
-            <option value="monthly">Monthly</option>
-            <option value="quarterly">Quarterly</option>
-            <option value="yearly" selected>Yearly</option>
-          </select>
-            <br>
-            <br>
-          <label for="timeHorizon">Time Horizon (years):</label>
-          <input
-            type="number"
-            id="timeHorizon"
-            placeholder="Enter time in years"
-          />
-            <br>
-          <button id="calculateButton" onclick="calculateCompoundInterest()">Calculate</button>
+          <button id="toggleCalculatorButton2" onclick="toggleCalculator2()">
+            Show Compound Calculator
+          </button>
+          <div id="calculatorContent2" style="display: none">
+            <h1><strong> Interest Calculator</strong></h1>
+            <br />
+            <label for="initialInvestment">Initial Investment ($):</label>
+            <input
+              type="number"
+              id="initialInvestment"
+              placeholder="Enter initial amount"
+            />
+            <br />
+            <label for="returnRate">Expected Annual Return Rate (%):</label>
+            <input
+              type="number"
+              id="returnRate"
+              placeholder="expected return rate"
+            />
+            <br />
+            <label for="compounding">Compounding Frequency:</label>
+            <select id="compounding">
+              <option value="daily">Daily</option>
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly" selected>Yearly</option>
+            </select>
+            <br />
+            <br />
+            <label for="timeHorizon">Time Horizon (years):</label>
+            <input
+              type="number"
+              id="timeHorizon"
+              placeholder="Enter time in years"
+            />
+            <br />
+            <button id="calculateButton" onclick="calculateCompoundInterest()">
+              Calculate
+            </button>
 
-          <p id="compoundResult">
-            The future value of your investment will appear here.
-          </p>
+            <p id="compoundResult">
+              The future value of your investment will appear here.
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -1695,3 +1695,32 @@ function calculateCompoundInterest() {
                             Number(amount.toFixed(0)).toLocaleString();
 }
 
+
+function toggleCalculator() {
+  var content = document.getElementById('calculatorContent');
+  var toggleButton = document.getElementById('toggleCalculatorButton');
+  if (content.style.display === 'none') {
+      content.style.display = 'block';
+      toggleButton.textContent = 'Hide Affordability Housing Calculator';
+      document.getElementById('affordabilityCalculator').style.maxHeight = '600px'; // Max height when expanded
+  } else {
+      content.style.display = 'none';
+      toggleButton.textContent = 'Show Affordability Housing Calculator';
+      document.getElementById('affordabilityCalculator').style.maxHeight = '0'; // Collapses the div
+  }
+}
+
+
+function toggleCalculator2() {
+  var content = document.getElementById('calculatorContent2');
+  var toggleButton = document.getElementById('toggleCalculatorButton2');
+  if (content.style.display === 'none') {
+      content.style.display = 'block';
+      toggleButton.textContent = 'Hide Compound Calculator';
+      document.getElementById('compoundInterestCalculator').style.maxHeight = '600px'; // Max height for compound calculator
+  } else {
+      content.style.display = 'none';
+      toggleButton.textContent = 'Show Compound Calculator';
+      document.getElementById('compoundInterestCalculator').style.maxHeight = '0'; // Collapses the compound calculator div
+  }
+}
