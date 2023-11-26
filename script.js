@@ -202,36 +202,34 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
           x: {
             beginAtZero: true,
             grid: {
-              display: false // This hides the x-axis grid lines
-            }
+              display: false, // This hides the x-axis grid lines
+            },
           },
           y: {
             type: "linear",
             position: "left",
             grid: {
-              display: false // This hides the y-axis grid lines
+              display: false, // This hides the y-axis grid lines
             },
             title: {
               display: true,
               text: "SPY Close Prices",
-            }
+            },
           },
           y1: {
             type: "linear",
             position: "right",
-            min: minEconScore - (minEconScore*0.006), // set dynamically
-            max: maxEconScore + (maxEconScore*0.006), // set dynamically
+            min: minEconScore - minEconScore * 0.006, // set dynamically
+            max: maxEconScore + maxEconScore * 0.006, // set dynamically
             grid: {
-              display: false // This hides all grid lines for the secondary y-axis
+              display: false, // This hides all grid lines for the secondary y-axis
             },
             title: {
               display: true,
               text: "Economic Scores",
-              
-            }
-          }
-        }
-        
+            },
+          },
+        },
       },
     });
   })
@@ -294,7 +292,9 @@ let vixCloses = [];
 let vixChart;
 
 // Fetching VIX data
-fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv")
+fetch(
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv"
+)
   .then((response) => response.text())
   .then((data) => {
     const lines = data.trim().split("\n");
@@ -330,10 +330,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
             lineTension: 0.2, // This makes the line smoother
             // Add an annotation for the last data point
             pointBackgroundColor: vixCloses.map((value, index) => {
-              return index === vixCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === vixCloses.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: vixCloses.map((value, index) => {
-              return index === vixCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === vixCloses.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: vixCloses.map((value, index) => {
               return index === vixCloses.length - 1 ? 5 : 0;
@@ -346,19 +350,19 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
           annotations: {
             annotations: {
               lastValueAnnotation: {
-                type: 'label',
+                type: "label",
                 xValue: lastVixDate,
                 yValue: lastVixClose,
-                backgroundColor: 'rgba(0, 102, 204, 0.7)',
-                borderColor: 'rgba(0, 102, 204, 0.7)',
+                backgroundColor: "rgba(0, 102, 204, 0.7)",
+                borderColor: "rgba(0, 102, 204, 0.7)",
                 borderWidth: 1,
                 content: `Latest: ${lastVixClose.toFixed(2)}`,
-                position: 'center',
+                position: "center",
                 xAdjust: 0,
                 yAdjust: -25,
-              }
-            }
-          }    
+              },
+            },
+          },
         },
         scales: {
           x: {
@@ -383,7 +387,6 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.cs
   .catch((error) => {
     console.error("Error fetching VIX data:", error);
   });
-
 
 // Create the unemployment chart
 let unemploymentDates = [];
@@ -433,14 +436,18 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Add an annotation for the last data point
             pointBackgroundColor: unemploymentCloses.map((value, index) => {
-              return index === unemploymentCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === unemploymentCloses.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: unemploymentCloses.map((value, index) => {
-              return index === unemploymentCloses.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === unemploymentCloses.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: unemploymentCloses.map((value, index) => {
               return index === unemploymentCloses.length - 1 ? 5 : 0;
-            })
+            }),
           },
         ],
       },
@@ -449,19 +456,19 @@ fetch(
           annotations: {
             annotations: {
               lastValueAnnotation: {
-                type: 'label',
+                type: "label",
                 xValue: lastDate,
                 yValue: lastValue,
-                backgroundColor: 'rgba(0, 102, 204, 0.7)',
-                borderColor: 'rgba(0, 102, 204, 0.7)',
+                backgroundColor: "rgba(0, 102, 204, 0.7)",
+                borderColor: "rgba(0, 102, 204, 0.7)",
                 borderWidth: 1,
                 content: `Latest: ${lastValue.toFixed(2)}%`,
-                position: 'center',
+                position: "center",
                 xAdjust: 0,
                 yAdjust: -25,
-              }
-            }
-          }    
+              },
+            },
+          },
         },
         scales: {
           x: {
@@ -513,7 +520,7 @@ fetch(
     // Create the chart for delinquency rate on credit cards
     const lastDelinquencyDate = delinquencyDates[delinquencyDates.length - 1];
     const lastDelinquencyValue = delinquencyRates[delinquencyRates.length - 1];
-    
+
     const delinquencyChart = new Chart(delinquencyCtx, {
       type: "line",
       data: {
@@ -528,14 +535,18 @@ fetch(
             lineTension: 0.9, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: delinquencyRates.map((value, index) => {
-              return index === delinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === delinquencyRates.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: delinquencyRates.map((value, index) => {
-              return index === delinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === delinquencyRates.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: delinquencyRates.map((value, index) => {
               return index === delinquencyRates.length - 1 ? 5 : 0;
-            })
+            }),
           },
         ],
       },
@@ -588,7 +599,7 @@ fetch(
     // Create the chart for Sticky CPI
     const lastStickyCPIDate = stickyCPIDates[stickyCPIDates.length - 1];
     const lastStickyCPIValue = stickyCPIValues[stickyCPIValues.length - 1];
-    
+
     const stickyCPIChart = new Chart(stickyCPICtx, {
       type: "line",
       data: {
@@ -603,14 +614,18 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: stickyCPIValues.map((value, index) => {
-              return index === stickyCPIValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === stickyCPIValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: stickyCPIValues.map((value, index) => {
-              return index === stickyCPIValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === stickyCPIValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: stickyCPIValues.map((value, index) => {
               return index === stickyCPIValues.length - 1 ? 5 : 0;
-            })
+            }),
           },
         ],
       },
@@ -662,7 +677,7 @@ fetch(
     // Create the chart for GDP
     const lastGDPDate = gdpDates[gdpDates.length - 1];
     const lastGDPValue = gdpValues[gdpValues.length - 1];
-    
+
     const gdpChart = new Chart(gdpCtx, {
       type: "line",
       data: {
@@ -677,10 +692,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: gdpValues.map((value, index) => {
-              return index === gdpValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === gdpValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: gdpValues.map((value, index) => {
-              return index === gdpValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === gdpValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: gdpValues.map((value, index) => {
               return index === gdpValues.length - 1 ? 5 : 0;
@@ -736,9 +755,11 @@ fetch(
       .getContext("2d");
 
     // Create the chart for Personal Income
-    const lastPersonalIncomeDate = personalIncomeDates[personalIncomeDates.length - 1];
-    const lastPersonalIncomeValue = personalIncomeValues[personalIncomeValues.length - 1];
-    
+    const lastPersonalIncomeDate =
+      personalIncomeDates[personalIncomeDates.length - 1];
+    const lastPersonalIncomeValue =
+      personalIncomeValues[personalIncomeValues.length - 1];
+
     new Chart(personalIncomeCtx, {
       type: "line",
       data: {
@@ -753,10 +774,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: personalIncomeValues.map((value, index) => {
-              return index === personalIncomeValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === personalIncomeValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: personalIncomeValues.map((value, index) => {
-              return index === personalIncomeValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === personalIncomeValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: personalIncomeValues.map((value, index) => {
               return index === personalIncomeValues.length - 1 ? 5 : 0;
@@ -826,7 +851,7 @@ fetch(
     // Create the chart for Personal Saving Rate
     const lastSavingRateDate = savingRateDates[savingRateDates.length - 1];
     const lastSavingRateValue = savingRateValues[savingRateValues.length - 1];
-    
+
     new Chart(savingRateCtx, {
       type: "line",
       data: {
@@ -841,10 +866,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: savingRateValues.map((value, index) => {
-              return index === savingRateValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === savingRateValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: savingRateValues.map((value, index) => {
-              return index === savingRateValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === savingRateValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: savingRateValues.map((value, index) => {
               return index === savingRateValues.length - 1 ? 5 : 0;
@@ -912,9 +941,11 @@ fetch(
       .getContext("2d");
 
     // Create the chart for Companies Debt
-    const lastCompaniesDebtDate = companiesDebtDates[companiesDebtDates.length - 1];
-    const lastCompaniesDebtValue = companiesDebtValues[companiesDebtValues.length - 1];
-    
+    const lastCompaniesDebtDate =
+      companiesDebtDates[companiesDebtDates.length - 1];
+    const lastCompaniesDebtValue =
+      companiesDebtValues[companiesDebtValues.length - 1];
+
     new Chart(companiesDebtCtx, {
       type: "line",
       data: {
@@ -929,10 +960,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: companiesDebtValues.map((value, index) => {
-              return index === companiesDebtValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === companiesDebtValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: companiesDebtValues.map((value, index) => {
-              return index === companiesDebtValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === companiesDebtValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: companiesDebtValues.map((value, index) => {
               return index === companiesDebtValues.length - 1 ? 5 : 0;
@@ -1000,9 +1035,11 @@ fetch(
       .getContext("2d");
 
     // Create the chart for CC 30 Days Past Due
-    const lastCC30daysPastdueDate = CC30daysPastdueDates[CC30daysPastdueDates.length - 1];
-    const lastCC30daysPastdueRate = CC30daysPastdueRates[CC30daysPastdueRates.length - 1];
-    
+    const lastCC30daysPastdueDate =
+      CC30daysPastdueDates[CC30daysPastdueDates.length - 1];
+    const lastCC30daysPastdueRate =
+      CC30daysPastdueRates[CC30daysPastdueRates.length - 1];
+
     new Chart(CC30daysPastdueCtx, {
       type: "line",
       data: {
@@ -1017,10 +1054,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: CC30daysPastdueRates.map((value, index) => {
-              return index === CC30daysPastdueRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === CC30daysPastdueRates.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: CC30daysPastdueRates.map((value, index) => {
-              return index === CC30daysPastdueRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === CC30daysPastdueRates.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: CC30daysPastdueRates.map((value, index) => {
               return index === CC30daysPastdueRates.length - 1 ? 5 : 0;
@@ -1091,9 +1132,11 @@ fetch(
       .getContext("2d");
 
     // Create the chart for Housing Inventory
-    const lastHousingInventoryDate = housingInventoryDates[housingInventoryDates.length - 1];
-    const lastHousingInventoryValue = housingInventoryValues[housingInventoryValues.length - 1];
-    
+    const lastHousingInventoryDate =
+      housingInventoryDates[housingInventoryDates.length - 1];
+    const lastHousingInventoryValue =
+      housingInventoryValues[housingInventoryValues.length - 1];
+
     new Chart(housingInventoryCtx, {
       type: "line",
       data: {
@@ -1108,10 +1151,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: housingInventoryValues.map((value, index) => {
-              return index === housingInventoryValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === housingInventoryValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: housingInventoryValues.map((value, index) => {
-              return index === housingInventoryValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === housingInventoryValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: housingInventoryValues.map((value, index) => {
               return index === housingInventoryValues.length - 1 ? 5 : 0;
@@ -1179,7 +1226,7 @@ fetch(
     // Create the chart for Home Sales
     const lastHomeSalesDate = homeSalesDates[homeSalesDates.length - 1];
     const lastHomeSalesValue = homeSalesValues[homeSalesValues.length - 1];
-    
+
     new Chart(homeSalesCtx, {
       type: "line",
       data: {
@@ -1194,10 +1241,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: homeSalesValues.map((value, index) => {
-              return index === homeSalesValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === homeSalesValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: homeSalesValues.map((value, index) => {
-              return index === homeSalesValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === homeSalesValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: homeSalesValues.map((value, index) => {
               return index === homeSalesValues.length - 1 ? 5 : 0;
@@ -1265,9 +1316,11 @@ fetch(
       .getContext("2d");
 
     // Create the chart for 30 years Mortgage Rate
-    const lastMortgage30yearsDate = mortgage30yearsDates[mortgage30yearsDates.length - 1];
-    const lastMortgage30yearsValue = mortgage30yearsValues[mortgage30yearsValues.length - 1];
-    
+    const lastMortgage30yearsDate =
+      mortgage30yearsDates[mortgage30yearsDates.length - 1];
+    const lastMortgage30yearsValue =
+      mortgage30yearsValues[mortgage30yearsValues.length - 1];
+
     new Chart(mortgage30yearsCtx, {
       type: "line",
       data: {
@@ -1282,10 +1335,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: mortgage30yearsValues.map((value, index) => {
-              return index === mortgage30yearsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === mortgage30yearsValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: mortgage30yearsValues.map((value, index) => {
-              return index === mortgage30yearsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === mortgage30yearsValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: mortgage30yearsValues.map((value, index) => {
               return index === mortgage30yearsValues.length - 1 ? 5 : 0;
@@ -1353,9 +1410,11 @@ fetch(
       .getContext("2d");
 
     // Creating the chart for Mortgage Delinquency Rate
-    const lastMortgageDelinquencyDate = mortgageDelinquencyDates[mortgageDelinquencyDates.length - 1];
-    const lastMortgageDelinquencyRate = mortgageDelinquencyRates[mortgageDelinquencyRates.length - 1];
-    
+    const lastMortgageDelinquencyDate =
+      mortgageDelinquencyDates[mortgageDelinquencyDates.length - 1];
+    const lastMortgageDelinquencyRate =
+      mortgageDelinquencyRates[mortgageDelinquencyRates.length - 1];
+
     new Chart(mortgageDelinquencyCtx, {
       type: "line",
       data: {
@@ -1369,11 +1428,17 @@ fetch(
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
-            pointBackgroundColor: mortgageDelinquencyRates.map((value, index) => {
-              return index === mortgageDelinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
-            }),
+            pointBackgroundColor: mortgageDelinquencyRates.map(
+              (value, index) => {
+                return index === mortgageDelinquencyRates.length - 1
+                  ? "red"
+                  : "rgba(0, 0, 0, 0)";
+              }
+            ),
             pointBorderColor: mortgageDelinquencyRates.map((value, index) => {
-              return index === mortgageDelinquencyRates.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === mortgageDelinquencyRates.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: mortgageDelinquencyRates.map((value, index) => {
               return index === mortgageDelinquencyRates.length - 1 ? 5 : 0;
@@ -1429,9 +1494,11 @@ fetch(
       .getContext("2d");
 
     // Creating the chart for House Price Index
-    const lastHomePriceIndexDate = homePriceIndexDates[homePriceIndexDates.length - 1];
-    const lastHomePriceIndexValue = homePriceIndices[homePriceIndices.length - 1];
-    
+    const lastHomePriceIndexDate =
+      homePriceIndexDates[homePriceIndexDates.length - 1];
+    const lastHomePriceIndexValue =
+      homePriceIndices[homePriceIndices.length - 1];
+
     new Chart(homePriceIndexCtx, {
       type: "line",
       data: {
@@ -1446,10 +1513,14 @@ fetch(
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
             pointBackgroundColor: homePriceIndices.map((value, index) => {
-              return index === homePriceIndices.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === homePriceIndices.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointBorderColor: homePriceIndices.map((value, index) => {
-              return index === homePriceIndices.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === homePriceIndices.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: homePriceIndices.map((value, index) => {
               return index === homePriceIndices.length - 1 ? 5 : 0;
@@ -1505,9 +1576,11 @@ fetch(
       .getContext("2d");
 
     // Creating the chart for House Price Index
-    const lastVacantHousingUnitsDate = vacantHousingUnitsDates[vacantHousingUnitsDates.length - 1];
-    const lastVacantHousingUnitsValue = vacantHousingUnitsValues[vacantHousingUnitsValues.length - 1];
-    
+    const lastVacantHousingUnitsDate =
+      vacantHousingUnitsDates[vacantHousingUnitsDates.length - 1];
+    const lastVacantHousingUnitsValue =
+      vacantHousingUnitsValues[vacantHousingUnitsValues.length - 1];
+
     new Chart(vacantHousingUnitsCtx, {
       type: "line",
       data: {
@@ -1521,11 +1594,17 @@ fetch(
             pointRadius: 0, // This removes the data points
             lineTension: 0.2, // This makes the line smoother
             // Highlight the last data point
-            pointBackgroundColor: vacantHousingUnitsValues.map((value, index) => {
-              return index === vacantHousingUnitsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
-            }),
+            pointBackgroundColor: vacantHousingUnitsValues.map(
+              (value, index) => {
+                return index === vacantHousingUnitsValues.length - 1
+                  ? "red"
+                  : "rgba(0, 0, 0, 0)";
+              }
+            ),
             pointBorderColor: vacantHousingUnitsValues.map((value, index) => {
-              return index === vacantHousingUnitsValues.length - 1 ? "red" : "rgba(0, 0, 0, 0)";
+              return index === vacantHousingUnitsValues.length - 1
+                ? "red"
+                : "rgba(0, 0, 0, 0)";
             }),
             pointRadius: vacantHousingUnitsValues.map((value, index) => {
               return index === vacantHousingUnitsValues.length - 1 ? 5 : 0;
@@ -1571,42 +1650,48 @@ function toggleMenu() {
   } else {
     menuContent.style.display = "none";
   }
-};
+}
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   let updatesDisplayed = 0;
   const updatesToShowEachTime = 3;
 
   function loadUpdates() {
-    fetch('./changes/data_changes_log.txt')
-      .then(response => response.text())
-      .then(text => {
+    fetch("./changes/data_changes_log.txt")
+      .then((response) => response.text())
+      .then((text) => {
         // Split the text into updates
-        const updates = text.trim().split('\n\n');
+        const updates = text.trim().split("\n\n");
 
         // Calculate the next set of updates to show
-        const start = Math.max(updates.length - updatesDisplayed - updatesToShowEachTime, 0);
+        const start = Math.max(
+          updates.length - updatesDisplayed - updatesToShowEachTime,
+          0
+        );
         const end = updates.length - updatesDisplayed;
         const updatesToDisplay = updates.slice(start, end);
         updatesDisplayed += updatesToShowEachTime;
 
         // Append the new updates to the updatesContent div
-        const updatesContentDiv = document.getElementById('updatesContent');
-        updatesContentDiv.innerText += updatesToDisplay.reverse().join('\n\n') + '\n\n';
+        const updatesContentDiv = document.getElementById("updatesContent");
+        updatesContentDiv.innerText +=
+          updatesToDisplay.reverse().join("\n\n") + "\n\n";
 
         // Hide the load more button if there are no more updates to load
         if (start === 0) {
-          document.getElementById('loadMoreButton').style.display = 'none';
+          document.getElementById("loadMoreButton").style.display = "none";
         }
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   }
 
   // Initially load the last set of updates
   loadUpdates();
 
   // Add event listener to the Load More button
-  document.getElementById('loadMoreButton').addEventListener('click', loadUpdates);
+  document
+    .getElementById("loadMoreButton")
+    .addEventListener("click", loadUpdates);
 });
 
 function calculateAffordability() {
@@ -1627,7 +1712,7 @@ function calculateAffordability() {
   var maxPaymentIncome = monthlyIncome * 0.28;
 
   // Calculate maximum payment based on income and debt (36% rule)
-  var maxPaymentDebt = (monthlyIncome * 0.36) - monthlyDebt;
+  var maxPaymentDebt = monthlyIncome * 0.36 - monthlyDebt;
 
   // Use the lesser of the two values for max payment
   var maxPayment = Math.min(maxPaymentIncome, maxPaymentDebt);
@@ -1639,13 +1724,15 @@ function calculateAffordability() {
   var totalPayments = 30 * 12;
 
   // Calculate estimated mortgage amount (using annuity formula)
-  var mortgageAmount = (maxPayment / monthlyInterestRate) * (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
+  var mortgageAmount =
+    (maxPayment / monthlyInterestRate) *
+    (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
 
   // Adjust mortgage amount based on down payment
   mortgageAmount -= downPayment;
 
   // Calculate property tax and insurance (prorated monthly)
-  var monthlyPropertyTax = (mortgageAmount * avgPropertyTaxRate / 100) / 12;
+  var monthlyPropertyTax = (mortgageAmount * avgPropertyTaxRate) / 100 / 12;
   var monthlyInsurance = avgHomeInsurance / 12;
 
   // Adjust max payment by removing property tax and insurance
@@ -1654,147 +1741,165 @@ function calculateAffordability() {
   // Display the result
   var resultElement = document.getElementById("result");
   if (mortgagePayment > 0 && mortgageAmount > 0) {
-      resultElement.innerText = "You can afford a house around $" + Math.round(mortgageAmount).toLocaleString() +
-                                ".\nEstimated Monthly Mortgage Payment (including taxes and insurance): $" + Math.round(mortgagePayment).toLocaleString();
+    resultElement.innerText =
+      "You can afford a house around $" +
+      Math.round(mortgageAmount).toLocaleString() +
+      ".\nEstimated Monthly Mortgage Payment (including taxes and insurance): $" +
+      Math.round(mortgagePayment).toLocaleString();
   } else {
-      resultElement.innerText = "Please check your inputs. The calculation could not be completed.";
+    resultElement.innerText =
+      "Please check your inputs. The calculation could not be completed.";
   }
 }
 
 function calculateCompoundInterest() {
-  var principal = parseFloat(document.getElementById("initialInvestment").value);
-  var extraContribution = parseFloat(document.getElementById("extraContribution").value);
-  var contributionFrequency = document.getElementById("contributionFrequency").value;
+  var principal = parseFloat(
+    document.getElementById("initialInvestment").value
+  );
+  var extraContribution = parseFloat(
+    document.getElementById("extraContribution").value
+  );
+  var contributionFrequency = document.getElementById(
+    "contributionFrequency"
+  ).value;
   var rate = parseFloat(document.getElementById("returnRate").value) / 100; // Convert to decimal
   var compoundingFrequency = document.getElementById("compounding").value;
   var years = parseFloat(document.getElementById("timeHorizon").value);
 
   var n; // Number of times interest is compounded per period
   switch (compoundingFrequency) {
-      case "daily":
-          n = 365;
-          break;
-      case "monthly":
-          n = 12;
-          break;
-      case "quarterly":
-          n = 4;
-          break;
-      case "yearly":
-          n = 1;
-          break;
-      default:
-          n = 1;
-          break;
+    case "daily":
+      n = 365;
+      break;
+    case "monthly":
+      n = 12;
+      break;
+    case "quarterly":
+      n = 4;
+      break;
+    case "yearly":
+      n = 1;
+      break;
+    default:
+      n = 1;
+      break;
   }
 
   var m; // Number of times contribution is made per period
   switch (contributionFrequency) {
-      case "daily":
-          m = 365;
-          break;
-      case "weekly":
-          m = 52;
-          break;
-      case "monthly":
-          m = 12;
-          break;
-      case "quarterly":
-          m = 4;
-          break;
-      case "yearly":
-          m = 1;
-          break;
-      default:
-          m = 1;
-          break;
+    case "daily":
+      m = 365;
+      break;
+    case "weekly":
+      m = 52;
+      break;
+    case "monthly":
+      m = 12;
+      break;
+    case "quarterly":
+      m = 4;
+      break;
+    case "yearly":
+      m = 1;
+      break;
+    default:
+      m = 1;
+      break;
   }
 
   // The future value of a series formula considering regular contributions
-  var futureValue = principal * Math.pow((1 + rate / n), n * years);
+  var futureValue = principal * Math.pow(1 + rate / n, n * years);
   for (let i = 1; i <= years * m; i++) {
-      futureValue += extraContribution * Math.pow((1 + rate / n), n * (years - i / m));
+    futureValue +=
+      extraContribution * Math.pow(1 + rate / n, n * (years - i / m));
   }
 
   // Display the result
   var resultElement = document.getElementById("compoundResult");
-  resultElement.innerText = "The future value of your investment is $" + 
-                            Number(futureValue.toFixed(0)).toLocaleString();
+  resultElement.innerText =
+    "The future value of your investment is $" +
+    Number(futureValue.toFixed(0)).toLocaleString();
 }
 
-
-
-
 function toggleCalculator() {
-  var content = document.getElementById('calculatorContent');
-  var toggleButton = document.getElementById('toggleCalculatorButton');
-  if (content.style.display === 'none') {
-      content.style.display = 'block';
-      toggleButton.textContent = 'Hide Affordability Housing Calculator';
-      document.getElementById('affordabilityCalculator').style.maxHeight = '700px'; // Max height when expanded
+  var content = document.getElementById("calculatorContent");
+  var toggleButton = document.getElementById("toggleCalculatorButton");
+  if (content.style.display === "none") {
+    content.style.display = "block";
+    toggleButton.textContent = "Hide Affordability Housing Calculator";
+    document.getElementById("affordabilityCalculator").style.maxHeight =
+      "700px"; // Max height when expanded
   } else {
-      content.style.display = 'none';
-      toggleButton.textContent = 'Show Affordability Housing Calculator';
-      document.getElementById('affordabilityCalculator').style.maxHeight = '0'; // Collapses the div
+    content.style.display = "none";
+    toggleButton.textContent = "Show Affordability Housing Calculator";
+    document.getElementById("affordabilityCalculator").style.maxHeight = "0"; // Collapses the div
   }
 }
 
 function displayLatestRate() {
-  fetch('./data/mortgage30yearsRate_data.json') // Adjust the path as necessary
-      .then(response => response.json())
-      .then(data => {
-          const latestRate = data[data.length - 1].rate;
-          document.getElementById('latestRate').textContent = `${latestRate}`;
-      })
-      .catch(error => console.error('Error fetching the interest rate data:', error));
+  fetch("./data/mortgage30yearsRate_data.json") // Adjust the path as necessary
+    .then((response) => response.json())
+    .then((data) => {
+      const latestRate = data[data.length - 1].rate;
+      document.getElementById("latestRate").textContent = `${latestRate}`;
+    })
+    .catch((error) =>
+      console.error("Error fetching the interest rate data:", error)
+    );
 }
 
 // Call the function when the page loads
 displayLatestRate();
 
-
 function toggleCalculator2() {
-  var content = document.getElementById('calculatorContent2');
-  var toggleButton = document.getElementById('toggleCalculatorButton2');
-  if (content.style.display === 'none') {
-      content.style.display = 'block';
-      toggleButton.textContent = 'Hide Compound Calculator';
-      document.getElementById('compoundInterestCalculator').style.maxHeight = '700px'; // Max height for compound calculator
+  var content = document.getElementById("calculatorContent2");
+  var toggleButton = document.getElementById("toggleCalculatorButton2");
+  if (content.style.display === "none") {
+    content.style.display = "block";
+    toggleButton.textContent = "Hide Compound Calculator";
+    document.getElementById("compoundInterestCalculator").style.maxHeight =
+      "700px"; // Max height for compound calculator
   } else {
-      content.style.display = 'none';
-      toggleButton.textContent = 'Show Compound Calculator';
-      document.getElementById('compoundInterestCalculator').style.maxHeight = '0'; // Collapses the compound calculator div
+    content.style.display = "none";
+    toggleButton.textContent = "Show Compound Calculator";
+    document.getElementById("compoundInterestCalculator").style.maxHeight = "0"; // Collapses the compound calculator div
   }
 }
 
-
 const translations = {
   en: {
-      colors: ["red", "green", "yellow", "blue", "purple", "white"],
-      welcomeMessage: "<strong>Welcome to Mastermind</strong><br><br>",
-      availableColors: "Available colors: ",
-      codeLengthText: "Code length: ",
-      maxAttemptsText: "Maximum attempts: ",
-      invalidGuessMessage: "Invalid guess! Ensure exactly four colors.",
-      correctPositionSingular: "color in the correct position",
-      correctPositionPlural: "colors in the correct positions",
-      invalidGuessMessage: "Invalid guess! Ensure exactly four colors, no commas"
+    colors: ["red", "green", "yellow", "blue", "purple", "white"],
+    welcomeMessage: "<strong>Welcome to Mastermind</strong><br><br>",
+    availableColors: "Available colors: ",
+    codeLengthText: "Code length: ",
+    maxAttemptsText: "Maximum attempts: ",
+    invalidGuessMessage: "Invalid guess! Ensure exactly four colors.",
+    correctPositionSingular: "color in the correct position",
+    correctPositionPlural: "colors in the correct positions",
+    invalidGuessMessage: "Invalid guess! Ensure exactly four colors, no commas",
+    guessButtonText: "Guess",
+    resetButtonText: "Reset",
+    guessInputPlaceholder: "Enter your guess",
   },
   es: {
-      colors: ["rojo", "verde", "amarillo", "azul", "morado", "blanco"],
-      welcomeMessage: "<strong>Bienvenido al juego Mastermind</strong><br><br>",
-      availableColors: "Colores disponibles: ",
-      codeLengthText: "Longitud del código: ",
-      maxAttemptsText: "Intentos máximos: ",
-      invalidGuessMessage: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores.",
-      correctPositionSingular: "color en la posición correcta",
-      correctPositionPlural: "colores en las posiciones correctas",
-      invalidGuessMessage: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores, y no comas"
-  }
+    colors: ["rojo", "verde", "amarillo", "azul", "morado", "blanco"],
+    welcomeMessage: "<strong>Bienvenido al juego Mastermind</strong><br><br>",
+    availableColors: "Colores disponibles: ",
+    codeLengthText: "Longitud del código: ",
+    maxAttemptsText: "Intentos máximos: ",
+    invalidGuessMessage:
+      "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores.",
+    correctPositionSingular: "color en la posición correcta",
+    correctPositionPlural: "colores en las posiciones correctas",
+    invalidGuessMessage:
+      "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores, y no comas",
+    guessButtonText: "Adivinar",
+    resetButtonText: "Reiniciar",
+    guessInputPlaceholder: "Ingresa tu conjetura",
+  },
 };
 
-let currentLanguage = 'es'; // Default language
-
+let currentLanguage = "es"; // Default language
 
 // Initialize variables
 const colors = ["rojo", "verde", "amarillo", "azul", "morado", "blanco"];
@@ -1805,82 +1910,87 @@ let code = [];
 
 // Generate a random code
 for (let i = 0; i < codeLength; i++) {
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    code.push(colors[randomIndex]);
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  code.push(colors[randomIndex]);
 }
 
 // Start the game
-document.getElementById('gameStartMessages').innerHTML = 
-    "<strong>Bienvenido al juego Mastermind</strong><br><br>" +
-    `Colores disponibles: ${colors.join(', ')}<br> <br>` +
-    `Longitud del código: ${codeLength}, Intentos máximos: ${maxAttempts}`;
+document.getElementById("gameStartMessages").innerHTML =
+  "<strong>Bienvenido al juego Mastermind</strong><br><br>" +
+  `Colores disponibles: ${colors.join(", ")}<br> <br>` +
+  `Longitud del código: ${codeLength}, Intentos máximos: ${maxAttempts}`;
 
 // Function to handle a guess
 function makeAGuess(guess) {
   const lang = translations[currentLanguage];
-  const guessArray = guess.toLowerCase().split(' ');
-  const validColors = lang.colors.map(color => color.toLowerCase());
+  const guessArray = guess.toLowerCase().split(" ");
+  const validColors = lang.colors.map((color) => color.toLowerCase());
 
-  if (guessArray.length !== codeLength || !guessArray.every(color => validColors.includes(color))) {
-      return { isValid: false, message: lang.invalidGuessMessage };
+  if (
+    guessArray.length !== codeLength ||
+    !guessArray.every((color) => validColors.includes(color))
+  ) {
+    return { isValid: false, message: lang.invalidGuessMessage };
   }
 
   let correctPosition = 0;
   let correctColor = 0;
   guessArray.forEach((color, index) => {
-      if (color === code[index].toLowerCase()) {
-          correctPosition++;
-      } else if (validColors.includes(color)) {
-          correctColor++;
-      }
+    if (color === code[index].toLowerCase()) {
+      correctPosition++;
+    } else if (validColors.includes(color)) {
+      correctColor++;
+    }
   });
 
   let isWin = correctPosition === codeLength;
-  let message = correctPosition + " " + (correctPosition === 1 ? lang.correctPositionSingular : lang.correctPositionPlural);
+  let message =
+    correctPosition +
+    " " +
+    (correctPosition === 1
+      ? lang.correctPositionSingular
+      : lang.correctPositionPlural);
   return { isValid: true, isWin, correctPosition, correctColor, message };
 }
 
-
-
 // Event listener or loop to handle guesses
 // This part depends on how you want to implement the game interaction (e.g., command line, web page with input and button)
-document.getElementById('guessButton').addEventListener('click', function() {
-  const guess = document.getElementById('guessInput').value;
+document.getElementById("guessButton").addEventListener("click", function () {
+  const guess = document.getElementById("guessInput").value;
   const guessResult = makeAGuess(guess);
-  let output = document.getElementById('output');
+  let output = document.getElementById("output");
 
   if (!guessResult.isValid) {
-      output.innerHTML = guessResult.message;
-      return;
+    output.innerHTML = guessResult.message;
+    return;
   }
 
   if (guessResult.isWin) {
-      output.innerHTML = "¡Felicidades! Ganaste!";
+    output.innerHTML = "¡Felicidades! Ganaste!";
   } else {
-      output.innerHTML = `Intento ${attempts + 1}/${maxAttempts}. ${guessResult.message}`;
+    output.innerHTML = `Intento ${attempts + 1}/${maxAttempts}. ${
+      guessResult.message
+    }`;
   }
 
   attempts++;
   if (attempts >= maxAttempts && !guessResult.isWin) {
-      output.innerHTML += "<br>Has perdido. La combinación correcta era: " + code.join(', ');
+    output.innerHTML +=
+      "<br>Has perdido. La combinación correcta era: " + code.join(", ");
   }
 
-  document.getElementById('guessInput').value = ''; // Clear the input field
+  document.getElementById("guessInput").value = ""; // Clear the input field
 });
 
-
-
-
 function toggleGame() {
-    var modal = document.getElementById('gameModal');
-    if (modal.style.display === 'none') {
-        modal.style.display = 'block';
-    } else {
-        modal.style.display = 'none';
-    }
+  var modal = document.getElementById("gameModal");
+  if (modal.style.display === "none") {
+    modal.style.display = "block";
+  } else {
+    modal.style.display = "none";
+  }
 }
 
-                                              
 function resetGame() {
   // Reset attempts
   attempts = 0;
@@ -1888,53 +1998,67 @@ function resetGame() {
   // Generate a new random code
   code = [];
   for (let i = 0; i < codeLength; i++) {
-      const randomIndex = Math.floor(Math.random() * translations[currentLanguage].colors.length);
-      code.push(translations[currentLanguage].colors[randomIndex]);
+    const randomIndex = Math.floor(
+      Math.random() * translations[currentLanguage].colors.length
+    );
+    code.push(translations[currentLanguage].colors[randomIndex]);
   }
 
   // Clear the input and output fields
-  document.getElementById('guessInput').value = '';
-  document.getElementById('output').innerHTML = '';
+  document.getElementById("guessInput").value = "";
+  document.getElementById("output").innerHTML = "";
 
   // Update the game start messages and language selection
-  document.getElementById('gameStartMessages').innerHTML =
-      translations[currentLanguage].welcomeMessage +
-      `${translations[currentLanguage].availableColors}${translations[currentLanguage].colors.join(', ')}<br> <br>` +
-      `${translations[currentLanguage].codeLengthText}${codeLength}, ${translations[currentLanguage].maxAttemptsText}${maxAttempts}`;
+  document.getElementById("gameStartMessages").innerHTML =
+    translations[currentLanguage].welcomeMessage +
+    `${translations[currentLanguage].availableColors}${translations[
+      currentLanguage
+    ].colors.join(", ")}<br> <br>` +
+    `${translations[currentLanguage].codeLengthText}${codeLength}, ${translations[currentLanguage].maxAttemptsText}${maxAttempts}`;
 
   // Update language selection dropdown to match current language
-  document.getElementById('languageSelect').value = currentLanguage;
+  document.getElementById("languageSelect").value = currentLanguage;
 }
 
 // Event listener for the reset button
-document.getElementById('resetButton').addEventListener('click', resetGame);
-
+document.getElementById("resetButton").addEventListener("click", resetGame);
 
 function changeLanguage() {
   currentLanguage = document.getElementById('languageSelect').value;
   initializeGame();
 }
 
-function initializeGame() {
-  const lang = translations[currentLanguage];
-
-  // Update gameStartMessages
-  document.getElementById('gameStartMessages').innerHTML = 
-      lang.welcomeMessage +
-      `${lang.availableColors}${lang.colors.join(', ')}<br> <br>` +
-      `${lang.codeLengthText}${codeLength}, ${lang.maxAttemptsText}${maxAttempts}`;
-
-  // Regenerate the random code
-  code = [];
-  for (let i = 0; i < codeLength; i++) {
-      const randomIndex = Math.floor(Math.random() * translations[currentLanguage].colors.length);
-      code.push(translations[currentLanguage].colors[randomIndex]);
-  }
-}
-
+// Attach the event listener for language change
+document.getElementById('languageSelect').addEventListener('change', changeLanguage);
 
 // Initialize the game when the page loads
 document.addEventListener('DOMContentLoaded', initializeGame);
 
+
+function initializeGame() {
+  const lang = translations[currentLanguage];
+
+  // Update gameStartMessages
+  document.getElementById("gameStartMessages").innerHTML =
+    lang.welcomeMessage +
+    `${lang.availableColors}${lang.colors.join(", ")}<br> <br>` +
+    `${lang.codeLengthText}${codeLength}, ${lang.maxAttemptsText}${maxAttempts}`;
+  document.getElementById("guessButton").innerText = lang.guessButtonText;
+  document.getElementById("resetButton").innerText = lang.resetButtonText;
+  document.getElementById("guessInput").placeholder = lang.guessInputPlaceholder;
+
+  // Regenerate the random code
+  code = [];
+  for (let i = 0; i < codeLength; i++) {
+      const randomIndex = Math.floor(Math.random() * lang.colors.length);
+      code.push(lang.colors[randomIndex]);
+  }
+}
+
+// Initialize the game when the page loads
+document.addEventListener("DOMContentLoaded", initializeGame);
+
 // Event listener for language switch
-document.getElementById('languageSelect').addEventListener('change', changeLanguage);
+document
+  .getElementById("languageSelect")
+  .addEventListener("change", changeLanguage);
