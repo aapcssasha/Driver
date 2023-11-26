@@ -1710,6 +1710,19 @@ function toggleCalculator() {
   }
 }
 
+function displayLatestRate() {
+  fetch('./data/mortgage30yearsRate_data.json') // Adjust the path as necessary
+      .then(response => response.json())
+      .then(data => {
+          const latestRate = data[data.length - 1].rate;
+          document.getElementById('latestRate').textContent = `${latestRate}`;
+      })
+      .catch(error => console.error('Error fetching the interest rate data:', error));
+}
+
+// Call the function when the page loads
+displayLatestRate();
+
 
 function toggleCalculator2() {
   var content = document.getElementById('calculatorContent2');
