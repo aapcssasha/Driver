@@ -1768,6 +1768,26 @@ function toggleCalculator2() {
 }
 
 
+const translations = {
+  en: {
+      colors: ["red", "green", "yellow", "blue", "purple", "white"],
+      welcomeMessage: "<strong>Welcome to Mastermind</strong><br><br>",
+      availableColors: "Available colors: ",
+      codeLengthText: "Code length: ",
+      maxAttemptsText: "Maximum attempts: ",
+      invalidGuessMessage: "Invalid guess! Ensure exactly four colors."
+  },
+  es: {
+      colors: ["rojo", "verde", "amarillo", "azul", "morado", "blanco"],
+      welcomeMessage: "<strong>Bienvenido al juego Mastermind</strong><br><br>",
+      availableColors: "Colores disponibles: ",
+      codeLengthText: "Longitud del código: ",
+      maxAttemptsText: "Intentos máximos: ",
+      invalidGuessMessage: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores."
+  }
+};
+
+let currentLanguage = 'es'; // Default language
 
 
 // Initialize variables
@@ -1878,3 +1898,43 @@ function resetGame() {
 
 // Event listener for the reset button
 document.getElementById('resetButton').addEventListener('click', resetGame);
+
+
+function changeLanguage() {
+  currentLanguage = document.getElementById('languageSelect').value;
+  initializeGame();
+}
+
+function initializeGame() {
+  const lang = translations[currentLanguage];
+
+  // Update gameStartMessages
+  document.getElementById('gameStartMessages').innerHTML = 
+      lang.welcomeMessage +
+      `${lang.availableColors}${lang.colors.join(', ')}<br> <br>` +
+      `${lang.codeLengthText}${codeLength}, ${lang.maxAttemptsText}${maxAttempts}`;
+
+  // Regenerate the random code
+  code = [];
+  for (let i = 0; i < codeLength; i++) {
+      const randomIndex = Math.floor(Math.random() * lang.colors.length);
+      code.push(lang.colors[randomIndex]);
+  }
+}
+
+function makeAGuess(guess) {
+  const lang = translations[currentLanguage];
+  const guessArray = guess.toLowerCase().split(' ');
+  const validColors = lang.colors.map(color => color.toLowerCase());
+
+  if (guessArray.length !== codeLength || !guessArray.every(color => validColors.includes(color))) {
+      return { isValid: false, message: lang.invalidGuessMessage };
+  }
+  // Rest of the function...
+}
+
+// Initialize the game when the page loads
+document.addEventListener('DOMContentLoaded', initializeGame);
+
+// Event listener for language switch
+document.getElementById('languageSelect').addEventListener('change', changeLanguage);

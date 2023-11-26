@@ -148,6 +148,13 @@
       <div class="modal-content">
           <span class="close" onclick="toggleGame()">&times;</span>
           <div class="gameBox">
+            <div class="language-switch">
+              <select id="languageSelect" onchange="changeLanguage()">
+                  <option value="en">English</option>
+                  <option value="es" selected>Español</option>
+              </select>
+          </div>
+          
             <!-- Game Start Messages -->
             <div id="gameStartMessages"></div>
     
