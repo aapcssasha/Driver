@@ -1662,12 +1662,14 @@ function calculateAffordability() {
 }
 
 function calculateCompoundInterest() {
-  var principal = document.getElementById("initialInvestment").value;
-  var rate = document.getElementById("returnRate").value / 100; // Convert to decimal
+  var principal = parseFloat(document.getElementById("initialInvestment").value);
+  var extraContribution = parseFloat(document.getElementById("extraContribution").value);
+  var contributionFrequency = document.getElementById("contributionFrequency").value;
+  var rate = parseFloat(document.getElementById("returnRate").value) / 100; // Convert to decimal
   var compoundingFrequency = document.getElementById("compounding").value;
-  var years = document.getElementById("timeHorizon").value;
+  var years = parseFloat(document.getElementById("timeHorizon").value);
 
-  var n; // Number of times interest applied per time period
+  var n; // Number of times interest is compounded per period
   switch (compoundingFrequency) {
       case "daily":
           n = 365;
@@ -1686,14 +1688,41 @@ function calculateCompoundInterest() {
           break;
   }
 
-  // Compound interest formula: A = P(1 + r/n)^(nt)
-  var amount = principal * Math.pow((1 + rate / n), n * years);
+  var m; // Number of times contribution is made per period
+  switch (contributionFrequency) {
+      case "daily":
+          m = 365;
+          break;
+      case "weekly":
+          m = 52;
+          break;
+      case "monthly":
+          m = 12;
+          break;
+      case "quarterly":
+          m = 4;
+          break;
+      case "yearly":
+          m = 1;
+          break;
+      default:
+          m = 1;
+          break;
+  }
+
+  // The future value of a series formula considering regular contributions
+  var futureValue = principal * Math.pow((1 + rate / n), n * years);
+  for (let i = 1; i <= years * m; i++) {
+      futureValue += extraContribution * Math.pow((1 + rate / n), n * (years - i / m));
+  }
 
   // Display the result
   var resultElement = document.getElementById("compoundResult");
   resultElement.innerText = "The future value of your investment is $" + 
-                            Number(amount.toFixed(0)).toLocaleString();
+                            Number(futureValue.toFixed(0)).toLocaleString();
 }
+
+
 
 
 function toggleCalculator() {
@@ -1702,7 +1731,7 @@ function toggleCalculator() {
   if (content.style.display === 'none') {
       content.style.display = 'block';
       toggleButton.textContent = 'Hide Affordability Housing Calculator';
-      document.getElementById('affordabilityCalculator').style.maxHeight = '600px'; // Max height when expanded
+      document.getElementById('affordabilityCalculator').style.maxHeight = '700px'; // Max height when expanded
   } else {
       content.style.display = 'none';
       toggleButton.textContent = 'Show Affordability Housing Calculator';
@@ -1730,7 +1759,7 @@ function toggleCalculator2() {
   if (content.style.display === 'none') {
       content.style.display = 'block';
       toggleButton.textContent = 'Hide Compound Calculator';
-      document.getElementById('compoundInterestCalculator').style.maxHeight = '600px'; // Max height for compound calculator
+      document.getElementById('compoundInterestCalculator').style.maxHeight = '700px'; // Max height for compound calculator
   } else {
       content.style.display = 'none';
       toggleButton.textContent = 'Show Compound Calculator';
