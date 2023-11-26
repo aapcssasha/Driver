@@ -464,6 +464,30 @@ body {
   margin-right: 1.5%;
 }
 
+#calculateButton {
+  background-color: rgb(86, 105, 152);
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  display: inline-block;
+  padding: 10px;
+}
+
+#affordabilityCalculator,
+#compoundInterestCalculator {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-left: 20px;
+  padding-right: 20px; /* adjust as needed */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 0;
+  height: 500px;
+  size: 0cap;
+  margin-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: white;
+}
+
 @media screen and (max-width: 768px) {
 .ecnomoicScore,
 .sixIndicator {
@@ -486,6 +510,7 @@ body {
   background-color: #f2f2f5;
   margin-left: 2%;
   margin-right: 1.5%;
+  height: 535px;
 }
 #compoundInterestCalculator {
   margin-left: 2%;
@@ -494,6 +519,7 @@ body {
   border-radius: 10px;
   background-color: #f2f2f5;
 }
+
 }
 
 
@@ -504,13 +530,7 @@ label, input, button {
 }
 
 
-#calculateButton {
-  background-color: rgb(86, 105, 152);
-  border-radius: 10px;
-  transition: transform 0.3s ease; /* Smooth transition for the transform */
-  display: inline-block;
-  padding: 10px;
-}
+
 
 #calculateButton:hover {
   background-color: #2d2677;
@@ -518,19 +538,3 @@ label, input, button {
 }
 
 
-#affordabilityCalculator,
-#compoundInterestCalculator {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-left: 20px;
-  padding-right: 20px; /* adjust as needed */
-  padding-top: 20px;
-  padding-bottom: 20px;
-  min-width: 0;
-  height: 500px;
-  size: 0cap;
-  margin-top: 5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  height: 500px;
-  background-color: white;
-}
