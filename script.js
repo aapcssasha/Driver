@@ -1775,7 +1775,10 @@ const translations = {
       availableColors: "Available colors: ",
       codeLengthText: "Code length: ",
       maxAttemptsText: "Maximum attempts: ",
-      invalidGuessMessage: "Invalid guess! Ensure exactly four colors."
+      invalidGuessMessage: "Invalid guess! Ensure exactly four colors.",
+      correctPositionSingular: "color in the correct position",
+      correctPositionPlural: "colors in the correct positions",
+      invalidGuessMessage: "Invalid guess! Ensure exactly four colors, no commas"
   },
   es: {
       colors: ["rojo", "verde", "amarillo", "azul", "morado", "blanco"],
@@ -1783,7 +1786,10 @@ const translations = {
       availableColors: "Colores disponibles: ",
       codeLengthText: "Longitud del código: ",
       maxAttemptsText: "Intentos máximos: ",
-      invalidGuessMessage: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores."
+      invalidGuessMessage: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores.",
+      correctPositionSingular: "color en la posición correcta",
+      correctPositionPlural: "colores en las posiciones correctas",
+      invalidGuessMessage: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores, y no comas"
   }
 };
 
@@ -1811,27 +1817,29 @@ document.getElementById('gameStartMessages').innerHTML =
 
 // Function to handle a guess
 function makeAGuess(guess) {
-  // Split the guess into an array and convert each color to lowercase
+  const lang = translations[currentLanguage];
   const guessArray = guess.toLowerCase().split(' ');
+  const validColors = lang.colors.map(color => color.toLowerCase());
 
-  if (guessArray.length !== codeLength || !guessArray.every(color => colors.includes(color))) {
-      return { isValid: false, message: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores." };
+  if (guessArray.length !== codeLength || !guessArray.every(color => validColors.includes(color))) {
+      return { isValid: false, message: lang.invalidGuessMessage };
   }
 
   let correctPosition = 0;
   let correctColor = 0;
   guessArray.forEach((color, index) => {
-      if (color === code[index]) {
+      if (color === code[index].toLowerCase()) {
           correctPosition++;
-      } else if (code.includes(color)) {
+      } else if (validColors.includes(color)) {
           correctColor++;
       }
   });
 
   let isWin = correctPosition === codeLength;
-  let message = `${correctPosition} Colores colocados correctamente`;
+  let message = correctPosition + " " + (correctPosition === 1 ? lang.correctPositionSingular : lang.correctPositionPlural);
   return { isValid: true, isWin, correctPosition, correctColor, message };
 }
+
 
 
 // Event listener or loop to handle guesses
@@ -1875,25 +1883,27 @@ function toggleGame() {
                                               
 function resetGame() {
   // Reset attempts
-  console.log("Reset button clicked"); 
   attempts = 0;
 
   // Generate a new random code
   code = [];
   for (let i = 0; i < codeLength; i++) {
-      const randomIndex = Math.floor(Math.random() * colors.length);
-      code.push(colors[randomIndex]);
+      const randomIndex = Math.floor(Math.random() * translations[currentLanguage].colors.length);
+      code.push(translations[currentLanguage].colors[randomIndex]);
   }
 
   // Clear the input and output fields
   document.getElementById('guessInput').value = '';
   document.getElementById('output').innerHTML = '';
 
-  // Update the game start messages
+  // Update the game start messages and language selection
   document.getElementById('gameStartMessages').innerHTML =
-      "<strong>Bienvenido al juego Mastermind</strong><br><br>" +
-      `Colores disponibles: ${colors.join(', ')}<br> <br>` +
-      `Longitud del código: ${codeLength}, Intentos máximos: ${maxAttempts}`;
+      translations[currentLanguage].welcomeMessage +
+      `${translations[currentLanguage].availableColors}${translations[currentLanguage].colors.join(', ')}<br> <br>` +
+      `${translations[currentLanguage].codeLengthText}${codeLength}, ${translations[currentLanguage].maxAttemptsText}${maxAttempts}`;
+
+  // Update language selection dropdown to match current language
+  document.getElementById('languageSelect').value = currentLanguage;
 }
 
 // Event listener for the reset button
@@ -1917,21 +1927,11 @@ function initializeGame() {
   // Regenerate the random code
   code = [];
   for (let i = 0; i < codeLength; i++) {
-      const randomIndex = Math.floor(Math.random() * lang.colors.length);
-      code.push(lang.colors[randomIndex]);
+      const randomIndex = Math.floor(Math.random() * translations[currentLanguage].colors.length);
+      code.push(translations[currentLanguage].colors[randomIndex]);
   }
 }
 
-function makeAGuess(guess) {
-  const lang = translations[currentLanguage];
-  const guessArray = guess.toLowerCase().split(' ');
-  const validColors = lang.colors.map(color => color.toLowerCase());
-
-  if (guessArray.length !== codeLength || !guessArray.every(color => validColors.includes(color))) {
-      return { isValid: false, message: lang.invalidGuessMessage };
-  }
-  // Rest of the function...
-}
 
 // Initialize the game when the page loads
 document.addEventListener('DOMContentLoaded', initializeGame);
