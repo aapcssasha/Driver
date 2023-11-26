@@ -1810,11 +1810,6 @@ document.getElementById('guessButton').addEventListener('click', function() {
 });
 
 
-// Initialize game instructions
-document.getElementById('instructions').innerHTML = "Bienvenido al juego Mastermind. " +
-                                                  "Colores disponibles: " + colors.join(', ') + ". " +
-                                                  "Longitud del código: " + codeLength + ", " +
-                                                  "Intentos máximos: " + maxAttempts;
 
 
 function toggleGame() {
@@ -1827,3 +1822,28 @@ function toggleGame() {
 }
 
                                               
+function resetGame() {
+  // Reset attempts
+  console.log("Reset button clicked"); 
+  attempts = 0;
+
+  // Generate a new random code
+  code = [];
+  for (let i = 0; i < codeLength; i++) {
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      code.push(colors[randomIndex]);
+  }
+
+  // Clear the input and output fields
+  document.getElementById('guessInput').value = '';
+  document.getElementById('output').innerHTML = '';
+
+  // Update the game start messages
+  document.getElementById('gameStartMessages').innerHTML =
+      "<strong>Bienvenido al juego Mastermind</strong><br><br>" +
+      `Colores disponibles: ${colors.join(', ')}<br> <br>` +
+      `Longitud del código: ${codeLength}, Intentos máximos: ${maxAttempts}`;
+}
+
+// Event listener for the reset button
+document.getElementById('resetButton').addEventListener('click', resetGame);

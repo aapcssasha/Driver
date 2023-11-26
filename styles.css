@@ -517,6 +517,7 @@ body {
     align-items: center; /* Centers the children (buttons) horizontally */
     justify-content: flex-start; /* Aligns children to the start vertically */
 }
+#resetButton,
 #guessButton{
   border-radius: 10px;
   transition: transform 0.3s ease; /* Smooth transition for the transform */
@@ -526,6 +527,7 @@ body {
   margin-top: 2%;
   margin-bottom: 2%;
 }
+#resetButton:hover,
 #guessButton:hover {
   background-color: #2d2677;
   transform: scale(1.2);
