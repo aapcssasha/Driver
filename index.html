@@ -65,6 +65,30 @@
       </div>
     </div>
     <div class="sixIndicator">
+      <div class="boxes">
+        <div id="affordabilityCalculator" >
+          <h1><strong> Affordability Calculator</strong></h1>
+          
+          <label for="income">Annual Income of House before Taxes:</label>
+          <input type="number" id="income" placeholder="Enter your income">
+          <br>
+          <label for="debt">Total amount of debt payments each month:</label>
+          <input type="number" id="debt" placeholder="Enter your monthly debt payments">
+    <br>
+          <label for="rate">Interest Rate:</label>
+          <input type="number" id="rate" placeholder="Interest rate">
+      <br>
+          <label for="downpayment">Downpayment:</label>
+          <input type="number" id="Downpayment" placeholder="Downpayment">
+          <br>
+          <button id="calculateButton" onclick="calculateAffordability()">Calculate</button>
+      
+          <p id="result">Your affordable house price will appear here.</p>
+      </div>
+      <div>
+        <h1>next calculator</h1>
+      </div>
+    </div>
       <div class="LatestUpdates" style="background-color: rgb(119, 130, 158); border-radius: 10px;">       
         <div id="updateButton" style="border-radius: 10px;">
           <h2 style="padding: 2%; color: white; text-decoration: solid;">Latest Updates</h2>

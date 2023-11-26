@@ -1609,6 +1609,55 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('loadMoreButton').addEventListener('click', loadUpdates);
 });
 
+function calculateAffordability() {
+  // Get input values
+  var annualIncome = document.getElementById("income").value;
+  var monthlyDebt = document.getElementById("debt").value;
+  var interestRate = document.getElementById("rate").value / 100; // Convert to a decimal
+  var downPayment = document.getElementById("Downpayment").value;
 
+  // Constants (average property tax and insurance for Florida)
+  var avgPropertyTaxRate = 0.98; // Average property tax rate in Florida as a percentage
+  var avgHomeInsurance = 1200; // Average annual home insurance in Florida
 
+  // Calculate monthly income
+  var monthlyIncome = annualIncome / 12;
+
+  // Calculate maximum payment based on income (28% rule)
+  var maxPaymentIncome = monthlyIncome * 0.28;
+
+  // Calculate maximum payment based on income and debt (36% rule)
+  var maxPaymentDebt = (monthlyIncome * 0.36) - monthlyDebt;
+
+  // Use the lesser of the two values for max payment
+  var maxPayment = Math.min(maxPaymentIncome, maxPaymentDebt);
+
+  // Monthly interest rate for mortgage
+  var monthlyInterestRate = interestRate / 12;
+
+  // Total number of payments (30 years)
+  var totalPayments = 30 * 12;
+
+  // Calculate estimated mortgage amount (using annuity formula)
+  var mortgageAmount = (maxPayment / monthlyInterestRate) * (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
+
+  // Adjust mortgage amount based on down payment
+  mortgageAmount -= downPayment;
+
+  // Calculate property tax and insurance (prorated monthly)
+  var monthlyPropertyTax = (mortgageAmount * avgPropertyTaxRate / 100) / 12;
+  var monthlyInsurance = avgHomeInsurance / 12;
+
+  // Adjust max payment by removing property tax and insurance
+  var mortgagePayment = maxPayment - (monthlyPropertyTax + monthlyInsurance);
+
+  // Display the result
+  var resultElement = document.getElementById("result");
+  if (mortgagePayment > 0 && mortgageAmount > 0) {
+      resultElement.innerText = "You can afford a house around $" + Math.round(mortgageAmount).toLocaleString() +
+                                ".\nEstimated Monthly Mortgage Payment (including taxes and insurance): $" + Math.round(mortgagePayment).toLocaleString();
+  } else {
+      resultElement.innerText = "Please check your inputs. The calculation could not be completed.";
+  }
+}
 

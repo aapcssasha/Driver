@@ -462,3 +462,35 @@ body {
 }
 }
 
+.boxes {
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-columns: 1fr 1fr 0fr;
+  margin: 0;
+  background-color: #f1efef;
+}
+
+#affordabilityCalculator{
+  background-color: #999;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 2%;
+  border-radius: 10px;
+}
+label, input, button {
+  display: block; /* Makes each element take up the full width */
+  margin-bottom: 10px; /* Adds space below each element */
+}
+
+
+#calculateButton {
+  background-color: rgb(86, 105, 152);
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  display: inline-block;
+}
+
+#calculateButton:hover {
+  background-color: #2d2677;
+  transform: scale(1.2);
+}
