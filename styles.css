@@ -481,12 +481,11 @@ body {
   padding: 2%;
 }
 #toggleGameButton {
-  background-color: rgb(86, 105, 152);
   border-radius: 10px;
   transition: transform 0.3s ease; /* Smooth transition for the transform */
   transition: background-color 0.3s ease;
   background-color: rgb(86, 105, 152);
-  padding: 2%;
+  padding: 10%;
 }
 #toggleGameButton:hover,
 #calculateButton:hover,
@@ -518,8 +517,23 @@ body {
     align-items: center; /* Centers the children (buttons) horizontally */
     justify-content: flex-start; /* Aligns children to the start vertically */
 }
-
-
+#guessButton{
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  transition: background-color 0.3s ease;
+  background-color: rgb(9, 47, 145);
+  padding: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+#guessButton:hover {
+  background-color: #2d2677;
+  transform: scale(1.2);
+}
+#guessInput {
+  margin-top: 5%;
+  border-radius: 10px;
+}
 
 @media screen and (max-width: 768px) {
 .ecnomoicScore,
@@ -557,7 +571,7 @@ body {
   padding: 2%;
 }
 #toggleGameButton {
-  padding: 5%;
+  padding: 10%;
 }
 
 
@@ -595,11 +609,12 @@ label, input, button {
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: rgb(86, 105, 152);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 20px;
 }
 
 /* The Close Button */

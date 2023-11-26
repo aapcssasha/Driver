@@ -1755,9 +1755,10 @@ for (let i = 0; i < codeLength; i++) {
 }
 
 // Start the game
-console.log("Bienvenido al juego Mastermind");
-console.log(`Colores disponibles: ${colors.join(',')}`);
-console.log(`Longitud del código: ${codeLength}, Intentos máximos: ${maxAttempts}`);
+document.getElementById('gameStartMessages').innerHTML = 
+    "<strong>Bienvenido al juego Mastermind</strong><br><br>" +
+    `Colores disponibles: ${colors.join(', ')}<br> <br>` +
+    `Longitud del código: ${codeLength}, Intentos máximos: ${maxAttempts}`;
 
 // Function to handle a guess
 function makeAGuess(guess) {
@@ -1777,7 +1778,7 @@ function makeAGuess(guess) {
   });
 
   let isWin = correctPosition === codeLength;
-  let message = `${correctPosition} Colores colocados correctamente, ${correctColor} colores correctos en posiciones incorrectas.`;
+  let message = `${correctPosition} Colores colocados correctamente`;
   return { isValid: true, isWin, correctPosition, correctColor, message };
 }
 
