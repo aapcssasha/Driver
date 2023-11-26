@@ -1791,7 +1791,9 @@ document.getElementById('gameStartMessages').innerHTML =
 
 // Function to handle a guess
 function makeAGuess(guess) {
-  const guessArray = guess.split(' ');
+  // Split the guess into an array and convert each color to lowercase
+  const guessArray = guess.toLowerCase().split(' ');
+
   if (guessArray.length !== codeLength || !guessArray.every(color => colors.includes(color))) {
       return { isValid: false, message: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores." };
   }
