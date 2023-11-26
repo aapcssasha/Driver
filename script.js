@@ -1724,3 +1724,5 @@ function toggleCalculator2() {
       document.getElementById('compoundInterestCalculator').style.maxHeight = '0'; // Collapses the compound calculator div
   }
 }
+
+
