@@ -471,9 +471,6 @@ body {
 }
 
 #affordabilityCalculator{
-  background-color: #999;
-  margin-left: 10%;
-  margin-right: 10%;
   padding-left: 2%;
   border-radius: 10px;
 }
@@ -493,4 +490,9 @@ label, input, button {
 #calculateButton:hover {
   background-color: #2d2677;
   transform: scale(1.2);
+}
+
+#compoundInterestCalculator {
+  padding-left: 2%;
+  border-radius: 10px;
 }

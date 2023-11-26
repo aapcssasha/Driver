@@ -28,7 +28,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.0.1/chartjs-plugin-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@latest"></script>
-    
+
     <script src="https://unpkg.com/htmx.org"></script>
   </head>
 
@@ -43,7 +43,9 @@
       </div>
       <div class="menu-content">
         <button class="login-button" onclick="showComingSoon()">Login</button>
-        <button class="register-button" onclick="showComingSoon()">Register</button>
+        <button class="register-button" onclick="showComingSoon()">
+          Register
+        </button>
         <button class="contact-button" onclick="showEmail()">Contact Us</button>
       </div>
     </header>
@@ -66,36 +68,84 @@
     </div>
     <div class="sixIndicator">
       <div class="boxes">
-        <div id="affordabilityCalculator" >
+        <div id="affordabilityCalculator">
           <h1><strong> Affordability Calculator</strong></h1>
-          
+            <br>
           <label for="income">Annual Income of House before Taxes:</label>
-          <input type="number" id="income" placeholder="Enter your income">
-          <br>
+          <input type="number" id="income" placeholder="Enter your income" />
+          <br />
           <label for="debt">Total amount of debt payments each month:</label>
-          <input type="number" id="debt" placeholder="Enter your monthly debt payments">
-    <br>
+          <input
+            type="number"
+            id="debt"
+            placeholder="Enter your monthly debt payments"
+          />
+          <br />
           <label for="rate">Interest Rate:</label>
-          <input type="number" id="rate" placeholder="Interest rate">
-      <br>
+          <input type="number" id="rate" placeholder="Interest rate" />
+          <br />
           <label for="downpayment">Downpayment:</label>
-          <input type="number" id="Downpayment" placeholder="Downpayment">
-          <br>
-          <button id="calculateButton" onclick="calculateAffordability()">Calculate</button>
-      
+          <input type="number" id="Downpayment" placeholder="Downpayment" />
+          <br />
+          <button id="calculateButton" onclick="calculateAffordability()">
+            Calculate
+          </button>
+
           <p id="result">Your affordable house price will appear here.</p>
+        </div>
+        <div>
+          <div id="compoundInterestCalculator">
+            <h1><strong> Interest Calculator</strong></h1>
+            <br>
+            <label for="initialInvestment">Initial Investment ($):</label>
+            <input
+              type="number"
+              id="initialInvestment"
+              placeholder="Enter initial amount"
+            />
+
+            <label for="returnRate">Expected Annual Return Rate (%):</label>
+            <input
+              type="number"
+              id="returnRate"
+              placeholder="Enter expected return rate"
+            />
+
+            <label for="compounding">Compounding Frequency:</label>
+            <select id="compounding">
+              <option value="daily">Daily</option>
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly" selected>Yearly</option>
+            </select>
+
+            <label for="timeHorizon">Time Horizon (years):</label>
+            <input
+              type="number"
+              id="timeHorizon"
+              placeholder="Enter time in years"
+            />
+
+            <button id="calculateButton" onclick="calculateCompoundInterest()">Calculate</button>
+
+            <p id="compoundResult">
+              The future value of your investment will appear here.
+            </p>
+          </div>
+        </div>
       </div>
-      <div>
-        <h1>next calculator</h1>
-      </div>
-    </div>
-      <div class="LatestUpdates" style="background-color: rgb(119, 130, 158); border-radius: 10px;">       
-        <div id="updateButton" style="border-radius: 10px;">
-          <h2 style="padding: 2%; color: white; text-decoration: solid;">Latest Updates</h2>
+      <div
+        class="LatestUpdates"
+        style="background-color: rgb(119, 130, 158); border-radius: 10px"
+      >
+        <div id="updateButton" style="border-radius: 10px">
+          <h2 style="padding: 2%; color: white; text-decoration: solid">
+            Latest Updates
+          </h2>
         </div>
         <div id="updatesContent" style="color: white; padding: 2%"></div>
-        <button id="loadMoreButton" style=" padding: 2%;">Load More</button>
-      </div>          
+        <button id="loadMoreButton" style="padding: 2%">Load More</button>
+      </div>
       <div id="VIX" class="p-4 bg-gray-200 rounded flex flex-col items-center">
         <h2 class="text-2xl font-bold text-red-600">Vix</h2>
         <canvas id="Vixchart"></canvas>

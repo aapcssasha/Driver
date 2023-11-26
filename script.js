@@ -1661,3 +1661,36 @@ function calculateAffordability() {
   }
 }
 
+function calculateCompoundInterest() {
+  var principal = document.getElementById("initialInvestment").value;
+  var rate = document.getElementById("returnRate").value / 100; // Convert to decimal
+  var compoundingFrequency = document.getElementById("compounding").value;
+  var years = document.getElementById("timeHorizon").value;
+
+  var n; // Number of times interest applied per time period
+  switch (compoundingFrequency) {
+      case "daily":
+          n = 365;
+          break;
+      case "monthly":
+          n = 12;
+          break;
+      case "quarterly":
+          n = 4;
+          break;
+      case "yearly":
+          n = 1;
+          break;
+      default:
+          n = 1;
+          break;
+  }
+
+  // Compound interest formula: A = P(1 + r/n)^(nt)
+  var amount = principal * Math.pow((1 + rate / n), n * years);
+
+  // Display the result
+  var resultElement = document.getElementById("compoundResult");
+  resultElement.innerText = "The future value of your investment is $" + amount.toFixed(2);
+}
+
