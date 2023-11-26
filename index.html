@@ -41,6 +41,9 @@
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
+      <div class="button-container">
+        <button id="toggleGameButton" onclick="toggleGame()">Game</button>
+      </div>
       <div class="menu-content">
         <button class="login-button" onclick="showComingSoon()">Login</button>
         <button class="register-button" onclick="showComingSoon()">
@@ -141,6 +144,22 @@
         </div>
       </div>
     </div>
+    <div id="gameModal" class="modal" style="display: none;">
+      <!-- Modal Content -->
+      <div class="modal-content">
+          <span class="close" onclick="toggleGame()">&times;</span>
+  
+          <!-- Your Game Content -->
+          <div id="game">
+              <div id="instructions"></div>
+              <input type="text" id="guessInput" placeholder="Enter your guess">
+              <button id="guessButton">Guess</button>
+              <div id="output"></div>
+          </div>
+      </div>
+  </div>
+  </div>
+
     <div class="sixIndicator">
       <div
         class="LatestUpdates"

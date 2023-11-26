@@ -1726,3 +1726,90 @@ function toggleCalculator2() {
 }
 
 
+
+
+// Initialize variables
+const colors = ["rojo", "verde", "amarillo", "azul", "morado", "blanco"];
+const codeLength = 4;
+const maxAttempts = 8;
+let attempts = 0;
+let code = [];
+
+// Generate a random code
+for (let i = 0; i < codeLength; i++) {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    code.push(colors[randomIndex]);
+}
+
+// Start the game
+console.log("Bienvenido al juego Mastermind");
+console.log(`Colores disponibles: ${colors.join(',')}`);
+console.log(`Longitud del código: ${codeLength}, Intentos máximos: ${maxAttempts}`);
+
+// Function to handle a guess
+function makeAGuess(guess) {
+  const guessArray = guess.split(' ');
+  if (guessArray.length !== codeLength || !guessArray.every(color => colors.includes(color))) {
+      return { isValid: false, message: "¡Conjetura inválida! Asegúrate de tener exactamente cuatro colores." };
+  }
+
+  let correctPosition = 0;
+  let correctColor = 0;
+  guessArray.forEach((color, index) => {
+      if (color === code[index]) {
+          correctPosition++;
+      } else if (code.includes(color)) {
+          correctColor++;
+      }
+  });
+
+  let isWin = correctPosition === codeLength;
+  let message = `${correctPosition} Colores colocados correctamente, ${correctColor} colores correctos en posiciones incorrectas.`;
+  return { isValid: true, isWin, correctPosition, correctColor, message };
+}
+
+
+// Event listener or loop to handle guesses
+// This part depends on how you want to implement the game interaction (e.g., command line, web page with input and button)
+document.getElementById('guessButton').addEventListener('click', function() {
+  const guess = document.getElementById('guessInput').value;
+  const guessResult = makeAGuess(guess);
+  let output = document.getElementById('output');
+
+  if (!guessResult.isValid) {
+      output.innerHTML = guessResult.message;
+      return;
+  }
+
+  if (guessResult.isWin) {
+      output.innerHTML = "¡Felicidades! Ganaste!";
+  } else {
+      output.innerHTML = `Intento ${attempts + 1}/${maxAttempts}. ${guessResult.message}`;
+  }
+
+  attempts++;
+  if (attempts >= maxAttempts && !guessResult.isWin) {
+      output.innerHTML += "<br>Has perdido. La combinación correcta era: " + code.join(', ');
+  }
+
+  document.getElementById('guessInput').value = ''; // Clear the input field
+});
+
+
+// Initialize game instructions
+document.getElementById('instructions').innerHTML = "Bienvenido al juego Mastermind. " +
+                                                  "Colores disponibles: " + colors.join(', ') + ". " +
+                                                  "Longitud del código: " + codeLength + ", " +
+                                                  "Intentos máximos: " + maxAttempts;
+
+
+function toggleGame() {
+    var modal = document.getElementById('gameModal');
+    if (modal.style.display === 'none') {
+        modal.style.display = 'block';
+    } else {
+        modal.style.display = 'none';
+    }
+}
+
+                                              
