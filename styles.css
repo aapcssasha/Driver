@@ -468,7 +468,7 @@ body {
   margin-left: 2%;
   border-radius: 10px;
 }
-#toggleGameButton,
+
 #calculateButton,
 #toggleCalculatorButton,
 #toggleCalculatorButton2 {
@@ -478,6 +478,14 @@ body {
   transition: background-color 0.3s ease;
   background-color: rgb(86, 105, 152);
   display: inline-block;
+  padding: 2%;
+}
+#toggleGameButton {
+  background-color: rgb(86, 105, 152);
+  border-radius: 10px;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  transition: background-color 0.3s ease;
+  background-color: rgb(86, 105, 152);
   padding: 2%;
 }
 #toggleGameButton:hover,
@@ -548,6 +556,10 @@ body {
 #toggleCalculatorButton2 {
   padding: 2%;
 }
+#toggleGameButton {
+  padding: 5%;
+}
+
 
 }
 
