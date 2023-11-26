@@ -449,19 +449,6 @@ body {
   padding-left: 10%;
   padding-right: 10%;
 }
-
-@media screen and (max-width: 768px) {
-  .ecnomoicScore,
-.sixIndicator {
-  padding-left: 2%;
-  padding-right: 2%;
-}
-.container {
-  padding-left: 2.5%;
-  padding-right: 2.5%;
-}
-}
-
 .boxes {
   display: grid;
   flex: 1 0 auto;
@@ -469,7 +456,6 @@ body {
   margin: 0;
   background-color: #f1efef;
 }
-
 #affordabilityCalculator{
   padding-left: 2%;
   border-radius: 10px;
@@ -477,6 +463,41 @@ body {
   margin-left: 21%;
   margin-right: 1.5%;
 }
+
+@media screen and (max-width: 768px) {
+.ecnomoicScore,
+.sixIndicator {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.container,
+.boxes {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+.boxes {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+#affordabilityCalculator{
+  padding-left: 2%;
+  border-radius: 10px;
+  background-color: #f2f2f5;
+  margin-left: 2%;
+  margin-right: 1.5%;
+}
+#compoundInterestCalculator {
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-left: 2%;
+  border-radius: 10px;
+  background-color: #f2f2f5;
+}
+}
+
+
+
 label, input, button {
   display: block; /* Makes each element take up the full width */
   margin-bottom: 10px; /* Adds space below each element */
@@ -496,13 +517,6 @@ label, input, button {
   transform: scale(1.2);
 }
 
-#compoundInterestCalculator {
-  margin-left: 2%;
-  margin-right: 22%;
-  padding-left: 2%;
-  border-radius: 10px;
-  background-color: #f2f2f5;
-}
 
 #affordabilityCalculator,
 #compoundInterestCalculator {
