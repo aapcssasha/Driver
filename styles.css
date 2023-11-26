@@ -634,3 +634,9 @@ label, input, button {
   cursor: pointer;
 }
 
+.styled-hr {
+  border: none;  /* Removes the default border */
+  border-top: 3px solid #618bff; /* Sets a solid line with color */
+  
+  width: 80%; /* Sets the width of the line */
+}
