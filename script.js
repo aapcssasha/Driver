@@ -1691,6 +1691,7 @@ function calculateCompoundInterest() {
 
   // Display the result
   var resultElement = document.getElementById("compoundResult");
-  resultElement.innerText = "The future value of your investment is $" + amount.toFixed(2);
+  resultElement.innerText = "The future value of your investment is $" + 
+                            Number(amount.toFixed(0)).toLocaleString();
 }
 
