@@ -1880,6 +1880,9 @@ const translations = {
     guessButtonText: "Guess",
     resetButtonText: "Reset",
     guessInputPlaceholder: "Enter your guess",
+    cssColors: ["red", "green", "yellow", "blue", "purple", "white"],
+    winMessage: "<strong>Congratulations! You won!</strong>",
+    lossMessage: "<br><strong>You lost.</strong> The correct combination was: "
   },
   es: {
     colors: ["rojo", "verde", "amarillo", "azul", "morado", "blanco"],
@@ -1896,6 +1899,9 @@ const translations = {
     guessButtonText: "Adivinar",
     resetButtonText: "Reiniciar",
     guessInputPlaceholder: "Ingresa tu conjetura",
+    cssColors: ["red", "green", "yellow", "blue", "purple", "white"],
+    winMessage: "<strong>¡Felicidades! Ganaste!</strong>",
+    lossMessage: "<br><strong>Has perdido.</strong> La combinación correcta era: "
   },
 };
 
@@ -1959,6 +1965,7 @@ document.getElementById("guessButton").addEventListener("click", function () {
   const guess = document.getElementById("guessInput").value;
   const guessResult = makeAGuess(guess);
   let output = document.getElementById("output");
+  const lang = translations[currentLanguage];
 
   if (!guessResult.isValid) {
     output.innerHTML = guessResult.message;
@@ -1966,21 +1973,27 @@ document.getElementById("guessButton").addEventListener("click", function () {
   }
 
   if (guessResult.isWin) {
-    output.innerHTML = "¡Felicidades! Ganaste!";
+    output.innerHTML = lang.winMessage;
   } else {
-    output.innerHTML = `Intento ${attempts + 1}/${maxAttempts}. ${
-      guessResult.message
-    }`;
+    output.innerHTML = `Intento ${attempts + 1}/${maxAttempts}. ${guessResult.message}`;
   }
 
   attempts++;
   if (attempts >= maxAttempts && !guessResult.isWin) {
-    output.innerHTML +=
-      "<br>Has perdido. La combinación correcta era: " + code.join(", ");
+    // Format each color in the code array with corresponding CSS color style
+    let formattedCode = code.map(color => {
+      const colorIndex = lang.colors.indexOf(color);
+      const cssColor = lang.cssColors[colorIndex];
+      return `<span style="color: ${cssColor};">${color}</span>`;
+    }).join(", ");
+
+    output.innerHTML += lang.lossMessage + formattedCode;
   }
 
   document.getElementById("guessInput").value = ""; // Clear the input field
 });
+
+
 
 function toggleGame() {
   var modal = document.getElementById("gameModal");
@@ -2046,6 +2059,9 @@ function initializeGame() {
   document.getElementById("guessButton").innerText = lang.guessButtonText;
   document.getElementById("resetButton").innerText = lang.resetButtonText;
   document.getElementById("guessInput").placeholder = lang.guessInputPlaceholder;
+
+  let coloredText = lang.colors.map((color, index) => `<span style="color: ${lang.cssColors[index]};">${color}</span>`).join(', ');
+  document.getElementById('colorDisplay').innerHTML = coloredText;
 
   // Regenerate the random code
   code = [];
