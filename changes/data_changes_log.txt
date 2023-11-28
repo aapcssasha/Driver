@@ -78,4 +78,8 @@ New data for Stock Market to GDP Score: 2.2, >>>>>  from: 3.0
 New data for PE Ratio Score: 2.4, >>>>>  from: 3.2
 New data for Mean Reversion Score: 2.4, >>>>>  from: 3.2
 
-new real data
+new real data2023-11-28 12:00:11
+New data for Stock Market to GDP Score: 2.0, >>>>>  from: 2.2
+New data for PE Ratio Score: 2.2, >>>>>  from: 2.4
+New data for Mean Reversion Score: 2.2, >>>>>  from: 2.4
+
