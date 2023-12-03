@@ -116,3 +116,9 @@ New data for Mean Reversion Score: 1.6, >>>>>  from: 3.2
 New data for Economic Score: 5.2, >>>>>  from: 5.3
 New data for Housing Score: 3.5
 
+2023-12-02 20:02:55
+New data for Economic Score: 5.4, >>>>>  from: 5.2
+New data for Stock Market to GDP Score: 2.0, >>>>>  from: 1.4
+New data for PE Ratio Score: 2.2, >>>>>  from: 1.6
+New data for Mean Reversion Score: 2.2, >>>>>  from: 1.6
+
