@@ -166,3 +166,8 @@ New data for Stock Market to GDP Score: 2.4, >>>>>  from: 1.4
 New data for PE Ratio Score: 2.4, >>>>>  from: 1.6
 New data for Mean Reversion Score: 2.4, >>>>>  from: 1.6
 
+2023-12-08 12:01:40
+New data for Economic Score: 5.38, >>>>>  from: 5.24
+New data for Unemployment Score: 8.7, >>>>>  from: 8.2
+New data for Consumer Sentiment Score: 3.2, >>>>>  from: 1.9
+
