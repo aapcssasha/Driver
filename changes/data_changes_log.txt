@@ -187,3 +187,7 @@ New data for Housing Score: 3.3
 New data for Economic Score: 5.23, >>>>>  from: 5.25
 New data for Housing Score: 3
 
+2023-12-12 12:00:07
+New data for Economic Score: 5.21, >>>>>  from: 5.23
+New data for Stock Market to GDP Score: 2.2, >>>>>  from: 2.4
+
