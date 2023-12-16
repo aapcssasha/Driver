@@ -75,3 +75,4 @@
 12/12/2023 - economic score : 5.24
 12/13/2023 - economic score : 5.35
 12/14/2023 - economic score : 5.35
+12/15/2023 - economic score : 5.35
