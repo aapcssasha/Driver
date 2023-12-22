@@ -221,3 +221,7 @@ New data for Mean Reversion Score: 2.2, >>>>>  from: 2.0
 New data for Economic Score: 5.31, >>>>>  from: 5.35
 New data for GDP Growth Score: 8.1, >>>>>  from: 8.6
 
+2023-12-22 12:00:07
+New data for Economic Score: 5.27, >>>>>  from: 5.26
+New data for Consumer Sentiment Score: 3.3, >>>>>  from: 3.2
+
