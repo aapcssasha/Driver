@@ -126,3 +126,4 @@
 02/06/2024 - economic score : 5.11
 02/07/2024 - economic score : 5.06
 02/08/2024 - economic score : 5.06
+02/09/2024 - economic score : 5.06
