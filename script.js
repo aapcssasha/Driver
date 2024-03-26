@@ -35,7 +35,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
 
     // Fetching Economic Scores
     return fetch(
-      "https://raw.githubusercontent.com/aapcssasha/Driver/main/economic_scores.txt"
+      "https://raw.githubusercontent.com/aapcssasha/Driver/main/economic_scores.txt",
     );
   })
   .then((response) => response.text())
@@ -240,7 +240,7 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
 async function fetchLatestScore() {
   // Fetch the scores
   const response = await fetch(
-    "https://raw.githubusercontent.com/aapcssasha/Driver/main/economic_scores.txt"
+    "https://raw.githubusercontent.com/aapcssasha/Driver/main/economic_scores.txt",
   );
   const data = await response.text();
 
@@ -275,9 +275,8 @@ function selectPic(score) {
   const roundedScore = roundToDecimal(score);
 
   // Display the roundedScore in the HTML
-  document.getElementById(
-    "roundedScoreDisplay"
-  ).innerText = `Rounded Score: ${roundedScore}`;
+  document.getElementById("roundedScoreDisplay").innerText =
+    `Rounded Score: ${roundedScore}`;
 
   const picName = selectPic(roundedScore);
   const picUrl = `https://raw.githubusercontent.com/aapcssasha/Driver/main/pics/${picName}`;
@@ -293,7 +292,7 @@ let vixChart;
 
 // Fetching VIX data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vix_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -397,7 +396,7 @@ let unemploymentChart;
 
 // Fetching unemployment data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymentRate_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/unemploymentRate_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -500,7 +499,7 @@ let delinquencyRates = [];
 
 // Fetch the delinquency data from the data folder
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/delinquencyCreditCards_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/delinquencyCreditCards_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -581,7 +580,7 @@ let stickyCPIValues = [];
 
 // Fetch the Sticky CPI data from the data folder
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/stickyCPI_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/stickyCPI_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -659,7 +658,7 @@ let gdpValues = [];
 
 // Fetch the GDP data from the data folder
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/gdpHistory_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/gdpHistory_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -737,7 +736,7 @@ let personalIncomeValues = [];
 
 // Fetch the Personal Income data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/personalIncome_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/personalIncome_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -831,7 +830,7 @@ let savingRateValues = [];
 
 // Fetch the Personal Saving Rate data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/savingRate_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/savingRate_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -923,7 +922,7 @@ let companiesDebtValues = [];
 
 // Fetch the Companies Debt data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/companiesDEBT_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/companiesDEBT_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1017,7 +1016,7 @@ let CC30daysPastdueRates = [];
 
 // Fetch the CC 30 Days Past Due data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/CC30daysPastdue_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/CC30daysPastdue_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1104,7 +1103,7 @@ fetch(
   .catch((error) => {
     console.error(
       "Error fetching Credit Card Balances: 30 or More Days Past Due Rates data:",
-      error
+      error,
     );
   });
 
@@ -1114,7 +1113,7 @@ let housingInventoryValues = [];
 
 // Fetch the Housing Inventory data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/housingInventory_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/housingInventory_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1208,7 +1207,7 @@ let homeSalesValues = [];
 
 // Fetch the Home Sales data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homeSales_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homeSales_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1298,7 +1297,7 @@ let mortgage30yearsValues = [];
 
 // Fetch the 30 years Mortgage Rate data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgage30yearsRate_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgage30yearsRate_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1392,7 +1391,7 @@ let mortgageDelinquencyRates = [];
 
 // Fetching the Mortgage Delinquency Rate data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgageDelinquencyRate_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/mortgageDelinquencyRate_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1433,7 +1432,7 @@ fetch(
                 return index === mortgageDelinquencyRates.length - 1
                   ? "red"
                   : "rgba(0, 0, 0, 0)";
-              }
+              },
             ),
             pointBorderColor: mortgageDelinquencyRates.map((value, index) => {
               return index === mortgageDelinquencyRates.length - 1
@@ -1476,7 +1475,7 @@ let homePriceIndices = [];
 
 // Fetching the House Price Index data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIndex_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/homePriceIndex_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1558,7 +1557,7 @@ let vacantHousingUnitsValues = [];
 
 // Fetching the House Price Index data
 fetch(
-  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vacantHousingUnits_data.csv"
+  "https://raw.githubusercontent.com/aapcssasha/Driver/main/data/vacantHousingUnits_data.csv",
 )
   .then((response) => response.text())
   .then((data) => {
@@ -1599,7 +1598,7 @@ fetch(
                 return index === vacantHousingUnitsValues.length - 1
                   ? "red"
                   : "rgba(0, 0, 0, 0)";
-              }
+              },
             ),
             pointBorderColor: vacantHousingUnitsValues.map((value, index) => {
               return index === vacantHousingUnitsValues.length - 1
@@ -1666,7 +1665,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Calculate the next set of updates to show
         const start = Math.max(
           updates.length - updatesDisplayed - updatesToShowEachTime,
-          0
+          0,
         );
         const end = updates.length - updatesDisplayed;
         const updatesToDisplay = updates.slice(start, end);
@@ -1754,13 +1753,13 @@ function calculateAffordability() {
 
 function calculateCompoundInterest() {
   var principal = parseFloat(
-    document.getElementById("initialInvestment").value
+    document.getElementById("initialInvestment").value,
   );
   var extraContribution = parseFloat(
-    document.getElementById("extraContribution").value
+    document.getElementById("extraContribution").value,
   );
   var contributionFrequency = document.getElementById(
-    "contributionFrequency"
+    "contributionFrequency",
   ).value;
   var rate = parseFloat(document.getElementById("returnRate").value) / 100; // Convert to decimal
   var compoundingFrequency = document.getElementById("compounding").value;
@@ -1844,7 +1843,7 @@ function displayLatestRate() {
       document.getElementById("latestRate").textContent = `${latestRate}`;
     })
     .catch((error) =>
-      console.error("Error fetching the interest rate data:", error)
+      console.error("Error fetching the interest rate data:", error),
     );
 }
 
@@ -1882,7 +1881,7 @@ const translations = {
     guessInputPlaceholder: "Enter your guess",
     cssColors: ["red", "green", "yellow", "blue", "purple", "white"],
     winMessage: "<strong>Congratulations! You won!</strong>",
-    lossMessage: "<br><strong>You lost.</strong> The correct combination was: "
+    lossMessage: "<br><strong>You lost.</strong> The correct combination was: ",
   },
   es: {
     colors: ["rojo", "verde", "amarillo", "azul", "morado", "blanco"],
@@ -1901,7 +1900,8 @@ const translations = {
     guessInputPlaceholder: "Ingresa tu conjetura",
     cssColors: ["red", "green", "yellow", "blue", "purple", "white"],
     winMessage: "<strong>¡Felicidades! Ganaste!</strong>",
-    lossMessage: "<br><strong>Has perdido.</strong> La combinación correcta era: "
+    lossMessage:
+      "<br><strong>Has perdido.</strong> La combinación correcta era: ",
   },
 };
 
@@ -1981,19 +1981,19 @@ document.getElementById("guessButton").addEventListener("click", function () {
   attempts++;
   if (attempts >= maxAttempts && !guessResult.isWin) {
     // Format each color in the code array with corresponding CSS color style
-    let formattedCode = code.map(color => {
-      const colorIndex = lang.colors.indexOf(color);
-      const cssColor = lang.cssColors[colorIndex];
-      return `<span style="color: ${cssColor};">${color}</span>`;
-    }).join(", ");
+    let formattedCode = code
+      .map((color) => {
+        const colorIndex = lang.colors.indexOf(color);
+        const cssColor = lang.cssColors[colorIndex];
+        return `<span style="color: ${cssColor};">${color}</span>`;
+      })
+      .join(", ");
 
     output.innerHTML += lang.lossMessage + formattedCode;
   }
 
   document.getElementById("guessInput").value = ""; // Clear the input field
 });
-
-
 
 function toggleGame() {
   var modal = document.getElementById("gameModal");
@@ -2012,7 +2012,7 @@ function resetGame() {
   code = [];
   for (let i = 0; i < codeLength; i++) {
     const randomIndex = Math.floor(
-      Math.random() * translations[currentLanguage].colors.length
+      Math.random() * translations[currentLanguage].colors.length,
     );
     code.push(translations[currentLanguage].colors[randomIndex]);
   }
@@ -2037,16 +2037,17 @@ function resetGame() {
 document.getElementById("resetButton").addEventListener("click", resetGame);
 
 function changeLanguage() {
-  currentLanguage = document.getElementById('languageSelect').value;
+  currentLanguage = document.getElementById("languageSelect").value;
   initializeGame();
 }
 
 // Attach the event listener for language change
-document.getElementById('languageSelect').addEventListener('change', changeLanguage);
+document
+  .getElementById("languageSelect")
+  .addEventListener("change", changeLanguage);
 
 // Initialize the game when the page loads
-document.addEventListener('DOMContentLoaded', initializeGame);
-
+document.addEventListener("DOMContentLoaded", initializeGame);
 
 function initializeGame() {
   const lang = translations[currentLanguage];
@@ -2058,16 +2059,22 @@ function initializeGame() {
     `${lang.codeLengthText}${codeLength}, ${lang.maxAttemptsText}${maxAttempts}`;
   document.getElementById("guessButton").innerText = lang.guessButtonText;
   document.getElementById("resetButton").innerText = lang.resetButtonText;
-  document.getElementById("guessInput").placeholder = lang.guessInputPlaceholder;
+  document.getElementById("guessInput").placeholder =
+    lang.guessInputPlaceholder;
 
-  let coloredText = lang.colors.map((color, index) => `<span style="color: ${lang.cssColors[index]};">${color}</span>`).join(', ');
-  document.getElementById('colorDisplay').innerHTML = coloredText;
+  let coloredText = lang.colors
+    .map(
+      (color, index) =>
+        `<span style="color: ${lang.cssColors[index]};">${color}</span>`,
+    )
+    .join(", ");
+  document.getElementById("colorDisplay").innerHTML = coloredText;
 
   // Regenerate the random code
   code = [];
   for (let i = 0; i < codeLength; i++) {
-      const randomIndex = Math.floor(Math.random() * lang.colors.length);
-      code.push(lang.colors[randomIndex]);
+    const randomIndex = Math.floor(Math.random() * lang.colors.length);
+    code.push(lang.colors[randomIndex]);
   }
 }
 
