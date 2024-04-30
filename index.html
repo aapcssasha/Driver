@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="output.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
@@ -43,6 +43,9 @@
       <div class="menu-icon" onclick="toggleMenu()">
         <div class="bar"></div>
         <div class="bar"></div>
+      </div>
+      <div>
+          <a class="bg-blue-500 rounded-lg p-5 hover:bg-blue-700" href="blog.html">Blog</a>
       </div>
 
       <div class="menu-content">
@@ -137,12 +140,12 @@
             <br />
             <br />
             <button id="calculateButton" onclick="calculateCompoundInterest()">Calculate</button>
-      
+
             <p id="compoundResult">The future value of your investment will appear here.</p>
           </div>
         </div>
       </div>
-      
+
     </div>
     <div id="gameModal" class="modal" style="display: none;">
       <!-- Modal Content -->
@@ -155,10 +158,10 @@
                   <option value="es" selected>Español</option>
               </select>
           </div>
-          
+
             <!-- Game Start Messages -->
             <div id="gameStartMessages"></div>
-    
+
             <!-- Game Content -->
             <div id="game">
               <div id="instructions"></div>
@@ -170,7 +173,7 @@
           </div>
         </div>
       </div>
-  </div>  
+  </div>
   </div>
 
     <div class="sixIndicator">
