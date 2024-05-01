@@ -1,8 +1,8 @@
 // calendar.js
 const calendarContainer = document.getElementById("calendar-container");
 const tradingData = [
-  { date: "2024-04-01", amount: 100 },
-  { date: "2024-04-02", amount: -50 },
+  { date: "2024-04-01", amount: -50 },
+  { date: "2024-04-02", amount: 275 },
   { date: "2024-04-03", amount: 75 },
   // ... add more trading data here
 ];
