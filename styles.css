@@ -41,6 +41,15 @@ header {
     background-color: #f1efef;
 }
 
+#percentageChangeDiv {
+    padding: 0 10px;
+    margin: 0 auto;
+    max-width: 200px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+}
+
 #whatnow,
 #feargreed {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
