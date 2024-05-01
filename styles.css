@@ -33,7 +33,7 @@ header {
     transform: scale(1.2);
 }
 
-.container {
+.contenedor {
     display: grid;
     flex: 1 0 auto;
     grid-template-columns: 1fr 1fr 0fr;
@@ -141,7 +141,7 @@ x * {
 }
 
 @media screen and (max-width: 768px) {
-    .container {
+    . {
         display: grid;
         grid-template-columns: 1fr;
     }
@@ -213,10 +213,11 @@ body {
 
 #whatnow img {
     height: 300px; /* maintains the aspect ratio */
-    margin: 0 auto; /* centers the image horizontally if the container is wider */
+    margin: 0 auto; /* centers the image horizontally
+    is wider */
 }
 
-/* Six Indicators Container */
+/* Six Indicators  */
 .sixIndicator {
     padding-left: 10px;
     padding-right: 10px;
@@ -248,7 +249,7 @@ body {
     margin: 2%;
 }
 
-.container > div {
+.contenedor > div {
     margin: 2%;
     border-radius: 10px;
 }
@@ -323,7 +324,7 @@ body {
     align-items: right;
     width: 900%; /* Assuming you want them to span the entire width of the parent. Adjust if needed. */
     max-width: 400px; /* You can adjust this to your liking */
-    /* Centers the container if parent is wider than max-width */
+    /* Centers the contenedor if parent is wider than max-width */
 }
 
 .menu-icon {
@@ -411,7 +412,7 @@ body {
     padding-left: 9%;
     padding-right: 9%;
 }
-.container {
+.contenedor {
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -507,7 +508,7 @@ body {
         padding-left: 2%;
         padding-right: 2%;
     }
-    .container,
+    .contenedor,
     .boxes {
         padding-left: 2.5%;
         padding-right: 2.5%;
