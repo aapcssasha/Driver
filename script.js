@@ -80,18 +80,16 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
         ],
       },
       options: {
-        hover: {
-          mode: "index", // If you want precision while using onHover
-        },
-        onHover: (event, chartElement) => {
-          if (chartElement.length > 0) {
-            // Check if we're hovering over an element
-            event.native.target.style.cursor = "crosshair"; // Change the cursor
-          } else {
-            event.native.target.style.cursor = "default"; // Reset to default
-          }
-        },
         plugins: {
+          crosshair: {
+            line: {
+              color: "#F66", // Customize color if desired
+              width: 1, // Adjust width if needed
+            },
+            sync: {
+              enabled: false, // Only enable if you have multiple charts to sync
+            },
+          },
           annotation: {
             annotations: [
               {
