@@ -70,7 +70,7 @@
                 .then(response => response.text())
                 .then(data => {
                     // Append the percentage symbol to the data
-                    const percentageChange = `${data}%`;
+                    const percentageChange = `Change since SPY close 2 months ago: ${data}%`;
 
                     // Update the inner HTML of the div with the formatted data
                     document.getElementById('percentageChangeDiv').innerHTML = percentageChange;
