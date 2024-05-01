@@ -1,14 +1,40 @@
+<!-- index.html -->
 <!doctype html>
-<html lang="en">
+<html>
+    <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Investing Blog - Article Title</title>
+        <title>The Psychology of Trading: Mastering Your Mindset</title>
         <link rel="stylesheet" href="blog.css" />
         <link
             href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
             rel="stylesheet"
         />
-        <!-- Link to your CSS file -->
+        <title>Trading Calendar</title>
+        <style>
+            .calendar-container {
+                margin-top: 5%;
+                margin-left: 10%;
+                margin-right: 10%;
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                grid-gap: 1px;
+            }
+            .day-cell {
+                width: 100px;
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: lightgray;
+            }
+            .positive {
+                background-color: lightgreen;
+            }
+            .negative {
+                background-color: lightcoral;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -37,40 +63,7 @@
                 </button>
             </div>
         </header>
-
-        <main class="pl-40 mb-5">
-            <article>
-                <h1>Article Title</h1>
-                <p class="meta pb-5">
-                    Posted on <time datetime="2023-05-01">May 1, 2023</time> by
-                    <span class="author pb-5">Your Name</span>
-                </p>
-
-            </article>
-            <br>
-            <br>
-            <div>
-                <a
-                    class="bg-blue-500 p-5 rounded-lg hover:bg-blue-700"
-                    href="calendar.html"
-                    >Calendar</a
-                >
-            </div>
-<br><br>
-            <aside>
-                <ul>
-                    <li class="hover:bg-blue-700"><a href="psychology-of-trading.html">The Psychology of Trading: Mastering Your Mindset</a></li>
-                    <!-- Other blog post links -->
-                </ul>
-            </aside>
-        </main>
-
-
-
-        <script src="scripts.js"></script>
-        <!-- Link to your JavaScript file -->
+        <div id="calendar-container" class="calendar-container"></div>
+        <script src="calendar.js"></script>
     </body>
-    <footer>
-        <p>&copy; 2023 My Investing Blog. All rights reserved.</p>
-    </footer>
 </html>
