@@ -80,6 +80,14 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
         ],
       },
       options: {
+        onHover: (event, chartElement) => {
+          if (chartElement.length > 0) {
+            // Check if we're hovering over an element
+            event.native.target.style.cursor = "crosshair"; // Change the cursor
+          } else {
+            event.native.target.style.cursor = "default"; // Reset to default
+          }
+        },
         plugins: {
           annotation: {
             annotations: [
