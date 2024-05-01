@@ -80,6 +80,9 @@ fetch("https://raw.githubusercontent.com/aapcssasha/Driver/main/spy_data.txt")
         ],
       },
       options: {
+        hover: {
+          mode: "index", // If you want precision while using onHover
+        },
         onHover: (event, chartElement) => {
           if (chartElement.length > 0) {
             // Check if we're hovering over an element
