@@ -1,0 +1,120 @@
+header {
+    color: white;
+    background-color: rgb(28, 39, 69);
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.yo1 a {
+    padding-left: 20%;
+    color: white; /* color of the Title in the header (EquityExpedition) */
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    display: inline-block;
+}
+.yo1 a:hover {
+    color: rgba(0, 0, 0, 0.2);
+    transform: scale(1.2);
+}
+.menu-button {
+    padding: 10px 20px;
+    color: blue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+    display: inline-block;
+}
+
+.register-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: rgb(86, 105, 152);
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    display: inline-block;
+}
+
+.register-button:hover {
+    background-color: #2d2677;
+    transform: scale(1.2);
+}
+.login-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: rgb(86, 105, 152);
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    display: inline-block;
+}
+
+.login-button:hover {
+    background-color: #2d2677;
+    transform: scale(1.2);
+}
+
+.contact-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5%;
+    background-color: rgb(86, 105, 152);
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    display: inline-block;
+}
+
+.contact-button:hover {
+    background-color: #2d2677;
+    transform: scale(1.2);
+}
+
+.meta {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.article-content.pl-40 {
+    padding-left: 0;
+}
+
+.article-content.pr-40 {
+    padding-right: 0;
+}
+
+.article-content p {
+    padding: 1rem 2rem;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.article-content h1 {
+    color: red;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+}

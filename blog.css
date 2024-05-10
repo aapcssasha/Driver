@@ -327,14 +327,6 @@ body {
     /* Centers the container if parent is wider than max-width */
 }
 
-.menu-icon {
-    display: none; /* Hide by default for larger . Adjust with  query later */
-    width: 30px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-}
-
 .bar {
     background-color: #333;
     height: 4px;
@@ -353,11 +345,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Adjust as needed */
-    .menu-icon {
-        display: block;
-        margin-right: 5%;
-    }
     #whatnow img {
         height: 200px;
     }
