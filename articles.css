@@ -112,6 +112,14 @@ header {
     margin-right: 0%;
 }
 
+.article-content h2 {
+    color: red;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
 @media (max-width: 768px) {
     .main {
         padding-left: 1%;

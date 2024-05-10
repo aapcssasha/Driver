@@ -254,6 +254,20 @@ body {
     border-radius: 10px;
 }
 
+aside li {
+    width: 300px;
+    padding: 3px;
+}
+aside li :hover {
+    background-color: darkblue;
+    cursor: pointer;
+}
+aside li span {
+    background: blue;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10Q;
+}
 .contact-button {
     padding: 10px 20px;
     color: white;
