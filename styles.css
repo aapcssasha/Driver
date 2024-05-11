@@ -363,7 +363,7 @@ body {
         margin-right: 5%;
     }
     #whatnow img {
-        height: 200px;
+        height: auto;
     }
     #feargreed img {
         height: 200px;
