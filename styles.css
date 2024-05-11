@@ -43,9 +43,8 @@ header {
 
 #percentageChangeDiv {
     padding: 10px;
-    margin: 0 auto;
-    max-width: 800px;
-    background-color: blue;
+    margin: 2%;
+    background-color: lightblue;
     border-radius: 5px;
     text-align: center;
     color: white;
