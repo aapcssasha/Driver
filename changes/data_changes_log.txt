@@ -673,3 +673,11 @@ New data for PE Ratio Score: 1.6, >>>>>  from: 1.4
 2024-05-10 20:18:38
 New data for Margin Debt to Market Score: 5.0, >>>>>  from: 5.0
 
+2024-05-15 13:59:10
+New data for Economic Score: 4.94, >>>>>  from: 4.93
+New data for Inflation Score: 4.3, >>>>>  from: 4.2
+
+2024-05-15 16:53:05
+New data for Economic Score: 4.98, >>>>>  from: 4.94
+New data for Interest Rate Score: 7.5, >>>>>  from: 7.0
+
