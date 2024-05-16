@@ -681,3 +681,11 @@ New data for Inflation Score: 4.3, >>>>>  from: 4.2
 New data for Economic Score: 4.98, >>>>>  from: 4.94
 New data for Interest Rate Score: 7.5, >>>>>  from: 7.0
 
+2024-05-16 12:42:16
+New data for Economic Score: 4.96, >>>>>  from: 4.98
+New data for Stock Market to GDP Score: 1.0, >>>>>  from: 1.2
+
+2024-05-16 14:17:34
+New data for Economic Score: 4.98, >>>>>  from: 4.96
+New data for Stock Market to GDP Score: 1.2, >>>>>  from: 1.0
+
