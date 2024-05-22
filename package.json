@@ -1,20 +1,23 @@
 {
-  "name": "driverwebsite",
-  "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "autoprefixer": "^10.4.16",
-    "chartjs-plugin-annotation": "^3.0.1",
-    "chartjs-plugin-crosshair": "^2.0.0",
-    "postcss": "^8.4.31",
-    "postcss-cli": "^10.1.0",
-    "tailwindcss": "^3.3.5"
-  }
+    "name": "driverwebsite",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prettier": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "autoprefixer": "^10.4.16",
+        "chartjs-plugin-annotation": "^3.0.1",
+        "chartjs-plugin-crosshair": "^2.0.0",
+        "postcss": "^8.4.31",
+        "postcss-cli": "^10.1.0",
+        "tailwindcss": "^3.3.5",
+        "prettier": "^2.8.4"
+    },
+    "workspaces": []
 }
