@@ -7,6 +7,8 @@ Chart.register({
   dateAdapter: moment,
 });
 
+
+
 // If the plugin follows the UMD pattern, it should be available as this:
 if (window["chartjs-plugin-annotation"]) {
   Chart.register(window["chartjs-plugin-annotation"]);
